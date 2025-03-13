@@ -1,0 +1,13 @@
+{
+  "Header": {
+    "test": "হেডার"
+  },
+  "Footer": {
+    "test": "ফুটার"
+  },
+  "HomePage": {
+    "HeroSection": {
+      "test": "হোমপেজ"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+"use client";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Languages } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+export default function LangToggler() {
+  const router = useRouter();
+  const params = useSearchParams();
+  const pathname = usePathname();
+  const pathArray = pathname.split("/");
+
+  const handleLangSwitch = (language: string) => {
+    pathArray[1] = language;
+    router.replace(pathArray.join("/") + "?" + params);
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="cursor-pointer select-none" asChild>
+        <Languages />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuRadioGroup
+          value={pathArray[1]}
+          onValueChange={(e) => handleLangSwitch(e)}
+        >
+          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="bn">বাংলা</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
