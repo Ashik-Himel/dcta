@@ -1,12 +1,13 @@
+import Header from "@/components/header/header";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { ThemeProvider } from "next-themes";
-import { Noto_Sans_Bengali, Poppins } from "next/font/google";
+import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 
-const poppins = Poppins({
+const inter = Inter({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
@@ -37,7 +38,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body
         className={`${
-          locale === "en" ? poppins.className : notoSansBengali.className
+          locale === "en" ? inter.className : notoSansBengali.className
         } antialiased dark:bg-gray-900`}
       >
         <ThemeProvider
@@ -46,7 +47,10 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <Header />
+            {children}
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

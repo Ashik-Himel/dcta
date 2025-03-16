@@ -26,7 +26,7 @@ export default function LangToggler() {
       <DropdownMenuTrigger className="cursor-pointer select-none" asChild>
         <Languages />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent className="mt-2 bg-primary text-white" align="end">
         <DropdownMenuRadioGroup
           value={pathArray[1]}
           onValueChange={(e) => handleLangSwitch(e)}

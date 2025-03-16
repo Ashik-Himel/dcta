@@ -29,7 +29,7 @@ export function ThemeToggler() {
           <Sun />
         )}
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="mt-2" align="end">
+      <DropdownMenuContent className="mt-2 bg-primary text-white" align="end">
         <DropdownMenuRadioGroup
           value={theme}
           onValueChange={(e) => setTheme(e)}
