@@ -1,12 +1,16 @@
-import { useTranslations } from "next-intl";
+import { Metadata } from "next";
+import HeroSection from "./heroSection";
+
+export const metadata: Metadata = {
+  title: "Digital Computer Training Academy",
+  description:
+    "This is the official website of the Digital Computer Training Academy. This academy runs various technical courses for students.",
+};
 
 export default function Home() {
-  const t = useTranslations("HomePage");
   return (
     <main>
-      <div className="container">
-        <h1 className="mt-4">{t("HeroSection.test")}</h1>
-      </div>
+      <HeroSection />
     </main>
   );
 }

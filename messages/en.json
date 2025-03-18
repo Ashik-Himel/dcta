@@ -8,7 +8,9 @@
     "courses": "Courses"
   },
   "Footer": {
-    "test": "Footer"
+    "description": "Digital Computer Training Academy is the best IT training academy in Gazipur, Dhaka, Bangladesh.",
+    "quick-links": "Quick Links",
+    "other-pages": "Other Pages"
   },
   "HomePage": {
     "HeroSection": {

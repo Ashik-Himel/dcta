@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import { routing } from "@/i18n/routing";
 import { bengali, english } from "@/lib/fonts";
@@ -30,7 +31,7 @@ export default async function RootLayout({
       <body
         className={`${
           locale === "en" ? english.className : bengali.className
-        } antialiased bg-[#faf0f0] dark:bg-gray-900`}
+        } antialiased h-full min-h-screen flex flex-col selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-gray-700`}
       >
         <ThemeProvider
           attribute="class"
@@ -40,7 +41,8 @@ export default async function RootLayout({
         >
           <NextIntlClientProvider>
             <Header />
-            {children}
+            <div className="flex-1">{children}</div>
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

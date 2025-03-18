@@ -12,7 +12,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(63.6 62.25 28.244);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary-foreground: oklch(0 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -46,7 +46,7 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(63.6 62.25 28.244);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary-foreground: oklch(0 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -123,8 +123,9 @@
   .container {
     @apply mx-auto px-6;
   }
-  .gradient-primary {
-    @apply text-primary bg-white [background:-webkit-linear-gradient(15deg,#ff1e1e_35%,#ff8079_100%)] bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent];
+  .text-gradient {
+    @apply bg-[linear-gradient(15deg,#ff1e1e_35%,#ff8079_100%)] text-transparent;
+    @apply bg-clip-text [-webkit-text-fill-color:transparent];
   }
   .bg-gradient {
     @apply bg-[linear-gradient(15deg,#ff1e1e_35%,#ff8079_100%)];
