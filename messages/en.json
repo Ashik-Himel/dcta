@@ -1,6 +1,11 @@
 {
   "Header": {
-    "test": "Header"
+    "menu": "Menu",
+    "home": "Home",
+    "about": "About Us",
+    "success-story": "Success Story",
+    "contact": "Contact Us",
+    "courses": "Courses"
   },
   "Footer": {
     "test": "Footer"

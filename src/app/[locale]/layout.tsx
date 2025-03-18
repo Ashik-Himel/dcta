@@ -1,20 +1,11 @@
 import Header from "@/components/header/header";
 import { routing } from "@/i18n/routing";
+import { bengali, english } from "@/lib/fonts";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { ThemeProvider } from "next-themes";
-import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
-
-const inter = Inter({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-});
-const notoSansBengali = Noto_Sans_Bengali({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["bengali"],
-});
 
 export const metadata: Metadata = {
   title: "Digital Computer Training Academy",
@@ -38,8 +29,8 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body
         className={`${
-          locale === "en" ? inter.className : notoSansBengali.className
-        } antialiased dark:bg-gray-900`}
+          locale === "en" ? english.className : bengali.className
+        } antialiased bg-[#faf0f0] dark:bg-gray-900`}
       >
         <ThemeProvider
           attribute="class"
