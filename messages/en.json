@@ -14,7 +14,13 @@
   },
   "HomePage": {
     "HeroSection": {
-      "test": "HomePage"
+      "pre-heading": "Best IT Training Academy",
+      "heading-1": "Grow your skills with",
+      "heading-2": "Digital Computer Training Academy",
+      "heading-3": "",
+      "description": "Digital Computer Training Academy is a platform where you can learn various technical courses. We provide the best quality courses for our students.",
+      "courses": "All Courses",
+      "about": "About Us"
     }
   }
 }

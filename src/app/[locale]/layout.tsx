@@ -31,7 +31,7 @@ export default async function RootLayout({
       <body
         className={`${
           locale === "en" ? english.className : bengali.className
-        } antialiased h-full min-h-screen flex flex-col selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-gray-700`}
+        } antialiased h-full min-h-screen flex flex-col selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-[#2f1010]`}
       >
         <ThemeProvider
           attribute="class"

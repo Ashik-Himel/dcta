@@ -10,6 +10,7 @@ import LangToggler from "../language/langToggler";
 import { ThemeToggler } from "../theme/themeToggler";
 import { Button } from "../ui/button";
 import HeaderDrawer from "./headerDrawer";
+import NavLink from "./navLink";
 
 export default function Header() {
   const t = useTranslations("Header");
@@ -65,10 +66,10 @@ export default function Header() {
             </Link>
           </div>
           <nav className="hidden lg:flex items-center gap-6 text-lg font-medium [&>*]:hover:text-primary">
-            <Link href="/">{t("home")}</Link>
-            <Link href="/about">{t("about")}</Link>
-            <Link href="/success-story">{t("success-story")}</Link>
-            <Link href="/contact">{t("contact")}</Link>
+            <NavLink text={t("home")} href="/" />
+            <NavLink text={t("about")} href="/about" />
+            <NavLink text={t("success-story")} href="/success-story" />
+            <NavLink text={t("contact")} href="/contact" />
             <Button size="lg" asChild>
               <Link href="/courses" className="!text-base hover:!text-white">
                 <BookOpenText /> {t("courses")}

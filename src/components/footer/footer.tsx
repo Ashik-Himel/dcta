@@ -1,7 +1,15 @@
 import dctaLogoDark from "@/assets/dcta-logo-dark.png";
 import dctaLogo from "@/assets/dcta-logo.png";
 import { Link } from "@/i18n/navigation";
-import { Facebook, Github, Globe, Linkedin, Mail, Phone } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Globe,
+  Linkedin,
+  Mail,
+  Phone,
+  Youtube,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { default as BaseLink } from "next/link";
@@ -33,6 +41,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <Facebook />
+              </BaseLink>
+              <BaseLink
+                href="https://www.youtube.com/@digitalcomputerstrainingac7975"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Youtube />
               </BaseLink>
               <BaseLink
                 href="mailto:support@dcta.com"
