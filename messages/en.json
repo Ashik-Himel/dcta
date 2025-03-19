@@ -21,6 +21,14 @@
       "description": "Digital Computer Training Academy is a platform where you can learn various technical courses. We provide the best quality courses for our students.",
       "courses": "All Courses",
       "about": "About Us"
+    },
+    "CategoriesSection": {
+      "basic-computer": "Basic Computer",
+      "web-development": "Web Development",
+      "graphic-design": "Graphic Design",
+      "digital-marketing": "Digital Marketing",
+      "courses": "Courses",
+      "course": "Course"
     }
   }
 }

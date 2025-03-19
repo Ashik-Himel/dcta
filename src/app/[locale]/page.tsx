@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import CategoriesSection from "./categoriesSection";
 import HeroSection from "./heroSection";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <CategoriesSection />
     </main>
   );
 }

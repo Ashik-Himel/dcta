@@ -131,3 +131,14 @@
     @apply bg-[linear-gradient(15deg,#ff1e1e_35%,#ff8079_100%)] dark:bg-[linear-gradient(15deg,#ba0000_35%,#830700_100%)];
   }
 }
+
+.swiper-button-prev {
+  @apply !-left-1;
+}
+.swiper-button-next {
+  @apply !-right-1;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-primary !text-2xl !font-bold;
+}
