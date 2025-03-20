@@ -1,4 +1,7 @@
 import basicComputerApplication from "@/assets/courses/basic-computer-application.png";
+import digitalMarketing from "@/assets/courses/digital-marketing.png";
+import graphicDesign from "@/assets/courses/graphic-design.png";
+import webDevelopment from "@/assets/courses/web-development.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, BookOpenText } from "lucide-react";
@@ -8,10 +11,10 @@ export default function PopularCoursesSection() {
   return (
     <section className="pb-12 md:pb-16 lg:pb-20">
       <div className="container">
-        <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
           Popular <span className="text-gradient">Courses</span>
         </h2>
-        <span className="text-center max-w-[600px] mx-auto text-gray-600 dark:text-[#ffefef] block mb-8 md:mb-12">
+        <span className="text-center max-w-[600px] mx-auto text-gray-600 dark:text-[#ffefef] block mb-6 md:mb-10">
           Here are some of our popular courses. You can check these out! We
           offering a lot of courses also.
         </span>
@@ -19,6 +22,7 @@ export default function PopularCoursesSection() {
           <CourseCard
             thumbnail={basicComputerApplication}
             category="Basic Computer"
+            duration="6 Months"
             title="Basic Computer Application"
             discountPrice={7999}
             regularPrice={12000}
@@ -26,31 +30,32 @@ export default function PopularCoursesSection() {
             badgeText="Best Selling"
           />
           <CourseCard
-            thumbnail={basicComputerApplication}
-            category="Basic Computer"
-            title="Basic Computer Application"
-            discountPrice={7999}
-            regularPrice={12000}
-            link="/courses/basic-computer-application"
-            badgeText="Best Selling"
+            thumbnail={webDevelopment}
+            category="Web Development"
+            duration="6 Months"
+            title="Web Development"
+            discountPrice={12000}
+            regularPrice={20000}
+            link="/courses/web-development"
           />
           <CourseCard
-            thumbnail={basicComputerApplication}
-            category="Basic Computer"
-            title="Basic Computer Application"
-            discountPrice={7999}
-            regularPrice={12000}
-            link="/courses/basic-computer-application"
-            badgeText="Best Selling"
+            thumbnail={graphicDesign}
+            category="Graphic Design"
+            duration="6 Months"
+            title="Graphic Design"
+            discountPrice={12000}
+            regularPrice={20000}
+            link="/courses/graphic-design"
           />
           <CourseCard
-            thumbnail={basicComputerApplication}
-            category="Basic Computer"
-            title="Basic Computer Application"
-            discountPrice={7999}
-            regularPrice={12000}
-            link="/courses/basic-computer-application"
-            badgeText="Best Selling"
+            thumbnail={digitalMarketing}
+            category="Digital Marketing"
+            duration="6 Months"
+            title="Advanced Digital Marketing"
+            discountPrice={12000}
+            regularPrice={20000}
+            link="/courses/advanced-digital-marketing"
+            badgeText="Best Deal"
           />
           <Link
             href="/courses"
