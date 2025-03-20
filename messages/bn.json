@@ -27,8 +27,27 @@
       "web-development": "ওয়েব ডেভেলপমেন্ট",
       "graphic-design": "গ্রাফিক ডিজাইন",
       "digital-marketing": "ডিজিটাল মার্কেটিং",
-      "courses": "কোর্স",
-      "course": "কোর্স"
+      "courses": "টি কোর্স",
+      "course": "টি কোর্স"
+    },
+    "PopularCoursesSection": {
+      "popular": "জনপ্রিয়",
+      "courses": "কোর্সসমূহ",
+      "subtitle": "এখানে আমাদের কিছু জনপ্রিয় কোর্স রয়েছে। আপনি এগুলো দেখতে পারেন! এছাড়াও আমরা আরও অনেক কোর্স অফার করছি।",
+      "basic-computer": "বেসিক কম্পিউটার",
+      "web-development": "ওয়েব ডেভেলপমেন্ট",
+      "graphic-design": "গ্রাফিক ডিজাইন",
+      "digital-marketing": "ডিজিটাল মার্কেটিং",
+      "basic-computer-application": "বেসিক কম্পিউটার অ্যাপ্লিকেশন",
+      "advanced-digital-marketing": "এডভান্সড ডিজিটাল মার্কেটিং",
+      "duration": "সময়কাল",
+      "months": "মাস",
+      "month": "মাস",
+      "top-selling": "টপ সেলিং",
+      "best-deal": "বেস্ট ডিল",
+      "view-details": "বিস্তারিত দেখুন",
+      "view-all": "সব দেখুন",
+      "view-all-courses": "সকল কোর্স দেখুন"
     }
   }
 }

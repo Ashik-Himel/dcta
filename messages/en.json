@@ -29,6 +29,25 @@
       "digital-marketing": "Digital Marketing",
       "courses": "Courses",
       "course": "Course"
+    },
+    "PopularCoursesSection": {
+      "popular": "Popular",
+      "courses": "Courses",
+      "subtitle": "Here are some of our popular courses. You can check these out! We offering a lot of courses also.",
+      "basic-computer": "Basic Computer",
+      "web-development": "Web Development",
+      "graphic-design": "Graphic Design",
+      "digital-marketing": "Digital Marketing",
+      "basic-computer-application": "Basic Computer Application",
+      "advanced-digital-marketing": "Advanced Digital Marketing",
+      "duration": "Duration",
+      "months": "Months",
+      "month": "Month",
+      "top-selling": "Top Selling",
+      "best-deal": "Best Deal",
+      "view-details": "View Details",
+      "view-all": "View All",
+      "view-all-courses": "View All Courses"
     }
   }
 }

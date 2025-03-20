@@ -5,57 +5,59 @@ import webDevelopment from "@/assets/courses/web-development.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, BookOpenText } from "lucide-react";
+import { useTranslations } from "next-intl";
 import CourseCard from "./courseCard";
 
 export default function PopularCoursesSection() {
+  const t = useTranslations("HomePage.PopularCoursesSection");
+
   return (
     <section className="pb-12 md:pb-16 lg:pb-20">
       <div className="container">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-          Popular <span className="text-gradient">Courses</span>
+          {t("popular")} <span className="text-gradient">{t("courses")}</span>
         </h2>
         <span className="text-center max-w-[600px] mx-auto text-gray-600 dark:text-[#ffefef] block mb-6 md:mb-10">
-          Here are some of our popular courses. You can check these out! We
-          offering a lot of courses also.
+          {t("subtitle")}
         </span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <CourseCard
             thumbnail={basicComputerApplication}
-            category="Basic Computer"
-            duration="6 Months"
-            title="Basic Computer Application"
+            category={t("basic-computer")}
+            duration={6}
+            title={t("basic-computer-application")}
             discountPrice={7999}
             regularPrice={12000}
             link="/courses/basic-computer-application"
-            badgeText="Best Selling"
+            badgeText={t("top-selling")}
           />
           <CourseCard
             thumbnail={webDevelopment}
-            category="Web Development"
-            duration="6 Months"
-            title="Web Development"
+            category={t("web-development")}
+            duration={6}
+            title={t("web-development")}
             discountPrice={12000}
             regularPrice={20000}
             link="/courses/web-development"
           />
           <CourseCard
             thumbnail={graphicDesign}
-            category="Graphic Design"
-            duration="6 Months"
-            title="Graphic Design"
+            category={t("graphic-design")}
+            duration={6}
+            title={t("graphic-design")}
             discountPrice={12000}
             regularPrice={20000}
             link="/courses/graphic-design"
           />
           <CourseCard
             thumbnail={digitalMarketing}
-            category="Digital Marketing"
-            duration="6 Months"
-            title="Advanced Digital Marketing"
+            category={t("digital-marketing")}
+            duration={6}
+            title={t("advanced-digital-marketing")}
             discountPrice={12000}
             regularPrice={20000}
             link="/courses/advanced-digital-marketing"
-            badgeText="Best Deal"
+            badgeText={t("best-deal")}
           />
           <Link
             href="/courses"
@@ -65,14 +67,14 @@ export default function PopularCoursesSection() {
               <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient text-white">
                 <ArrowRight size={24} />
               </div>
-              <span>View All</span>
+              <span>{t("view-all")}</span>
             </div>
           </Link>
         </div>
         <div className="lg:hidden xl:block text-center mt-6 lg:mt-10">
           <Button size="lg" asChild>
             <Link href="/courses">
-              <BookOpenText /> View All Courses
+              <BookOpenText /> {t("view-all-courses")}
             </Link>
           </Button>
         </div>
