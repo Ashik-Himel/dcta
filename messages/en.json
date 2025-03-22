@@ -64,6 +64,11 @@
       "stories": "Stories",
       "subtitle": "Many students have achieved success by learning from us. Here are some of their stories.",
       "see-more": "See More"
+    },
+    "InstructorsSection": {
+      "our": "Our",
+      "instructors": "Instructors",
+      "subtitle": "Here are our expert instructors who will guide you through your whole learning journey."
     }
   }
 }

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CategoriesSection from "./categoriesSection";
 import FeaturesSection from "./featuresSection";
 import HeroSection from "./heroSection";
+import InstructorsSection from "./instructorsSection";
 import PopularCoursesSection from "./popularCoursesSection";
 import SuccessStoriesSection from "./successStoriesSection";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <PopularCoursesSection />
       <FeaturesSection />
       <SuccessStoriesSection />
+      <InstructorsSection />
     </main>
   );
 }

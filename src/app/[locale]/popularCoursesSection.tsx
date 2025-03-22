@@ -61,7 +61,7 @@ export default function PopularCoursesSection() {
           />
           <Link
             href="/courses"
-            className="hidden lg:flex xl:hidden rounded-lg border border-gray-300 dark:border-[#5A2A2A] lg:py-16 bg-[#ffd8d8] dark:bg-[#472020] justify-center items-center"
+            className="hidden lg:flex xl:hidden rounded-lg border border-gray-300 dark:border-[#5A2A2A] lg:py-16 bg-light-primary justify-center items-center"
           >
             <div className="flex items-center gap-2 text-xl font-medium text-primary">
               <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient text-white">

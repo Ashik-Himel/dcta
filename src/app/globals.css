@@ -39,7 +39,7 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #472020;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -129,6 +129,9 @@
   }
   .bg-gradient {
     @apply bg-[linear-gradient(15deg,#ff1e1e_35%,#ff8079_100%)] dark:bg-[linear-gradient(15deg,#ba0000_35%,#830700_100%)];
+  }
+  .bg-light-primary {
+    @apply bg-[#ffd8d8] dark:bg-[#472020];
   }
 }
 

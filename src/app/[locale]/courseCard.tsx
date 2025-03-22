@@ -34,7 +34,7 @@ export default function CourseCard({
   const t = useTranslations("HomePage.PopularCoursesSection");
 
   return (
-    <div className="rounded-lg border border-gray-300 dark:border-[#5A2A2A] bg-white dark:bg-[#472020] relative overflow-hidden flex flex-col">
+    <div className="rounded-lg border border-gray-300 dark:border-[#5A2A2A] bg-background relative overflow-hidden flex flex-col">
       <Image
         src={thumbnail}
         alt={title}

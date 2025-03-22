@@ -21,7 +21,10 @@ export default function HeaderDrawer() {
       <SheetTrigger className="lg:hidden cursor-pointer select-none" asChild>
         <Menu size={28} />
       </SheetTrigger>
-      <SheetContent side="left" className="w-[18rem] p-2 gap-0">
+      <SheetContent
+        side="left"
+        className="bg-light-primary w-[18rem] p-2 gap-0"
+      >
         <Image
           src={dctaLogo}
           alt="UU CPC Logo"
