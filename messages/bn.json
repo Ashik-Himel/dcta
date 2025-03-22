@@ -68,7 +68,19 @@
     "InstructorsSection": {
       "our": "আমাদের",
       "instructors": "প্রশিক্ষকগণ",
-      "subtitle": "এখানে আমাদের দক্ষ প্রশিক্ষকগণ রয়েছেন, যারা আপনাকে সম্পূর্ণ শিক্ষার যাত্রায় দিকনির্দেশনা দেবেন।"
+      "subtitle": "এখানে আমাদের দক্ষ প্রশিক্ষকগণ রয়েছেন, যারা আপনাকে সম্পূর্ণ শিক্ষার যাত্রায় দিকনির্দেশনা দেবেন।",
+      "instructor-1-name": "ওমর ফারুখ",
+      "instructor-1-title": "প্রতিষ্ঠাতা, DCTA",
+      "instructor-2-name": "ওমর ফারুখ",
+      "instructor-2-title": "প্রতিষ্ঠাতা, DCTA",
+      "instructor-3-name": "ওমর ফারুখ",
+      "instructor-3-title": "প্রতিষ্ঠাতা, DCTA",
+      "instructor-4-name": "ওমর ফারুখ",
+      "instructor-4-title": "প্রতিষ্ঠাতা, DCTA",
+      "instructor-5-name": "ওমর ফারুখ",
+      "instructor-5-title": "প্রতিষ্ঠাতা, DCTA",
+      "instructor-6-name": "ওমর ফারুখ",
+      "instructor-6-title": "প্রতিষ্ঠাতা, DCTA"
     }
   }
 }

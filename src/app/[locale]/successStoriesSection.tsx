@@ -14,7 +14,7 @@ export default function SuccessStoriesSection() {
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
           {t("success")} <span className="text-gradient">{t("stories")}</span>
         </h2>
-        <span className="text-center max-w-[600px] mx-auto text-gray-600 dark:text-[#ffefef] block mb-6 md:mb-10">
+        <span className="text-center max-w-[600px] mx-auto text-gray block mb-6 md:mb-10">
           {t("subtitle")}
         </span>
 

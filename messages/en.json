@@ -68,7 +68,19 @@
     "InstructorsSection": {
       "our": "Our",
       "instructors": "Instructors",
-      "subtitle": "Here are our expert instructors who will guide you through your whole learning journey."
+      "subtitle": "Here are our expert instructors who will guide you through your whole learning journey.",
+      "instructor-1-name": "Omor Farokh",
+      "instructor-1-title": "Founder, DCTA",
+      "instructor-2-name": "Omor Farokh",
+      "instructor-2-title": "Founder, DCTA",
+      "instructor-3-name": "Omor Farokh",
+      "instructor-3-title": "Founder, DCTA",
+      "instructor-4-name": "Omor Farokh",
+      "instructor-4-title": "Founder, DCTA",
+      "instructor-5-name": "Omor Farokh",
+      "instructor-5-title": "Founder, DCTA",
+      "instructor-6-name": "Omor Farokh",
+      "instructor-6-title": "Founder, DCTA"
     }
   }
 }

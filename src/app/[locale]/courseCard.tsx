@@ -34,7 +34,7 @@ export default function CourseCard({
   const t = useTranslations("HomePage.PopularCoursesSection");
 
   return (
-    <div className="rounded-lg border border-gray-300 dark:border-[#5A2A2A] bg-background relative overflow-hidden flex flex-col">
+    <div className="rounded-lg card-border bg-background relative overflow-hidden flex flex-col">
       <Image
         src={thumbnail}
         alt={title}
@@ -65,7 +65,7 @@ export default function CourseCard({
                 ? convertToBanglaNumber(discountPrice)
                 : discountPrice}
             </span>
-            <span className="text-gray-600 dark:text-[#ffefef] line-through text-lg">
+            <span className="text-gray line-through text-lg">
               {params?.locale === "bn"
                 ? convertToBanglaNumber(regularPrice)
                 : regularPrice}

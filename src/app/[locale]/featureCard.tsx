@@ -6,11 +6,11 @@ export default function FeatureCard({
   subtext: string;
 }) {
   return (
-    <div className="p-6 rounded-lg border border-gray-300 dark:border-[#5A2A2A] bg-background text-center">
+    <div className="p-6 rounded-lg card-border bg-background text-center">
       <span className="block text-4xl md:text-5xl font-bold text-gradient mb-2">
         {text}
       </span>
-      <span className="text-gray-500 dark:text-[#ffefef]">{subtext}</span>
+      <span className="text-gray">{subtext}</span>
     </div>
   );
 }

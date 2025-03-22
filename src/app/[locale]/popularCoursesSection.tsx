@@ -17,7 +17,7 @@ export default function PopularCoursesSection() {
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
           {t("popular")} <span className="text-gradient">{t("courses")}</span>
         </h2>
-        <span className="text-center max-w-[600px] mx-auto text-gray-600 dark:text-[#ffefef] block mb-6 md:mb-10">
+        <span className="text-center max-w-[600px] mx-auto text-gray block mb-6 md:mb-10">
           {t("subtitle")}
         </span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -61,7 +61,7 @@ export default function PopularCoursesSection() {
           />
           <Link
             href="/courses"
-            className="hidden lg:flex xl:hidden rounded-lg border border-gray-300 dark:border-[#5A2A2A] lg:py-16 bg-light-primary justify-center items-center"
+            className="hidden lg:flex xl:hidden rounded-lg card-border lg:py-16 bg-light-primary justify-center items-center"
           >
             <div className="flex items-center gap-2 text-xl font-medium text-primary">
               <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient text-white">

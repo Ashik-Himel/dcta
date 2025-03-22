@@ -133,6 +133,12 @@
   .bg-light-primary {
     @apply bg-[#ffd8d8] dark:bg-[#472020];
   }
+  .text-gray {
+    @apply text-gray-600 dark:text-[#ffefef];
+  }
+  .card-border {
+    @apply border border-gray-300 dark:border-[#5A2A2A];
+  }
 }
 
 .swiper-button-prev {
