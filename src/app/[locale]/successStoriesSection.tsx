@@ -9,7 +9,7 @@ export default function SuccessStoriesSection() {
   const t = useTranslations("HomePage.SuccessStoriesSection");
 
   return (
-    <section className="pb-12 md:pb-16 lg:pb-20">
+    <section className="pb-16 md:pb-20 lg:pb-24">
       <div className="container">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
           {t("success")} <span className="text-gradient">{t("stories")}</span>

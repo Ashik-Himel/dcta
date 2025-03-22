@@ -15,7 +15,7 @@ export default function HeroSection() {
   const t = useTranslations("HomePage.HeroSection");
 
   return (
-    <section className="py-12 md:py-16 lg:py-20">
+    <section className="py-16 md:py-20 lg:py-24">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="text-center md:text-left">

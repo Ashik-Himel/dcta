@@ -20,7 +20,7 @@ export default function InstructorCard({
   socials,
 }: instructorProps) {
   return (
-    <div className="rounded-lg card-border bg-background flex items-center gap-4">
+    <div className="rounded-lg card-border bg-background flex items-center gap-6">
       <Image
         src={image}
         alt="name"

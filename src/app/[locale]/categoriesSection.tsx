@@ -31,7 +31,7 @@ export default function CategoriesSection() {
   }, []);
 
   return (
-    <section className="pb-12 md:pb-16 lg:pb-20">
+    <section className="pb-16 md:pb-20 lg:pb-24">
       <div className="container">
         <Swiper
           slidesPerView={slidesPerView}
