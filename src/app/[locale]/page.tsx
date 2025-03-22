@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import CategoriesSection from "./categoriesSection";
+import FeaturesSection from "./featuresSection";
 import HeroSection from "./heroSection";
 import PopularCoursesSection from "./popularCoursesSection";
+import SuccessStoriesSection from "./successStoriesSection";
 
 export const metadata: Metadata = {
   title: "Digital Computer Training Academy",
@@ -15,6 +17,8 @@ export default function Home() {
       <HeroSection />
       <CategoriesSection />
       <PopularCoursesSection />
+      <FeaturesSection />
+      <SuccessStoriesSection />
     </main>
   );
 }
