@@ -48,6 +48,16 @@
       "view-details": "View Details",
       "view-all": "View All",
       "view-all-courses": "View All Courses"
+    },
+    "FeaturesSection": {
+      "feature-1-text": "",
+      "feature-1-subtext": "Years Training Experience",
+      "feature-2-text": "120K+",
+      "feature-2-subtext": "Students Trained",
+      "feature-3-text": "95%",
+      "feature-3-subtext": "Students Satisfied",
+      "feature-4-text": "24/7",
+      "feature-4-subtext": "Support"
     }
   }
 }

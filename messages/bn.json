@@ -48,6 +48,16 @@
       "view-details": "বিস্তারিত দেখুন",
       "view-all": "সব দেখুন",
       "view-all-courses": "সকল কোর্স দেখুন"
+    },
+    "FeaturesSection": {
+      "feature-1-text": "",
+      "feature-1-subtext": "বছরের প্রশিক্ষণের অভিজ্ঞতা",
+      "feature-2-text": "১২০কে+",
+      "feature-2-subtext": "প্রশিক্ষিত শিক্ষার্থী",
+      "feature-3-text": "৯৫%",
+      "feature-3-subtext": "শিক্ষার্থীদের সন্তুষ্টি",
+      "feature-4-text": "২৪/৭",
+      "feature-4-subtext": "সাপোর্ট"
     }
   }
 }
