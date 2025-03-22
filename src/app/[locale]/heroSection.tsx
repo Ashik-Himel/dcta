@@ -50,7 +50,6 @@ export default function HeroSection() {
                 <Image
                   src={heroImg}
                   alt="Hero Section Image"
-                  fill
                   className="object-cover rounded-lg"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-1/2 bg-primary text-white w-20 h-20 rounded-full flex justify-center items-center animate-pulse">

@@ -11,7 +11,7 @@ export default function FeaturesSection() {
 
   return (
     <section className="pb-12 md:pb-16 lg:pb-20">
-      <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <FeatureCard
           text={
             params?.locale === "bn"

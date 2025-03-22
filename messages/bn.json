@@ -58,6 +58,12 @@
       "feature-3-subtext": "শিক্ষার্থীদের সন্তুষ্টি",
       "feature-4-text": "২৪/৭",
       "feature-4-subtext": "সাপোর্ট"
+    },
+    "SuccessStoriesSection": {
+      "success": "সফলতার",
+      "stories": "গল্প",
+      "subtitle": "অনেক শিক্ষার্থী আমাদের থেকে শিখে সফলতা অর্জন করেছে। এখানে তাদের কিছু গল্প রয়েছে।",
+      "see-more": "আরো দেখুন"
     }
   }
 }

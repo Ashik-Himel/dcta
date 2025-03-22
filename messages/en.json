@@ -58,6 +58,12 @@
       "feature-3-subtext": "Students Satisfied",
       "feature-4-text": "24/7",
       "feature-4-subtext": "Support"
+    },
+    "SuccessStoriesSection": {
+      "success": "Success",
+      "stories": "Stories",
+      "subtitle": "Many students have achieved success by learning from us. Here are some of their stories.",
+      "see-more": "See More"
     }
   }
 }
