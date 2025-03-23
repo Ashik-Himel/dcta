@@ -38,12 +38,12 @@ export default function AboutSection() {
             <AboutFeatureCard number="4+" text={t("courses")} />
           </div>
           <div className="flex items-center gap-4">
-            <Button asChild>
+            <Button size="lg" asChild>
               <Link href="/about">
                 <ReceiptText /> {t("about-us")}
               </Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button size="lg" variant="outline" asChild>
               <Link href="/#contact">
                 <UserRoundPen /> {t("contact-us")}
               </Link>

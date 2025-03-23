@@ -27,7 +27,7 @@ export default function HeroSection() {
             <span className="text-gradient">{t("heading-2")}</span>
             {t("heading-3")}
           </h1>
-          <p className="text-gray mb-8">{t("description")}</p>
+          <p className="md:text-lg text-gray mb-8">{t("description")}</p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <Button size="lg" asChild>
               <Link href="/courses">
