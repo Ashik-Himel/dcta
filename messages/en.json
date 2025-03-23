@@ -49,6 +49,18 @@
       "view-all": "View All",
       "view-all-courses": "View All Courses"
     },
+    "AboutSection": {
+      "title-1": "About",
+      "title-2": "Our Academy",
+      "title-3": "",
+      "subtitle": "The best IT training academy, Founded in 2009, providing various types of IT training in Manwa Chourasta, Sreepur, Gazipur.",
+      "description": "Digital Computer Training Academy is an IT training academy founded in 2009. We are located in Mawna Chourasta, Sreepur, Gazipur. We have two branches. We are providing the training in Basic Computer Applications, Web Development, Graphic Design, Digital Marketing, etc. courses to our students.",
+      "branches": "Branches",
+      "instructors": "Instructors",
+      "courses": "Courses",
+      "about-us": "About Us",
+      "contact-us": "Contact Us"
+    },
     "FeaturesSection": {
       "feature-1-text": "",
       "feature-1-subtext": "Years Training Experience",

@@ -21,7 +21,7 @@ export default function Category({
       <h4 className="text-xl font-semibold mb-2">{text}</h4>
       <span className="text-gray">
         {params?.locale === "bn"
-          ? convertToBanglaNumber(courseCount)
+          ? convertToBanglaNumber(courseCount.toString())
           : courseCount}{" "}
         {courseCount > 1 ? t("courses") : t("course")}
       </span>

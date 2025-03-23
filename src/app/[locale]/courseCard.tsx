@@ -52,7 +52,7 @@ export default function CourseCard({
             <span className="text-sm">
               {t("duration")}:{" "}
               {params?.locale === "bn"
-                ? convertToBanglaNumber(duration)
+                ? convertToBanglaNumber(duration.toString())
                 : duration}{" "}
               {duration > 1 ? t("months") : t("month")}
             </span>
@@ -62,12 +62,12 @@ export default function CourseCard({
             <span className="text-primary text-2xl">
               &#2547;{" "}
               {params?.locale === "bn"
-                ? convertToBanglaNumber(discountPrice)
+                ? convertToBanglaNumber(discountPrice.toString())
                 : discountPrice}
             </span>
             <span className="text-gray line-through text-lg">
               {params?.locale === "bn"
-                ? convertToBanglaNumber(regularPrice)
+                ? convertToBanglaNumber(regularPrice.toString())
                 : regularPrice}
             </span>
           </div>
