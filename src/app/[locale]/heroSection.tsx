@@ -15,9 +15,9 @@ export default function HeroSection() {
   const t = useTranslations("HomePage.HeroSection");
 
   return (
-    <section className="py-16 md:py-20 lg:py-24">
+    <section className="py-10 md:h-full md:min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-122.66px)] md:flex md:justify-center md:items-center">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
             <span className="inline-flex items-center gap-2 bg-gradient text-white rounded-full px-4 py-1.5 font-semibold mb-4">
               <BadgeCheck /> {t("pre-heading")}

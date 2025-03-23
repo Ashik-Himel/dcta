@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header>
-      <div className={`bg-gradient text-white py-[12px] ${english.className}`}>
+      <div className={`bg-gradient text-white py-3 ${english.className}`}>
         <div className="container flex justify-center min-[500px]:justify-between items-center">
           <div className="flex-1 lg:flex-auto flex justify-center min-[400px]:justify-between lg:justify-start items-center gap-8">
             <BaseLink
@@ -56,12 +56,12 @@ export default function Header() {
               <Image
                 src={dctaLogo}
                 alt="DCTA Logo"
-                className="dark:hidden max-w-[120px] lg:max-w-[180px]"
+                className="dark:hidden max-w-[120px] lg:max-w-[160px]"
               />
               <Image
                 src={dctaLogoDark}
                 alt="DCTA Logo"
-                className="hidden dark:inline max-w-[120px] lg:max-w-[180px]"
+                className="hidden dark:inline max-w-[120px] lg:max-w-[160px]"
               />
             </Link>
           </div>

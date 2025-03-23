@@ -1,15 +1,11 @@
 import dctaLogoDark from "@/assets/dcta-logo-dark.png";
 import dctaLogo from "@/assets/dcta-logo.png";
+import facebook from "@/assets/icons/facebook.png";
+import mail from "@/assets/icons/mail.png";
+import phone from "@/assets/icons/telephone.png";
+import youtube from "@/assets/icons/youtube.png";
 import { Link } from "@/i18n/navigation";
-import {
-  Facebook,
-  Github,
-  Globe,
-  Linkedin,
-  Mail,
-  Phone,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Github, Globe, Linkedin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { default as BaseLink } from "next/link";
@@ -34,34 +30,34 @@ export default function Footer() {
               className="w-[180px] hidden dark:inline"
             />
             <p className="mt-4 max-w-[460px]">{t("description")}</p>
-            <div className="text-primary mt-4 md:mt-6 flex items-center gap-6">
+            <div className="text-primary mt-4 md:mt-6 flex items-center gap-4">
               <BaseLink
                 href="https://www.facebook.com/dctamc"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Facebook />
+                <Image src={facebook} alt="Facebook Icon" className="w-6" />
               </BaseLink>
               <BaseLink
                 href="https://www.youtube.com/@digitalcomputerstrainingac7975"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Youtube />
+                <Image src={youtube} alt="YouTube Icon" className="w-6" />
               </BaseLink>
               <BaseLink
                 href="mailto:support@dcta.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Mail />
+                <Image src={mail} alt="Mail Icon" className="w-6" />
               </BaseLink>
               <BaseLink
                 href="tel:+8801715363919"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Phone />
+                <Image src={phone} alt="Telephone Icon" className="w-6" />
               </BaseLink>
             </div>
           </div>

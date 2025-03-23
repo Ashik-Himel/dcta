@@ -9,16 +9,16 @@ export default function SuccessStoriesSection() {
   const t = useTranslations("HomePage.SuccessStoriesSection");
 
   return (
-    <section className="pb-16 md:pb-20 lg:pb-24">
+    <section className="pb-12 md:pb-16 lg:pb-20">
       <div className="container">
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+        <h2 className="text-center text-3xl md:text-4xl font-bold mb-2">
           {t("success")} <span className="text-gradient">{t("stories")}</span>
         </h2>
-        <span className="text-center max-w-[600px] mx-auto text-gray block mb-6 md:mb-10">
+        <span className="text-center max-w-[600px] mx-auto text-gray block mb-6 md:mb-8">
           {t("subtitle")}
         </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <StoryCard
             thumbnail={storyThumbnail}
             embeddedLink="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
@@ -36,8 +36,8 @@ export default function SuccessStoriesSection() {
             embeddedLink="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
           />
         </div>
-        <div className="text-center mt-6 lg:mt-10">
-          <Button size="lg" asChild>
+        <div className="text-center mt-6 lg:mt-8">
+          <Button asChild>
             <Link href="/success-story">
               <FileVideo /> {t("see-more")}
             </Link>

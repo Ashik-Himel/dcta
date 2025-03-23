@@ -29,7 +29,7 @@ export default function InstructorCard({
       <div className="py-2 flex-1">
         <h4 className="text-lg md:text-xl font-semibold">{name}</h4>
         <span className="text-gray block mb-2">{title}</span>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           {socials.map((social) => (
             <Link
               key={social.link}
