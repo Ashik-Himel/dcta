@@ -2,7 +2,7 @@ import facebook from "@/assets/icons/facebook.png";
 import phone from "@/assets/icons/telephone.png";
 import omorFarokh from "@/assets/instructors/omor-farokh.jpg";
 import { useTranslations } from "next-intl";
-import InstructorCard from "./instructorCard";
+import InstructorCard from "../../components/cards/instructorCard";
 
 export default function InstructorsSection() {
   const t = useTranslations("HomePage.InstructorsSection");
@@ -24,7 +24,7 @@ export default function InstructorsSection() {
             title={t("instructor-1-title")}
             socials={[
               { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801715363919" },
+              { icon: phone, link: "tel:+8801334766160" },
             ]}
           />
           <InstructorCard
@@ -33,7 +33,7 @@ export default function InstructorsSection() {
             title={t("instructor-2-title")}
             socials={[
               { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801715363919" },
+              { icon: phone, link: "tel:+8801334766160" },
             ]}
           />
           <InstructorCard
@@ -42,7 +42,7 @@ export default function InstructorsSection() {
             title={t("instructor-3-title")}
             socials={[
               { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801715363919" },
+              { icon: phone, link: "tel:+8801334766160" },
             ]}
           />
           <InstructorCard
@@ -51,7 +51,7 @@ export default function InstructorsSection() {
             title={t("instructor-4-title")}
             socials={[
               { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801715363919" },
+              { icon: phone, link: "tel:+8801334766160" },
             ]}
           />
           <InstructorCard
@@ -60,7 +60,7 @@ export default function InstructorsSection() {
             title={t("instructor-5-title")}
             socials={[
               { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801715363919" },
+              { icon: phone, link: "tel:+8801334766160" },
             ]}
           />
           <InstructorCard
@@ -69,7 +69,7 @@ export default function InstructorsSection() {
             title={t("instructor-6-title")}
             socials={[
               { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801715363919" },
+              { icon: phone, link: "tel:+8801334766160" },
             ]}
           />
         </div>

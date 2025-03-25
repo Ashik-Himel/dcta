@@ -31,8 +31,8 @@ export default function LangToggler() {
           value={pathArray[1]}
           onValueChange={(e) => handleLangSwitch(e)}
         >
-          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="bn">বাংলা</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

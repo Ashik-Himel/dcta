@@ -3,7 +3,7 @@
 import { convertToBanglaNumber } from "@/lib/convertToBanglaNumber";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import FeatureCard from "./featureCard";
+import FeatureCard from "../../components/cards/featureCard";
 
 export default function FeaturesSection() {
   const params = useParams();

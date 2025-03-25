@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Category from "./category";
+import CategoryCard from "../../components/cards/categoryCard";
 
 export default function CategoriesSection() {
   const t = useTranslations("HomePage.CategoriesSection");
@@ -45,28 +45,28 @@ export default function CategoriesSection() {
           modules={[Navigation, Autoplay]}
         >
           <SwiperSlide>
-            <Category
+            <CategoryCard
               img={basicComputer}
               text={t("basic-computer")}
               courseCount={2}
             />
           </SwiperSlide>
           <SwiperSlide>
-            <Category
+            <CategoryCard
               img={webDevelopment}
               text={t("web-development")}
               courseCount={1}
             />
           </SwiperSlide>
           <SwiperSlide>
-            <Category
+            <CategoryCard
               img={graphicDesign}
               text={t("graphic-design")}
               courseCount={1}
             />
           </SwiperSlide>
           <SwiperSlide>
-            <Category
+            <CategoryCard
               img={digitalMarketing}
               text={t("digital-marketing")}
               courseCount={1}

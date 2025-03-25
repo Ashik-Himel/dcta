@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, BookOpenText } from "lucide-react";
 import { useTranslations } from "next-intl";
-import CourseCard from "./courseCard";
+import CourseCard from "../../components/cards/courseCard";
 
 export default function PopularCoursesSection() {
   const t = useTranslations("HomePage.PopularCoursesSection");

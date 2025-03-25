@@ -5,12 +5,18 @@
     "about": "About Us",
     "success-story": "Success Story",
     "contact": "Contact Us",
-    "courses": "Courses"
+    "courses": "Courses",
+    "get-admission": "Get Admission"
   },
   "Footer": {
     "description": "Digital Computer Training Academy is the best IT training academy in Gazipur, Dhaka, Bangladesh.",
     "quick-links": "Quick Links",
     "other-pages": "Other Pages"
+  },
+  "Socials": {
+    "messenger": "Messenger",
+    "whatsapp": "WhatsApp",
+    "call-now": "Call Now"
   },
   "HomePage": {
     "HeroSection": {
@@ -19,8 +25,8 @@
       "heading-2": "Digital Computer Training Academy",
       "heading-3": "",
       "description": "Digital Computer Training Academy is a platform where you can learn various technical courses. We provide the best quality courses for our students.",
-      "courses": "All Courses",
-      "about": "About Us"
+      "get-admission": "Get Admission",
+      "courses": "All Courses"
     },
     "CategoriesSection": {
       "basic-computer": "Basic Computer",
@@ -54,7 +60,7 @@
       "title-2": "Our Academy",
       "title-3": "",
       "subtitle": "The best IT training academy, Founded in 2009, providing various types of IT training in Manwa Chourasta, Sreepur, Gazipur.",
-      "description": "Digital Computer Training Academy is an IT training academy founded in 2009. We are located in Mawna Chourasta, Sreepur, Gazipur. We have two branches. We are providing the training in Basic Computer Applications, Web Development, Graphic Design, Digital Marketing, etc. courses to our students.",
+      "description": "Digital Computer Training Academy is an IT training academy founded in 2009. We are located in Mawna Chourasta, Sreepur, Gazipur. We have one branch. We are providing the training in Basic Computer Applications, Web Development, Graphic Design, Digital Marketing, etc. courses to our students.",
       "branches": "Branches",
       "instructors": "Instructors",
       "courses": "Courses",
@@ -64,7 +70,7 @@
     "FeaturesSection": {
       "feature-1-text": "",
       "feature-1-subtext": "Years Training Experience",
-      "feature-2-text": "120K+",
+      "feature-2-text": "10K+",
       "feature-2-subtext": "Students Trained",
       "feature-3-text": "95%",
       "feature-3-subtext": "Students Satisfied",
@@ -93,6 +99,32 @@
       "instructor-5-title": "Founder, DCTA",
       "instructor-6-name": "Omor Farokh",
       "instructor-6-title": "Founder, DCTA"
+    },
+    "ContactSection": {
+      "title-1": "Get in",
+      "title-2": "Touch",
+      "title-3": "",
+      "subtitle": "Have questions about our programs? Reach out to us and our team will get back to you shortly.",
+      "contact-information": "Contact Information",
+      "address": "4th Floor, Yakub Ali Mobile Market, Mawna Chourasta, Sreepur, Gazipur",
+      "follow-us": "Follow Us",
+      "office-hours": "Office Hours",
+      "sat-thurs": "Saturday - Thursday",
+      "friday": "Friday",
+      "send-us-a-message": "Send Us a Message",
+      "name": "Name",
+      "name-placeholder": "Write your name",
+      "email": "Email",
+      "email-placeholder": "Write your email",
+      "subject": "Subject",
+      "subject-placeholder": "Write your subject",
+      "message": "Message",
+      "message-placeholder": "Write your message",
+      "send-message": "Send Message",
+      "success": "Message Sent",
+      "success-text": "Your message has been sent successfully!",
+      "error": "Error",
+      "error-text": "Failed to send your message. Please try again later."
     }
   }
 }

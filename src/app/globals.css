@@ -121,7 +121,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto px-6;
+    @apply mx-auto px-6 md:px-8 lg:px-10 xl:px-12;
   }
   .text-gradient {
     @apply bg-[linear-gradient(15deg,#ff1e1e_35%,#ff8079_100%)] text-transparent;
@@ -150,4 +150,8 @@
 .swiper-button-prev::after,
 .swiper-button-next::after {
   @apply text-primary !text-2xl !font-bold;
+}
+
+.swal2-popup {
+  @apply !bg-[#ffd8d8] dark:!bg-[#472020] !text-black dark:!text-white;
 }

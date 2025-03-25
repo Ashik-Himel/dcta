@@ -3,6 +3,7 @@ import dctaLogo from "@/assets/dcta-logo.png";
 import {
   BookOpenText,
   Contact,
+  FileSliders,
   Home,
   Menu,
   ReceiptText,
@@ -59,6 +60,11 @@ export default function HeaderDrawer() {
             text={t("courses")}
             href="/courses"
             icon={<BookOpenText size={16} />}
+          />
+          <DrawerNavLink
+            text={t("get-admission")}
+            href="/admission"
+            icon={<FileSliders size={16} />}
           />
         </nav>
       </SheetContent>

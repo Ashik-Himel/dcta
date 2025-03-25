@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { ReceiptText, UserRoundPen } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import AboutFeatureCard from "./aboutFeatureCard";
+import AboutFeatureCard from "../../components/cards/aboutFeatureCard";
 
 export default function AboutSection() {
   const t = useTranslations("HomePage.AboutSection");
@@ -33,9 +33,9 @@ export default function AboutSection() {
           <p className="text-gray md:text-lg mb-6">{t("subtitle")}</p>
           <p className="mb-6">{t("description")}</p>
           <div className="mb-6 flex justify-between items-center gap-4 max-w-[400px]">
-            <AboutFeatureCard number="2" text={t("branches")} />
-            <AboutFeatureCard number="6" text={t("instructors")} />
-            <AboutFeatureCard number="4+" text={t("courses")} />
+            <AboutFeatureCard number="1" text={t("branches")} />
+            <AboutFeatureCard number="20" text={t("instructors")} />
+            <AboutFeatureCard number="8" text={t("courses")} />
           </div>
           <div className="flex items-center gap-4">
             <Button size="lg" asChild>

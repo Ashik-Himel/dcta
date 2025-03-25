@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import { useParams } from "next/navigation";
 
-export default function Category({
+export default function CategoryCard({
   img,
   text,
   courseCount,

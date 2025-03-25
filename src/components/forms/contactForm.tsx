@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
+import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
 import Swal from "sweetalert2";
 
 export default function ContactForm() {
+  const t = useTranslations("HomePage.ContactSection");
   const [submitDisabled, setSubmitDisabled] = useState(false);
 
   const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -40,8 +42,10 @@ export default function ContactForm() {
       .then(() => {
         Swal.fire({
           icon: "success",
-          title: "Message Sent",
-          text: "Your message has been sent successfully!",
+          title: t("success"),
+          text: t("success-text"),
+          iconColor: "#ff0000",
+          confirmButtonColor: "#ff0000",
         });
         form.reset();
         setSubmitDisabled(false);
@@ -49,8 +53,10 @@ export default function ContactForm() {
       .catch((error) => {
         Swal.fire({
           icon: "error",
-          title: "Error Sending Message",
-          text: "Failed to send your message. Please try again later.",
+          title: t("error"),
+          text: t("error-text"),
+          iconColor: "#ff0000",
+          confirmButtonColor: "#ff0000",
         });
         console.log(error);
         setSubmitDisabled(false);
@@ -62,23 +68,23 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="name" className="block font-medium">
-            Name
+            {t("name")}
           </label>
           <Input
             id="name"
-            placeholder="Write your name"
+            placeholder={t("name-placeholder")}
             className="bg-background"
             required
           />
         </div>
         <div className="space-y-2">
           <label htmlFor="email" className="block font-medium">
-            Email
+            {t("email")}
           </label>
           <Input
             id="email"
             type="email"
-            placeholder="Write your email"
+            placeholder={t("email-placeholder")}
             className="bg-background"
             required
           />
@@ -86,22 +92,22 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <label htmlFor="subject" className="block font-medium">
-          Subject
+          {t("subject")}
         </label>
         <Input
           id="subject"
-          placeholder="Subject"
+          placeholder={t("subject-placeholder")}
           className="bg-background"
           required
         />
       </div>
       <div className="space-y-2">
         <label htmlFor="message" className="block font-medium">
-          Message
+          {t("message")}
         </label>
         <Textarea
           id="message"
-          placeholder="Write your message"
+          placeholder={t("message-placeholder")}
           className="min-h-[150px] resize-none bg-background"
           required
         />
@@ -112,7 +118,7 @@ export default function ContactForm() {
         className="w-full cursor-pointer select-none"
         disabled={submitDisabled}
       >
-        Send Message
+        {t("send-message")}
       </Button>
     </form>
   );

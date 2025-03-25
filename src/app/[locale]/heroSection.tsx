@@ -7,7 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Link } from "@/i18n/navigation";
-import { BadgeCheck, BookOpenText, Play, ReceiptText } from "lucide-react";
+import { BadgeCheck, BookOpenText, FileSliders, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -30,13 +30,13 @@ export default function HeroSection() {
           <p className="md:text-lg text-gray mb-8">{t("description")}</p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <Button size="lg" asChild>
-              <Link href="/courses">
-                <BookOpenText /> {t("courses")}
+              <Link href="/admission">
+                <FileSliders /> {t("get-admission")}
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link href="/about">
-                <ReceiptText /> {t("about")}
+              <Link href="/courses">
+                <BookOpenText /> {t("courses")}
               </Link>
             </Button>
           </div>

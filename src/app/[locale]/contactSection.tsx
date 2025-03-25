@@ -1,54 +1,54 @@
 import { Facebook, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { default as BaseLink } from "next/link";
-import ContactForm from "./contactForm";
+import ContactForm from "../../components/forms/contactForm";
 
 export default function ContactSection() {
+  const t = useTranslations("HomePage.ContactSection");
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-light-primary" id="contact">
       <div className="container">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-            Get in <span className="text-gradient">Touch</span>
+            {t("title-1")} <span className="text-gradient">{t("title-2")}</span>{" "}
+            {t("title-3")}
           </h2>
           <p className="max-w-[700px] mx-auto text-gray md:text-lg mb-6 md:mb-8">
-            Have questions about our programs? Reach out to us and our team will
-            get back to you shortly.
+            {t("subtitle")}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] mx-auto">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold">Contact Information</h3>
+              <h3 className="text-2xl font-bold">{t("contact-information")}</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <p>
-                    4<sup>th</sup> Floor, Yakub Ali Mobile Market, Mawna
-                    Chourasta, Sreepur, Gazipur.
-                  </p>
+                  <p>{t("address")}</p>
                 </div>
                 <BaseLink
-                  href="tel:+8801715363919"
+                  href="tel:+8801334766160"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
                   <Phone className="h-5 w-5 text-primary" />
-                  <p>01715363919</p>
+                  <p>01334766160</p>
                 </BaseLink>
                 <BaseLink
-                  href="mailto:support@dcta.com"
+                  href="mailto:support@dctabd.net"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
                   <Mail className="h-5 w-5 text-primary" />
-                  <p>support@dcta.com</p>
+                  <p>support@dctabd.net</p>
                 </BaseLink>
               </div>
             </div>
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold">Follow Us</h3>
+              <h3 className="text-2xl font-bold">{t("follow-us")}</h3>
               <div className="flex gap-2">
                 <BaseLink
                   href="https://www.facebook.com/dctamc"
@@ -71,17 +71,17 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold">Office Hours</h3>
+              <h3 className="text-2xl font-bold">{t("office-hours")}</h3>
               <div className="grid grid-cols-2 gap-2">
-                <div>Saturday - Thursday</div>
+                <div>{t("sat-thurs")}</div>
                 <div>9:00 AM - 6:00 PM</div>
-                <div>Friday</div>
+                <div>{t("friday")}</div>
                 <div>10:00 AM - 4:00 PM</div>
               </div>
             </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Send Us a Message</h3>
+            <h3 className="text-2xl font-bold">{t("send-us-a-message")}</h3>
             <ContactForm />
           </div>
         </div>

@@ -1,3 +1,4 @@
+import FloatingSocialIcons from "@/components/floating-social-icons/floatingSocialIcons";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import { routing } from "@/i18n/routing";
@@ -27,7 +28,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${
           locale === "en" ? english.className : bengali.className
@@ -43,6 +44,7 @@ export default async function RootLayout({
             <Header />
             <div className="flex-1">{children}</div>
             <Footer />
+            <FloatingSocialIcons />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

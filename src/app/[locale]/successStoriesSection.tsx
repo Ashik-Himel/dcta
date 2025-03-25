@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { FileVideo } from "lucide-react";
 import { useTranslations } from "next-intl";
-import StoryCard from "./storyCard";
+import StoryCard from "../../components/cards/storyCard";
 
 export default function SuccessStoriesSection() {
   const t = useTranslations("HomePage.SuccessStoriesSection");
