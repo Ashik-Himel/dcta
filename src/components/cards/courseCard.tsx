@@ -72,7 +72,7 @@ export default function CourseCard({
             </span>
           </div>
         </div>
-        <Button className="w-full mt-auto" asChild>
+        <Button className="w-full mt-auto hidden" asChild>
           <Link href={link}>
             <Info /> {t("view-details")}
           </Link>

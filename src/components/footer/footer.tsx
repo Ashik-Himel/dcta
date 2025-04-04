@@ -21,7 +21,10 @@ export default function Footer() {
     <footer>
       <div
         className={`py-8 md:py-12 lg:py-16 ${
-          pathname !== "/" && "bg-light-primary"
+          pathname !== "/" &&
+          pathname !== "/about" &&
+          pathname !== "/contact" &&
+          "bg-light-primary"
         }`}
       >
         <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr_1fr_auto] gap-x-8 gap-y-8">
@@ -53,7 +56,7 @@ export default function Footer() {
                 <Image src={youtube} alt="YouTube Icon" className="w-6" />
               </BaseLink>
               <BaseLink
-                href="mailto:support@dctabd.net"
+                href="mailto:help@dctabd.net"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -1,4 +1,8 @@
 import { Metadata } from "next";
+import ContactSection from "../contactSection";
+import InstructorsSection from "../instructorsSection";
+import AboutSection from "./aboutSection";
+import LocationSection from "./locationSection";
 
 export const metadata: Metadata = {
   title: "About Us - DCTA",
@@ -8,8 +12,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
-      <p>This page is currently in development</p>
-    </div>
+    <main>
+      <AboutSection />
+      <LocationSection />
+      <InstructorsSection />
+      <ContactSection />
+    </main>
   );
 }

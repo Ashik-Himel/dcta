@@ -38,8 +38,10 @@
     },
     "PopularCoursesSection": {
       "popular": "Popular",
+      "our": "Our",
       "courses": "Courses",
       "subtitle": "Here are some of our popular courses. You can check these out! We offering a lot of courses also.",
+      "subtitle-2": "Here are our all the courses that you can check out. We offer qualified courses for our students.",
       "basic-computer": "Basic Computer",
       "web-development": "Web Development",
       "graphic-design": "Graphic Design",
@@ -86,7 +88,7 @@
     "InstructorsSection": {
       "our": "Our",
       "instructors": "Instructors",
-      "subtitle": "Here are our expert instructors who will guide you through your whole learning journey.",
+      "subtitle": "We have 20 instructors who are highly qualified and experienced in their respective fields. They are dedicated to providing the best training to our students.",
       "instructor-1-name": "Omor Farokh",
       "instructor-1-title": "Founder, DCTA",
       "instructor-2-name": "Omor Farokh",
@@ -105,9 +107,13 @@
       "title-2": "Touch",
       "title-3": "",
       "subtitle": "Have questions about our programs? Reach out to us and our team will get back to you shortly.",
+      "our": "Our",
+      "location": "Location",
+      "location-subtitle": "Here is our location information with other information that helps you to find us.",
       "contact-information": "Contact Information",
       "address": "4th Floor, Yakub Ali Mobile Market, Mawna Chourasta, Sreepur, Gazipur",
       "follow-us": "Follow Us",
+      "contact-us": "Contact Us",
       "office-hours": "Office Hours",
       "sat-thurs": "Saturday - Thursday",
       "friday": "Friday",
@@ -125,6 +131,14 @@
       "success-text": "Your message has been sent successfully!",
       "error": "Error",
       "error-text": "Failed to send your message. Please try again later."
+    }
+  },
+  "AdmissionPage": {
+    "MainSection": {
+      "title-1": "Ready to",
+      "title-2": "Get Admission?",
+      "title-3": "",
+      "subtitle": "If you are ready to get admission in any of our courses, complete the following steps for the online admission."
     }
   }
 }

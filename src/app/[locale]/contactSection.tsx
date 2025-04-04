@@ -37,13 +37,13 @@ export default function ContactSection() {
                   <p>01334766160</p>
                 </BaseLink>
                 <BaseLink
-                  href="mailto:support@dctabd.net"
+                  href="mailto:help@dctabd.net"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
                   <Mail className="h-5 w-5 text-primary" />
-                  <p>support@dctabd.net</p>
+                  <p>help@dctabd.net</p>
                 </BaseLink>
               </div>
             </div>

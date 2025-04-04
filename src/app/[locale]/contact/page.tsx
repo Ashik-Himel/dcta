@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ContactSection from "../contactSection";
 
 export const metadata: Metadata = {
   title: "Contact Us - DCTA",
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div>
-      <p>This page is currently in development</p>
-    </div>
+    <main>
+      <ContactSection />
+    </main>
   );
 }

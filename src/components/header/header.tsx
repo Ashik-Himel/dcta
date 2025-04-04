@@ -31,14 +31,12 @@ export default function Header() {
             </BaseLink>
             <BaseLink
               className="hidden min-[400px]:flex items-center gap-2 -mt-px"
-              href="mailto:support@dctabd.net"
+              href="mailto:help@dctabd.net"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Mail size={18} />
-              <span className="font-medium block -mt-0.5">
-                support@dctabd.net
-              </span>
+              <span className="font-medium block -mt-0.5">help@dctabd.net</span>
             </BaseLink>
           </div>
           <div className="hidden lg:flex items-center gap-4">
