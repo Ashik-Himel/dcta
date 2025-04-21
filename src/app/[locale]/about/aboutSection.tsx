@@ -28,7 +28,7 @@ export default function AboutSection() {
           <div className="flex items-center gap-4">
             <Button size="lg" asChild>
               <Link href="/courses">
-                <BookOpenText /> {t("courses")}
+                <BookOpenText /> {t("courses2")}
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>

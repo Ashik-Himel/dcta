@@ -1,12 +1,10 @@
-"use client";
-
 import dctaLogoDark from "@/assets/dcta-logo-dark.png";
 import dctaLogo from "@/assets/dcta-logo.png";
 import facebook from "@/assets/icons/facebook.png";
 import mail from "@/assets/icons/mail.png";
 import phone from "@/assets/icons/telephone.png";
 import youtube from "@/assets/icons/youtube.png";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { Facebook, Github, Globe, Linkedin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -15,15 +13,10 @@ import { default as BaseLink } from "next/link";
 export default function Footer() {
   const t = useTranslations("Footer");
   const t2 = useTranslations("Header");
-  const pathname = usePathname();
 
   return (
     <footer>
-      <div
-        className={`py-8 md:py-12 lg:py-16 ${
-          pathname !== "/" && pathname !== "/about" && "bg-light-primary"
-        }`}
-      >
+      <div className="py-8 md:py-12 lg:py-16">
         <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr_1fr_auto] gap-x-8 gap-y-8">
           <div className="sm:col-span-2 md:col-span-1">
             <Image

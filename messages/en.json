@@ -66,6 +66,7 @@
       "branches": "Branches",
       "instructors": "Instructors",
       "courses": "Courses",
+      "courses2": "Courses",
       "about-us": "About Us",
       "contact-us": "Contact Us"
     },
@@ -153,6 +154,48 @@
       "feature-3-subtext": "Students Satisfied",
       "feature-4-text": "",
       "feature-4-subtext": "Years Training Experience"
+    }
+  },
+  "ContactPage": {
+    "HeroSection": {
+      "pre-heading": "Contact Us",
+      "heading-1": "Get in",
+      "heading-2": "Touch",
+      "heading-3": "",
+      "description": "Have questions about our courses or admission process? We're here to help. Reach out to us using the contact form or through our contact information.",
+      "get-in-touch": "Contact Us"
+    },
+    "FaqSection": {
+      "heading-1": "Frequently Asked",
+      "heading-2": "Questions",
+      "description": "Find answers to common questions about contacting us and our response times. If not answered here, feel free to reach out."
+    },
+    "CtaSection": {
+      "title": "Ready to Start Your Journey?",
+      "description": "Take the first step towards your new career in technology. Apply now for our upcoming courses.",
+      "get-admission": "Get Admission",
+      "explore-courses": "Explore Courses"
+    }
+  },
+  "CoursesPage": {
+    "HeroSection": {
+      "pre-heading": "Our Courses",
+      "heading-1": "Discover Your",
+      "heading-2": "Path to Success",
+      "heading-3": "",
+      "description": "Explore our comprehensive range of courses designed to equip you with the skills needed in today's digital world.",
+      "explore-courses": "Explore Courses",
+      "get-admission": "Get Admission"
+    },
+    "CtaSection": {
+      "title": "Ready to Advance Your Skills?",
+      "description": "Enrollment is now open for our upcoming sessions. Apply today to secure your spot and take the first step toward your new career.",
+      "get-admission": "Get Admission",
+      "request-information": "Request Information",
+      "card-title": "Need Help Choosing?",
+      "card-subtitle": "Call us to get advise from our academic advisors.",
+      "card-description": "Our academic advisors can help you choose the right course based on your career goals, background, and interests.",
+      "call-us": "Call Us"
     }
   },
   "AdmissionPage": {

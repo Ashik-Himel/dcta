@@ -1,8 +1,7 @@
 "use client";
 
-import { usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { ReactNode } from "react";
 import { SheetClose } from "../ui/sheet";
 
