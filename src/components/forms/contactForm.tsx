@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
+import { Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
 import Swal from "sweetalert2";
@@ -118,6 +119,7 @@ export default function ContactForm() {
         className="w-full cursor-pointer select-none"
         disabled={submitDisabled}
       >
+        <Send />
         {t("send-message")}
       </Button>
     </form>

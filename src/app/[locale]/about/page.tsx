@@ -1,8 +1,9 @@
 import { Metadata } from "next";
-import ContactSection from "../contactSection";
 import InstructorsSection from "../instructorsSection";
 import AboutSection from "./aboutSection";
+import CtaSection from "./ctaSection";
 import LocationSection from "./locationSection";
+import MissionVisionSection from "./missionVisionSection";
 
 export const metadata: Metadata = {
   title: "About Us - DCTA",
@@ -14,9 +15,10 @@ export default function AboutPage() {
   return (
     <main>
       <AboutSection />
+      <MissionVisionSection />
       <LocationSection />
       <InstructorsSection />
-      <ContactSection />
+      <CtaSection />
     </main>
   );
 }

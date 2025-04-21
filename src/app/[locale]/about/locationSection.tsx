@@ -12,7 +12,7 @@ export default function LocationSection() {
   const t = useTranslations("HomePage.ContactSection");
 
   return (
-    <section className="pb-12 md:pb-16 lg:pb-20 pt-2 md:pt-6 lg:pt-10">
+    <section className="pb-12 md:pb-16 lg:pb-20">
       <div className="container">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
           {t("our")} <span className="text-gradient">{t("location")}</span>

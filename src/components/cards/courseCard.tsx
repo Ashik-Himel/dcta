@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { convertToBanglaNumber } from "@/lib/convertToBanglaNumber";
-import { Info } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import { useParams } from "next/navigation";
@@ -27,7 +26,6 @@ export default function CourseCard({
   title,
   discountPrice,
   regularPrice,
-  link,
   badgeText = "",
 }: CourseCardProps) {
   const params = useParams();
@@ -72,10 +70,8 @@ export default function CourseCard({
             </span>
           </div>
         </div>
-        <Button className="w-full mt-auto hidden" asChild>
-          <Link href={link}>
-            <Info /> {t("view-details")}
-          </Link>
+        <Button className="w-full mt-auto" asChild>
+          <Link href="/admission">{t("get-admission")}</Link>
         </Button>
       </div>
     </div>

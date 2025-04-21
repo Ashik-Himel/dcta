@@ -53,7 +53,7 @@
       "month": "Month",
       "top-selling": "Top Selling",
       "best-deal": "Best Deal",
-      "view-details": "View Details",
+      "get-admission": "Get Admission",
       "view-all": "View All",
       "view-all-courses": "View All Courses"
     },
@@ -83,7 +83,7 @@
       "success": "Success",
       "stories": "Stories",
       "subtitle": "Many students have achieved success by learning from us. Here are some of their stories.",
-      "see-more": "See More"
+      "see-more": "See More Stories"
     },
     "InstructorsSection": {
       "our": "Our",
@@ -131,6 +131,28 @@
       "success-text": "Your message has been sent successfully!",
       "error": "Error",
       "error-text": "Failed to send your message. Please try again later."
+    }
+  },
+  "AboutPage": {
+    "MissionVisionSection": {
+      "mission": "Our Mission",
+      "vision": "Our Vision",
+      "mission-text": "To provide accessible, high-quality technology education that equips students with the skills, knowledge, and confidence needed to succeed in the rapidly evolving digital landscape.",
+      "vision-text": "To be the leading IT training institution, recognized for excellence in education, innovation in teaching methodologies, and producing graduates who are industry-ready and globally competitive."
+    },
+    "CtaSection": {
+      "title": "Join Our Growing Community",
+      "description": "Take the first step towards your new career in technology. Apply now for our upcoming courses.",
+      "get-admission": "Get Admission",
+      "contact-us": "Contact Us",
+      "feature-1-text": "10K+",
+      "feature-1-subtext": "Students Trained",
+      "feature-2-text": "8",
+      "feature-2-subtext": "Courses",
+      "feature-3-text": "95%",
+      "feature-3-subtext": "Students Satisfied",
+      "feature-4-text": "",
+      "feature-4-subtext": "Years Training Experience"
     }
   },
   "AdmissionPage": {
