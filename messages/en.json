@@ -1,9 +1,14 @@
 {
+  "Theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
   "Header": {
     "menu": "Menu",
     "home": "Home",
     "about": "About Us",
-    "success-story": "Success Story",
+    "success-stories": "Success Stories",
     "contact": "Contact Us",
     "courses": "Courses",
     "get-admission": "Get Admission"
@@ -156,6 +161,22 @@
       "feature-4-subtext": "Years Training Experience"
     }
   },
+  "SuccessStoriesPage": {
+    "HeroSection": {
+      "pre-heading": "Success Stories",
+      "heading-1": "",
+      "heading-2": "Real Stories",
+      "heading-3": "from Real Students",
+      "description": "Hear directly from our graduates about how our courses transformed their careers and lives. These success stories showcase the real-world impact of our training programs.",
+      "see-stories": "See Stories"
+    },
+    "CtaSection": {
+      "title": "Write Your Own Success Story",
+      "description": "Join our community of successful graduates. Apply now for our upcoming courses and start your journey toward a rewarding career in technology.",
+      "get-admission": "Get Admission",
+      "explore-courses": "Explore Courses"
+    }
+  },
   "ContactPage": {
     "HeroSection": {
       "pre-heading": "Contact Us",
@@ -199,11 +220,19 @@
     }
   },
   "AdmissionPage": {
-    "MainSection": {
-      "title-1": "Ready to",
-      "title-2": "Get Admission?",
-      "title-3": "",
-      "subtitle": "If you are ready to get admission in any of our courses, complete the following steps for the online admission."
+    "HeroSection": {
+      "pre-heading": "Admission",
+      "heading-1": "Apply for",
+      "heading-2": "Admission",
+      "heading-3": "",
+      "description": "Take the first step towards your new career by applying to our courses. Fill out the form below to get started.",
+      "get-admission": "Get Admission"
+    },
+    "CtaSection": {
+      "title": "Still Have Questions?",
+      "description": "Our admissions team is here to help. Contact us for more information about our courses, admission process, or to schedule a campus visit.",
+      "contact-us": "Contact Us",
+      "explore-courses": "Explore Courses"
     }
   }
 }

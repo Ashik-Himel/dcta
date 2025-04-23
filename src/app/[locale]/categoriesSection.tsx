@@ -1,9 +1,5 @@
 "use client";
 
-import basicComputer from "@/assets/icons/basic-computer.png";
-import digitalMarketing from "@/assets/icons/digital-marketing.png";
-import graphicDesign from "@/assets/icons/graphic-design.png";
-import webDevelopment from "@/assets/icons/web-development.png";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import "swiper/css";
@@ -11,6 +7,7 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CategoryCard from "../../components/cards/categoryCard";
+import { categories } from "../data/categories";
 
 export default function CategoriesSection() {
   const t = useTranslations("HomePage.CategoriesSection");
@@ -44,34 +41,15 @@ export default function CategoriesSection() {
           }}
           modules={[Navigation, Autoplay]}
         >
-          <SwiperSlide>
-            <CategoryCard
-              img={basicComputer}
-              text={t("basic-computer")}
-              courseCount={2}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CategoryCard
-              img={webDevelopment}
-              text={t("web-development")}
-              courseCount={1}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CategoryCard
-              img={graphicDesign}
-              text={t("graphic-design")}
-              courseCount={1}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CategoryCard
-              img={digitalMarketing}
-              text={t("digital-marketing")}
-              courseCount={1}
-            />
-          </SwiperSlide>
+          {categories.map((category, index) => (
+            <SwiperSlide key={index}>
+              <CategoryCard
+                img={category.img}
+                text={t(category.text)}
+                courseCount={category.courseCount}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

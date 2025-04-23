@@ -7,6 +7,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { bengali, english } from "@/lib/fonts";
 import { Languages } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -31,8 +32,12 @@ export default function LangToggler() {
           value={pathArray[1]}
           onValueChange={(e) => handleLangSwitch(e)}
         >
-          <DropdownMenuRadioItem value="bn">বাংলা</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="bn" className={bengali.className}>
+            বাংলা
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="en" className={english.className}>
+            English
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

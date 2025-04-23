@@ -28,7 +28,7 @@ export default function PopularCoursesSection() {
             title={t("basic-computer-application")}
             discountPrice={7999}
             regularPrice={12000}
-            link="/courses/basic-computer-application"
+            slug="basic-computer-application"
             badgeText={t("top-selling")}
           />
           <CourseCard
@@ -38,7 +38,7 @@ export default function PopularCoursesSection() {
             title={t("web-development")}
             discountPrice={12000}
             regularPrice={20000}
-            link="/courses/web-development"
+            slug="web-development"
           />
           <CourseCard
             thumbnail={graphicDesign}
@@ -47,7 +47,7 @@ export default function PopularCoursesSection() {
             title={t("graphic-design")}
             discountPrice={12000}
             regularPrice={20000}
-            link="/courses/graphic-design"
+            slug="graphic-design"
           />
           <CourseCard
             thumbnail={digitalMarketing}
@@ -56,7 +56,7 @@ export default function PopularCoursesSection() {
             title={t("advanced-digital-marketing")}
             discountPrice={12000}
             regularPrice={20000}
-            link="/courses/advanced-digital-marketing"
+            slug="advanced-digital-marketing"
             badgeText={t("best-deal")}
           />
           <Link

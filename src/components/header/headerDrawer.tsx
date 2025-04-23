@@ -1,18 +1,11 @@
 import dctaLogoDark from "@/assets/dcta-logo-dark.png";
 import dctaLogo from "@/assets/dcta-logo.png";
-import {
-  BookOpenText,
-  Contact,
-  FileSliders,
-  Home,
-  Menu,
-  ReceiptText,
-  ScrollText,
-} from "lucide-react";
+import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import DrawerNavLink from "./drawerNavLink";
+import { navLinks } from "./navLinks";
 
 export default function HeaderDrawer() {
   const t = useTranslations("Header");
@@ -40,32 +33,14 @@ export default function HeaderDrawer() {
           {t("menu")}
         </SheetTitle>
         <nav className="space-y-1.5">
-          <DrawerNavLink text={t("home")} href="/" icon={<Home size={16} />} />
-          <DrawerNavLink
-            text={t("about")}
-            href="/about"
-            icon={<ReceiptText size={16} />}
-          />
-          <DrawerNavLink
-            text={t("success-story")}
-            href="/success-story"
-            icon={<ScrollText size={16} />}
-          />
-          <DrawerNavLink
-            text={t("contact")}
-            href="/contact"
-            icon={<Contact size={16} />}
-          />
-          <DrawerNavLink
-            text={t("courses")}
-            href="/courses"
-            icon={<BookOpenText size={16} />}
-          />
-          <DrawerNavLink
-            text={t("get-admission")}
-            href="/admission"
-            icon={<FileSliders size={16} />}
-          />
+          {navLinks?.map((link) => (
+            <DrawerNavLink
+              key={link.href}
+              text={t(link.text)}
+              href={link.href}
+              icon={<link.icon size={16} />}
+            />
+          ))}
         </nav>
       </SheetContent>
     </Sheet>

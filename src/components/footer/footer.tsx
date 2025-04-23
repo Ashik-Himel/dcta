@@ -3,6 +3,7 @@ import dctaLogo from "@/assets/dcta-logo.png";
 import facebook from "@/assets/icons/facebook.png";
 import mail from "@/assets/icons/mail.png";
 import phone from "@/assets/icons/telephone.png";
+import whatsApp from "@/assets/icons/whatsapp.png";
 import youtube from "@/assets/icons/youtube.png";
 import { Link } from "@/i18n/navigation";
 import { Facebook, Github, Globe, Linkedin } from "lucide-react";
@@ -53,6 +54,13 @@ export default function Footer() {
                 <Image src={mail} alt="Mail Icon" className="w-6" />
               </BaseLink>
               <BaseLink
+                href="https://wa.me/+8801334766160"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image src={whatsApp} alt="WhatsApp Icon" className="w-6" />
+              </BaseLink>
+              <BaseLink
                 href="tel:+8801334766160"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -65,17 +73,17 @@ export default function Footer() {
             <h4 className="text-gradient text-2xl font-semibold mb-2">
               {t("quick-links")}
             </h4>
-            <Link href="/">{t2("home")}</Link>
             <Link href="/courses">{t2("courses")}</Link>
-            <Link href="/success-story">{t2("success-story")}</Link>
+            <Link href="/admission">{t2("get-admission")}</Link>
+            <Link href="/success-stories">{t2("success-stories")}</Link>
           </div>
           <div className="flex flex-col items-start gap-2">
             <h4 className="text-gradient text-2xl font-semibold mb-2">
               {t("other-pages")}
             </h4>
+            <Link href="/">{t2("home")}</Link>
             <Link href="/about">{t2("about")}</Link>
             <Link href="/contact">{t2("contact")}</Link>
-            <Link href="/courses">{t2("courses")}</Link>
           </div>
         </div>
       </div>

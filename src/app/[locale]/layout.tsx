@@ -28,7 +28,11 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className="scroll-smooth scroll-pt-[65px]"
+      suppressHydrationWarning
+    >
       <body
         className={`${
           locale === "en" ? english.className : bengali.className

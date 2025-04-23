@@ -1,9 +1,9 @@
-import storyThumbnail from "@/assets/stories/success-story.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { FileVideo } from "lucide-react";
+import { ArrowRight, FileVideo } from "lucide-react";
 import { useTranslations } from "next-intl";
 import StoryCard from "../../components/cards/storyCard";
+import { stories } from "../data/stories";
 
 export default function SuccessStoriesSection() {
   const t = useTranslations("HomePage.SuccessStoriesSection");
@@ -18,27 +18,36 @@ export default function SuccessStoriesSection() {
           {t("subtitle")}
         </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          <StoryCard
-            thumbnail={storyThumbnail}
-            embeddedLink="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
-          />
-          <StoryCard
-            thumbnail={storyThumbnail}
-            embeddedLink="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
-          />
-          <StoryCard
-            thumbnail={storyThumbnail}
-            embeddedLink="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
-          />
-          <StoryCard
-            thumbnail={storyThumbnail}
-            embeddedLink="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {stories
+            .filter((tempStory) => tempStory?.featured)
+            ?.slice(0, 3)
+            ?.map((story, index) => (
+              <StoryCard
+                key={index}
+                avatar={story.avatar}
+                name={story.name}
+                role={story.role}
+                thumbnail={story.thumbnail}
+                videoUrl={story.videoUrl}
+                course={story.course}
+              />
+            ))}
+          <Link
+            href="/success-stories"
+            className="hidden md:flex lg:hidden rounded-lg card-border py-16 bg-light-primary justify-center items-center"
+          >
+            <div className="flex items-center gap-2 text-xl font-medium text-primary">
+              <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient text-white">
+                <ArrowRight size={24} />
+              </div>
+              <span>{t("see-more")}</span>
+            </div>
+          </Link>
         </div>
-        <div className="text-center mt-6 lg:mt-8">
+        <div className="text-center mt-6 lg:mt-8 md:hidden lg:block">
           <Button size="lg" asChild>
-            <Link href="/success-story">
+            <Link href="/success-stories">
               <FileVideo /> {t("see-more")}
             </Link>
           </Button>

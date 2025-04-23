@@ -15,7 +15,7 @@ interface CourseCardProps {
   title: string;
   discountPrice: number;
   regularPrice: number;
-  link: string;
+  slug?: string;
   badgeText?: string;
 }
 
@@ -26,6 +26,7 @@ export default function CourseCard({
   title,
   discountPrice,
   regularPrice,
+  slug = "",
   badgeText = "",
 }: CourseCardProps) {
   const params = useParams();
@@ -71,7 +72,9 @@ export default function CourseCard({
           </div>
         </div>
         <Button className="w-full mt-auto" asChild>
-          <Link href="/admission">{t("get-admission")}</Link>
+          <Link href={slug ? `/admission?course=${slug}` : "/admission"}>
+            {t("get-admission")}
+          </Link>
         </Button>
       </div>
     </div>

@@ -2,12 +2,13 @@ import heroImg from "@/assets/section-images/hero-img.jpg";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Link } from "@/i18n/navigation";
-import { BadgeCheck, BookOpenText, FileSliders, Play } from "lucide-react";
+import { BadgeCheck, BookOpenText, FileSliders, Play, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -55,6 +56,9 @@ export default function HeroSection() {
             </div>
           </DialogTrigger>
           <DialogContent className="p-0 !w-[90vw] !max-w-[800px]">
+            <DialogClose className="absolute -top-12 -right-0 text-white cursor-pointer select-none">
+              <X size={40} />
+            </DialogClose>
             <DialogTitle className="sr-only">
               Digital Computer Training Academy
             </DialogTitle>

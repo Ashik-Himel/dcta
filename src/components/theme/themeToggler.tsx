@@ -8,10 +8,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function ThemeToggler() {
+  const t = useTranslations("Theme");
   const { theme, setTheme } = useTheme();
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -34,9 +36,15 @@ export function ThemeToggler() {
           value={theme}
           onValueChange={(e) => setTheme(e)}
         >
-          <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="light">
+            {t("light")}
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="dark">
+            {t("dark")}
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="system">
+            {t("system")}
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
