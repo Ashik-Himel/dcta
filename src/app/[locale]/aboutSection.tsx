@@ -1,5 +1,5 @@
+import aboutImg1 from "@/assets/section-images/about-img-1.jpg";
 import aboutImg2 from "@/assets/section-images/about-img-2.jpg";
-import aboutImg from "@/assets/section-images/about-img.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { ReceiptText, UserRoundPen } from "lucide-react";
@@ -15,13 +15,13 @@ export default function AboutSection() {
       <div className="container grid lg:grid-cols-2 gap-8 items-center">
         <div className="aspect-video relative">
           <Image
-            src={aboutImg}
+            src={aboutImg2}
             alt="About Section Image"
             className="object-cover rounded-lg w-3/5 absolute bottom-0 left-0"
           />
           <Image
-            src={aboutImg2}
-            alt="About Section Image 2"
+            src={aboutImg1}
+            alt="About Section Image"
             className="object-cover rounded-lg w-3/5 absolute top-0 right-0"
           />
         </div>

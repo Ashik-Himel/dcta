@@ -10,7 +10,7 @@ import CategoryCard from "../../components/cards/categoryCard";
 import { categories } from "../data/categories";
 
 export default function CategoriesSection() {
-  const t = useTranslations("HomePage.CategoriesSection");
+  const t = useTranslations("Information.Courses");
   const [slidesPerView, setSlidesPerView] = useState(1);
 
   const setSlidesPerViewFunc = () => {

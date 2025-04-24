@@ -25,7 +25,7 @@ export default function Stories() {
               avatar={story.avatar}
               name={story.name}
               role={story.role}
-              thumbnail={story.thumbnail}
+              thumbnailLink={story.thumbnailLink}
               videoUrl={story.videoUrl}
               course={story.course}
             />

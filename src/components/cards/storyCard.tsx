@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   Card,
   CardContent,
@@ -6,18 +7,20 @@ import {
 } from "@/components/ui/card";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 
 interface StoryProps {
   avatar: StaticImageData;
   name: string;
   role: string;
-  thumbnail: StaticImageData;
+  thumbnailLink: string;
   videoUrl: string;
   course: string;
 }
@@ -26,12 +29,14 @@ export default function StoryCard({
   avatar,
   name,
   role,
-  thumbnail,
+  thumbnailLink,
   videoUrl,
   course,
 }: StoryProps) {
+  const t = useTranslations("Information.Courses");
+
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg p-0 gap-0">
+    <Card className="overflow-hidden transition-all hover:shadow-lg p-0 gap-0 dark:bg-background">
       <CardHeader className="p-4 pb-2">
         <div className="flex items-center gap-4">
           <div className="relative h-12 w-12 rounded-full overflow-hidden">
@@ -43,7 +48,7 @@ export default function StoryCard({
           </div>
           <div>
             <h4 className="font-medium">{name}</h4>
-            <p className="text-sm text-slate-500">{role}</p>
+            <p className="text-sm text-gray">{role}</p>
           </div>
         </div>
       </CardHeader>
@@ -52,8 +57,8 @@ export default function StoryCard({
           <DialogTrigger className="w-full">
             <div className="relative aspect-video w-full overflow-hidden">
               <div className="group relative h-full w-full cursor-pointer">
-                <Image
-                  src={thumbnail}
+                <img
+                  src={thumbnailLink}
                   alt={`${name}'s story thumbnail`}
                   className="w-full h-full object-cover"
                 />
@@ -66,6 +71,9 @@ export default function StoryCard({
             </div>
           </DialogTrigger>
           <DialogContent className="p-0 !w-[90vw] !max-w-[800px]">
+            <DialogClose className="absolute -top-12 -right-0 text-white cursor-pointer select-none">
+              <X size={40} />
+            </DialogClose>
             <DialogTitle className="sr-only">Success Story</DialogTitle>
             <iframe
               src={videoUrl}
@@ -79,7 +87,7 @@ export default function StoryCard({
         </Dialog>
       </CardContent>
       <CardFooter className="px-4 pb-2 pt-1 text-sm">
-        <p>{course}</p>
+        <p>{t(course)}</p>
       </CardFooter>
     </Card>
   );

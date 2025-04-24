@@ -54,7 +54,7 @@ export default function ContactSection() {
                   href="https://www.facebook.com/dctamc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-primary text-white w-10 h-10 flex items-center justify-center"
+                  className="rounded-full bg-gradient text-white w-10 h-10 flex items-center justify-center"
                 >
                   <Facebook className="h-5 w-5" />
                   <span className="sr-only">Facebook</span>
@@ -63,7 +63,7 @@ export default function ContactSection() {
                   href="https://www.youtube.com/@digitalcomputerstrainingac7975"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-primary text-white w-10 h-10 flex items-center justify-center"
+                  className="rounded-full bg-gradient text-white w-10 h-10 flex items-center justify-center"
                 >
                   <Youtube className="h-5 w-5" />
                   <span className="sr-only">YouTube</span>
@@ -73,10 +73,8 @@ export default function ContactSection() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold">{t("office-hours")}</h3>
               <div className="grid grid-cols-2 gap-2">
-                <div>{t("sat-thurs")}</div>
-                <div>9:00 AM - 6:00 PM</div>
-                <div>{t("friday")}</div>
-                <div>10:00 AM - 4:00 PM</div>
+                <div>{t("everyday")}</div>
+                <div>9:00 AM - 10:00 PM</div>
               </div>
             </div>
           </div>

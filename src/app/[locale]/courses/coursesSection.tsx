@@ -1,12 +1,10 @@
-import basicComputerApplication from "@/assets/courses/basic-computer-application.png";
-import digitalMarketing from "@/assets/courses/digital-marketing.png";
-import graphicDesign from "@/assets/courses/graphic-design.png";
-import webDevelopment from "@/assets/courses/web-development.png";
+import { courses } from "@/app/data/courses";
 import CourseCard from "@/components/cards/courseCard";
 import { useTranslations } from "next-intl";
 
 export default function CoursesSection() {
   const t = useTranslations("HomePage.PopularCoursesSection");
+  const t2 = useTranslations("Information.Courses");
 
   return (
     <section
@@ -21,44 +19,19 @@ export default function CoursesSection() {
           {t("subtitle-2")}
         </span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          <CourseCard
-            thumbnail={basicComputerApplication}
-            category={t("basic-computer")}
-            duration={6}
-            title={t("basic-computer-application")}
-            discountPrice={7999}
-            regularPrice={12000}
-            slug="basic-computer-application"
-            badgeText={t("top-selling")}
-          />
-          <CourseCard
-            thumbnail={webDevelopment}
-            category={t("web-development")}
-            duration={6}
-            title={t("web-development")}
-            discountPrice={12000}
-            regularPrice={20000}
-            slug="web-development"
-          />
-          <CourseCard
-            thumbnail={graphicDesign}
-            category={t("graphic-design")}
-            duration={6}
-            title={t("graphic-design")}
-            discountPrice={12000}
-            regularPrice={20000}
-            slug="graphic-design"
-          />
-          <CourseCard
-            thumbnail={digitalMarketing}
-            category={t("digital-marketing")}
-            duration={6}
-            title={t("advanced-digital-marketing")}
-            discountPrice={12000}
-            regularPrice={20000}
-            slug="advanced-digital-marketing"
-            badgeText={t("best-deal")}
-          />
+          {courses?.map((course, index) => (
+            <CourseCard
+              key={index}
+              thumbnail={course.thumbnail}
+              category={t2(course.category)}
+              duration={course.duration}
+              title={t2(course.title)}
+              discountPrice={course.discountPrice}
+              regularPrice={course.regularPrice}
+              slug={course.slug}
+              badgeText={course?.badgeText ? t2(course.badgeText) : undefined}
+            />
+          ))}
         </div>
       </div>
     </section>

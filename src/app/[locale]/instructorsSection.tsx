@@ -1,8 +1,6 @@
-import facebook from "@/assets/icons/facebook.png";
-import phone from "@/assets/icons/telephone.png";
-import omorFarokh from "@/assets/instructors/omor-farokh.jpg";
 import { useTranslations } from "next-intl";
 import InstructorCard from "../../components/cards/instructorCard";
+import { instructors } from "../data/instructors";
 
 export default function InstructorsSection() {
   const t = useTranslations("HomePage.InstructorsSection");
@@ -18,60 +16,9 @@ export default function InstructorsSection() {
         </span>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
-          <InstructorCard
-            image={omorFarokh}
-            name={t("instructor-1-name")}
-            title={t("instructor-1-title")}
-            socials={[
-              { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801334766160" },
-            ]}
-          />
-          <InstructorCard
-            image={omorFarokh}
-            name={t("instructor-2-name")}
-            title={t("instructor-2-title")}
-            socials={[
-              { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801334766160" },
-            ]}
-          />
-          <InstructorCard
-            image={omorFarokh}
-            name={t("instructor-3-name")}
-            title={t("instructor-3-title")}
-            socials={[
-              { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801334766160" },
-            ]}
-          />
-          <InstructorCard
-            image={omorFarokh}
-            name={t("instructor-4-name")}
-            title={t("instructor-4-title")}
-            socials={[
-              { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801334766160" },
-            ]}
-          />
-          <InstructorCard
-            image={omorFarokh}
-            name={t("instructor-5-name")}
-            title={t("instructor-5-title")}
-            socials={[
-              { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801334766160" },
-            ]}
-          />
-          <InstructorCard
-            image={omorFarokh}
-            name={t("instructor-6-name")}
-            title={t("instructor-6-title")}
-            socials={[
-              { icon: facebook, link: "https://www.facebook.com/omorfarokh.1" },
-              { icon: phone, link: "tel:+8801334766160" },
-            ]}
-          />
+          {instructors?.map((instructor) => (
+            <InstructorCard key={instructor.name} instructor={instructor} />
+          ))}
         </div>
       </div>
     </section>

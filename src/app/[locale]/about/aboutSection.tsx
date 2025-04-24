@@ -1,5 +1,5 @@
+import aboutImg1 from "@/assets/section-images/about-img-1.jpg";
 import aboutImg2 from "@/assets/section-images/about-img-2.jpg";
-import aboutImg from "@/assets/section-images/about-img.jpg";
 import AboutFeatureCard from "@/components/cards/aboutFeatureCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -27,7 +27,7 @@ export default function AboutSection() {
           </div>
           <div className="flex items-center gap-4">
             <Button size="lg" asChild>
-              <Link href="/courses">
+              <Link href="/courses#courses">
                 <BookOpenText /> {t("courses2")}
               </Link>
             </Button>
@@ -40,12 +40,12 @@ export default function AboutSection() {
         </div>
         <div className="aspect-video relative">
           <Image
-            src={aboutImg}
+            src={aboutImg2}
             alt="About Section Image"
             className="object-cover rounded-lg w-3/5 absolute bottom-0 left-0"
           />
           <Image
-            src={aboutImg2}
+            src={aboutImg1}
             alt="About Section Image 2"
             className="object-cover rounded-lg w-3/5 absolute top-0 right-0"
           />

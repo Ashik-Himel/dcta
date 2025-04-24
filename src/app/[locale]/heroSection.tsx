@@ -1,4 +1,4 @@
-import heroImg from "@/assets/section-images/hero-img.jpg";
+import heroImg from "@/assets/section-images/hero-img.jpeg";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -31,12 +31,12 @@ export default function HeroSection() {
           <p className="md:text-lg text-gray mb-8">{t("description")}</p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <Button size="lg" asChild>
-              <Link href="/admission">
+              <Link href="/admission#admission">
                 <FileSliders /> {t("get-admission")}
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link href="/courses">
+              <Link href="/courses#courses">
                 <BookOpenText /> {t("courses")}
               </Link>
             </Button>
@@ -48,7 +48,7 @@ export default function HeroSection() {
               <Image
                 src={heroImg}
                 alt="Hero Section Image"
-                className="object-cover rounded-lg"
+                className="w-full aspect-video rounded-lg"
               />
               <div className="absolute top-1/2 left-1/2 -translate-1/2 bg-primary text-white w-20 h-20 rounded-full flex justify-center items-center animate-pulse">
                 <Play size={32} />
@@ -63,7 +63,7 @@ export default function HeroSection() {
               Digital Computer Training Academy
             </DialogTitle>
             <iframe
-              src="https://www.youtube.com/embed/K5l_l3Dp8cA?si=pMVe7iYQvNzh9hkj"
+              src="https://www.youtube.com/embed/jASUTidpRpo?si=B8vuwC1BXQAxVSLz"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"

@@ -23,21 +23,21 @@ export default function CtaSection() {
             <p className="md:text-xl/relaxed mb-6">{t("description")}</p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg">
-                <Link href="/admission">{t("get-admission")}</Link>
+                <Link href="/admission#admission">{t("get-admission")}</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/contact">{t("request-information")}</Link>
+                <Link href="/contact#contact">{t("request-information")}</Link>
               </Button>
             </div>
           </div>
           <div className="space-y-4">
-            <Card>
+            <Card className="dark:bg-[#2f1010]">
               <CardHeader>
                 <CardTitle className="text-2xl">{t("card-title")}</CardTitle>
                 <CardDescription>{t("card-subtitle")}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-500 mb-4">{t("card-description")}</p>
+                <p className="text-gray mb-4">{t("card-description")}</p>
                 <Button
                   asChild
                   className="w-full bg-emerald-600 hover:bg-emerald-700"

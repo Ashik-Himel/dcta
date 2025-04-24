@@ -121,10 +121,8 @@ export default function LocationSection() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">{t("office-hours")}</h3>
                 <div className="grid grid-cols-2 gap-2">
-                  <div>{t("sat-thurs")}</div>
-                  <div>9:00 AM - 6:00 PM</div>
-                  <div>{t("friday")}</div>
-                  <div>10:00 AM - 4:00 PM</div>
+                  <div>{t("everyday")}</div>
+                  <div>09:00 AM - 10:00 PM</div>
                 </div>
               </div>
             </div>

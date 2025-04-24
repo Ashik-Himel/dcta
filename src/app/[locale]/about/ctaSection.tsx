@@ -22,10 +22,10 @@ export default function CtaSection() {
             <p className="md:text-xl/relaxed mb-6">{t("description")}</p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button asChild size="lg">
-                <Link href="/admission">{t("get-admission")}</Link>
+                <Link href="/admission#admission">{t("get-admission")}</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/contact">{t("contact-us")}</Link>
+                <Link href="/contact#contact">{t("contact-us")}</Link>
               </Button>
             </div>
           </div>

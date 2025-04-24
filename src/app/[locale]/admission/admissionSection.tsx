@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import { courses } from "@/app/data/courses";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -30,45 +31,53 @@ import { Textarea } from "@/components/ui/textarea";
 import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
+  ArrowLeft,
   ArrowRight,
   CheckCircle,
   FileText,
   GraduationCap,
   Upload,
 } from "lucide-react";
-import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const formSchema = z.object({
-  fullName: z.string().min(2, {
-    message: "Full name must be at least 2 characters.",
-  }),
-  email: z
-    .string()
-    .email({
-      message: "Please enter a valid email address.",
-    })
-    .optional(),
-  phone: z.string().min(10, {
-    message: "Please enter a valid phone number.",
-  }),
-  address: z.string().min(5, {
-    message: "Address must be at least 5 characters.",
-  }),
-  course: z.string({
-    required_error: "Please select a course.",
-  }),
-  batch: z.string({
-    required_error: "Please select a preferred batch.",
-  }),
-  message: z.string().optional(),
-});
-
 export default function AdmissionSection() {
+  const t = useTranslations("AdmissionPage.StepsSection");
+  const t2 = useTranslations("AdmissionPage.AdmissionSection");
+  const t3 = useTranslations("Information.Courses");
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const admissionFormRef = useRef<HTMLElement | null>(null);
+  const courseParam = useSearchParams().get("course");
+
+  const formSchema = z.object({
+    fullName: z.string().min(2, {
+      message: t2("name-error"),
+    }),
+    email: z
+      .string()
+      .email({
+        message: t2("email-error"),
+      })
+      .optional(),
+    phone: z.string().min(10, {
+      message: t2("phone-error"),
+    }),
+    address: z.string().min(5, {
+      message: t2("address-error"),
+    }),
+    course: z.string({
+      required_error: t2("course-error"),
+    }),
+    batch: z.string({
+      required_error: t2("batch-error"),
+    }),
+    message: z.string().optional(),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -91,6 +100,7 @@ export default function AdmissionSection() {
       console.log(values);
       setIsSubmitting(false);
       setIsSubmitted(true);
+      admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
       // toast({
       //   title: "Application Submitted!",
       //   description:
@@ -106,37 +116,39 @@ export default function AdmissionSection() {
     form.trigger(fieldsToValidate as any).then((isValid) => {
       if (isValid) {
         setStep(step + 1);
-        window.scrollTo(0, 0);
+        admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
       }
     });
   };
 
   const prevStep = () => {
     setStep(step - 1);
-    window.scrollTo(0, 0);
+    admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       {/* Admission Process */}
-      <section className="w-full py-12 md:py-16">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+      <section className="pt-2 md:pt-6 lg:pt-10" id="admission">
+        <div className="container">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Admission Process
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+                {t("title-1")}{" "}
+                <span className="text-gradient">{t("title-2")}</span>{" "}
+                {t("title-3")}
               </h2>
-              <p className="max-w-[700px] text-slate-500 md:text-xl/relaxed">
-                Our simple 3-step process to enroll in your desired course.
-              </p>
+              <span className="text-center max-w-[700px] mx-auto md:text-lg text-gray block mb-6 md:mb-8">
+                {t("subtitle")}
+              </span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card
-              className={`border-l-4 ${
+              className={`border-l-4 bg-background ${
                 step === 1 && !isSubmitted
-                  ? "border-l-emerald-600"
-                  : "border-l-emerald-200"
+                  ? "border-l-primary"
+                  : "border-l-light-primary"
               }`}
             >
               <CardHeader>
@@ -144,24 +156,22 @@ export default function AdmissionSection() {
                   <div
                     className={`rounded-full p-2 ${
                       step === 1 && !isSubmitted
-                        ? "bg-emerald-100 text-emerald-600"
+                        ? "bg-light-primary dark:bg-[#2f1010] text-primary"
                         : "bg-slate-100 text-slate-400"
                     }`}
                   >
                     <FileText className="h-5 w-5" />
                   </div>
-                  <CardTitle>Step 1: Course Selection</CardTitle>
+                  <CardTitle>{t("step-1")}</CardTitle>
                 </div>
-                <CardDescription>
-                  Choose your preferred course and batch timing.
-                </CardDescription>
+                <CardDescription>{t("step-1-text")}</CardDescription>
               </CardHeader>
             </Card>
             <Card
-              className={`border-l-4 ${
+              className={`border-l-4 bg-background ${
                 step === 2 && !isSubmitted
-                  ? "border-l-emerald-600"
-                  : "border-l-emerald-200"
+                  ? "border-l-primary"
+                  : "border-l-light-primary"
               }`}
             >
               <CardHeader>
@@ -169,22 +179,20 @@ export default function AdmissionSection() {
                   <div
                     className={`rounded-full p-2 ${
                       step === 2 && !isSubmitted
-                        ? "bg-emerald-100 text-emerald-600"
+                        ? "bg-light-primary dark:bg-[#2f1010] text-primary"
                         : "bg-slate-100 text-slate-400"
                     }`}
                   >
                     <Upload className="h-5 w-5" />
                   </div>
-                  <CardTitle>Step 2: Personal Information</CardTitle>
+                  <CardTitle>{t("step-2")}</CardTitle>
                 </div>
-                <CardDescription>
-                  Complete the application with your personal details.
-                </CardDescription>
+                <CardDescription>{t("step-2-text")}</CardDescription>
               </CardHeader>
             </Card>
             <Card
-              className={`border-l-4 ${
-                isSubmitted ? "border-l-emerald-600" : "border-l-emerald-200"
+              className={`border-l-4 bg-background ${
+                isSubmitted ? "border-l-primary" : "border-l-light-primary"
               }`}
             >
               <CardHeader>
@@ -192,17 +200,15 @@ export default function AdmissionSection() {
                   <div
                     className={`rounded-full p-2 ${
                       isSubmitted
-                        ? "bg-emerald-100 text-emerald-600"
+                        ? "bg-light-primary dark:bg-[#2f1010] text-primary"
                         : "bg-slate-100 text-slate-400"
                     }`}
                   >
                     <GraduationCap className="h-5 w-5" />
                   </div>
-                  <CardTitle>Step 3: Begin Learning</CardTitle>
+                  <CardTitle>{t("step-3")}</CardTitle>
                 </div>
-                <CardDescription>
-                  Receive confirmation and start your learning journey.
-                </CardDescription>
+                <CardDescription>{t("step-3-text")}</CardDescription>
               </CardHeader>
             </Card>
           </div>
@@ -210,52 +216,51 @@ export default function AdmissionSection() {
       </section>
 
       {/* Application Form */}
-      <section className="w-full py-12 md:py-24">
-        <div className="container px-4 md:px-6">
+      <section
+        className="pb-12 md:pb-16 lg:pb-20 pt-6 md:pt-10"
+        ref={admissionFormRef}
+      >
+        <div className="container">
           {isSubmitted ? (
             <div className="max-w-3xl mx-auto text-center space-y-6">
-              <div className="inline-flex items-center justify-center rounded-full bg-emerald-100 p-4 text-emerald-600">
+              <div className="inline-flex items-center justify-center rounded-full bg-light-primary p-4 text-primary">
                 <CheckCircle className="h-10 w-10" />
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Application Submitted Successfully!
+                {t2("success-title-1")}{" "}
+                <span className="text-gradient">{t2("success-title-2")}</span>{" "}
+                {t2("success-title-3")}
               </h2>
-              <p className="text-slate-500 md:text-xl/relaxed">
-                Thank you for applying to IT Training Academy. We have received
-                your application and will review it shortly. You will receive a
-                confirmation email with further instructions.
-              </p>
+              <p className="text-gray">{t2("success-description")}</p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-700"
-                >
-                  <Link href="/">Return to Home</Link>
+                <Button asChild size="lg">
+                  <Link href="/">{t2("return-home")}</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Contact Us</Link>
+                  <Link href="/contact">{t2("contact-us")}</Link>
                 </Button>
               </div>
             </div>
           ) : (
             <div className="max-w-3xl mx-auto">
-              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-6 md:mb-8">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                    {step === 1 ? "Course Selection" : "Personal Information"}
-                  </h2>
-                  <p className="max-w-[700px] text-slate-500 md:text-xl/relaxed">
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
                     {step === 1
-                      ? "Select your preferred course and batch timing."
-                      : "Please provide your personal details below."}
+                      ? t2("selection-title")
+                      : t2("information-title")}
+                  </h2>
+                  <p className="text-center max-w-[700px] mx-auto md:text-lg text-gray block">
+                    {step === 1
+                      ? t2("selection-description")
+                      : t2("information-description")}
                   </p>
                 </div>
               </div>
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-8"
+                  className="space-y-6"
                 >
                   {step === 1 && (
                     <>
@@ -263,42 +268,33 @@ export default function AdmissionSection() {
                         control={form.control}
                         name="course"
                         render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Course</FormLabel>
+                          <FormItem className="w-full">
+                            <FormLabel className="mb-2">
+                              {t2("course-label")}
+                            </FormLabel>
                             <Select
                               onValueChange={field.onChange}
-                              defaultValue={field.value}
+                              defaultValue={
+                                courseParam ? courseParam : field.value
+                              }
                             >
-                              <FormControl>
+                              <FormControl className="w-full bg-white cursor-pointer select-none">
                                 <SelectTrigger>
-                                  <SelectValue placeholder="Select a course" />
+                                  <SelectValue
+                                    placeholder={t2("course-placeholder")}
+                                  />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="web-development">
-                                  Web Design & Development
-                                </SelectItem>
-                                <SelectItem value="advanced-web">
-                                  Advanced Web Development
-                                </SelectItem>
-                                <SelectItem value="graphic-design">
-                                  Graphic Design
-                                </SelectItem>
-                                <SelectItem value="ui-ux">
-                                  UI/UX Design
-                                </SelectItem>
-                                <SelectItem value="digital-marketing">
-                                  Digital Marketing
-                                </SelectItem>
-                                <SelectItem value="social-media">
-                                  Social Media Marketing
-                                </SelectItem>
-                                <SelectItem value="computer-basics">
-                                  Basic Computer Applications
-                                </SelectItem>
-                                <SelectItem value="advanced-excel">
-                                  Advanced Excel
-                                </SelectItem>
+                                {courses?.map((course) => (
+                                  <SelectItem
+                                    key={course.title}
+                                    value={course.title}
+                                    className="cursor-pointer select-none"
+                                  >
+                                    {t3(course.title)}
+                                  </SelectItem>
+                                ))}
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -309,37 +305,30 @@ export default function AdmissionSection() {
                         control={form.control}
                         name="batch"
                         render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Preferred Batch</FormLabel>
-                            <FormControl>
+                          <FormItem className="w-full">
+                            <FormLabel className="mb-2">
+                              {t2("batch-label")}
+                            </FormLabel>
+                            <FormControl className="w-full">
                               <RadioGroup
                                 onValueChange={field.onChange}
                                 defaultValue={field.value}
-                                className="flex flex-col space-y-1"
+                                className="flex flex-wrap items-center gap-x-6 md:gap-x-12"
                               >
-                                <FormItem className="flex items-center space-x-3 space-y-0">
-                                  <FormControl>
-                                    <RadioGroupItem value="weekday" />
+                                <FormItem className="flex items-center space-x-1 space-y-0">
+                                  <FormControl className="bg-white text-primary cursor-pointer">
+                                    <RadioGroupItem value="sat-mon" />
                                   </FormControl>
-                                  <FormLabel className="font-normal">
-                                    Weekday (Monday-Friday, 10:00 AM - 1:00 PM)
+                                  <FormLabel className="font-normal cursor-pointer select-none">
+                                    {t2("sat-mon")}
                                   </FormLabel>
                                 </FormItem>
-                                <FormItem className="flex items-center space-x-3 space-y-0">
-                                  <FormControl>
-                                    <RadioGroupItem value="weekend" />
+                                <FormItem className="flex items-center space-x-1 space-y-0">
+                                  <FormControl className="bg-white text-primary cursor-pointer">
+                                    <RadioGroupItem value="tue-thurs" />
                                   </FormControl>
-                                  <FormLabel className="font-normal">
-                                    Weekend (Saturday-Sunday, 10:00 AM - 4:00
-                                    PM)
-                                  </FormLabel>
-                                </FormItem>
-                                <FormItem className="flex items-center space-x-3 space-y-0">
-                                  <FormControl>
-                                    <RadioGroupItem value="evening" />
-                                  </FormControl>
-                                  <FormLabel className="font-normal">
-                                    Evening (Monday-Friday, 6:00 PM - 9:00 PM)
+                                  <FormLabel className="font-normal cursor-pointer select-none">
+                                    {t2("tue-thurs")}
                                   </FormLabel>
                                 </FormItem>
                               </RadioGroup>
@@ -358,9 +347,15 @@ export default function AdmissionSection() {
                         name="fullName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Full Name</FormLabel>
+                            <FormLabel className="mb-2">
+                              {t2("name-label")}
+                            </FormLabel>
                             <FormControl>
-                              <Input placeholder="John Doe" {...field} />
+                              <Input
+                                placeholder={t2("name-placeholder")}
+                                className="bg-white"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -371,11 +366,14 @@ export default function AdmissionSection() {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Email (Optional)</FormLabel>
+                            <FormLabel className="mb-2">
+                              {t2("email-label")}
+                            </FormLabel>
                             <FormControl>
                               <Input
                                 type="email"
-                                placeholder="john.doe@example.com"
+                                placeholder={t2("email-placeholder")}
+                                className="bg-white"
                                 {...field}
                               />
                             </FormControl>
@@ -388,10 +386,13 @@ export default function AdmissionSection() {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Phone Number</FormLabel>
+                            <FormLabel className="mb-2">
+                              {t2("phone-label")}
+                            </FormLabel>
                             <FormControl>
                               <Input
-                                placeholder="+1 (555) 123-4567"
+                                placeholder={t2("phone-placeholder")}
+                                className="bg-white"
                                 {...field}
                               />
                             </FormControl>
@@ -404,10 +405,13 @@ export default function AdmissionSection() {
                         name="address"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Address</FormLabel>
+                            <FormLabel className="mb-2">
+                              {t2("address-label")}
+                            </FormLabel>
                             <FormControl>
                               <Textarea
-                                placeholder="123 Main St, City, Country"
+                                placeholder={t2("address-placeholder")}
+                                className="bg-white"
                                 {...field}
                               />
                             </FormControl>
@@ -420,51 +424,23 @@ export default function AdmissionSection() {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Additional Message (Optional)</FormLabel>
+                            <FormLabel className="mb-2">
+                              {t2("message-label")}
+                            </FormLabel>
                             <FormControl>
                               <Textarea
-                                placeholder="Any additional information you'd like to share..."
+                                placeholder={t2("message-placeholder")}
+                                className="bg-white"
                                 {...field}
                               />
                             </FormControl>
                             <FormDescription>
-                              Share any additional information that might be
-                              relevant to your application.
+                              {t2("message-description")}
                             </FormDescription>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
-                      <div className="space-y-2">
-                        <div className="flex items-center space-x-2">
-                          <input
-                            type="checkbox"
-                            id="terms"
-                            className="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600"
-                            required
-                          />
-                          <label
-                            htmlFor="terms"
-                            className="text-sm text-gray-600"
-                          >
-                            I agree to the{" "}
-                            <Link
-                              href="/terms"
-                              className="text-emerald-600 hover:underline"
-                            >
-                              Terms and Conditions
-                            </Link>{" "}
-                            and{" "}
-                            <Link
-                              href="/privacy-policy"
-                              className="text-emerald-600 hover:underline"
-                            >
-                              Privacy Policy
-                            </Link>
-                            .
-                          </label>
-                        </div>
-                      </div>
                     </>
                   )}
 
@@ -472,27 +448,30 @@ export default function AdmissionSection() {
                     {step > 1 && (
                       <Button
                         type="button"
+                        form="none"
                         variant="outline"
                         onClick={prevStep}
+                        className="cursor-pointer select-none"
                       >
-                        Previous
+                        <ArrowLeft className="ml-2 h-4 w-4" /> {t2("previous")}
                       </Button>
                     )}
                     {step < 2 ? (
                       <Button
                         type="button"
-                        className="ml-auto bg-emerald-600 hover:bg-emerald-700"
+                        form="none"
+                        className="ml-auto cursor-pointer select-none"
                         onClick={nextStep}
                       >
-                        Next <ArrowRight className="ml-2 h-4 w-4" />
+                        {t2("next")} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     ) : (
                       <Button
                         type="submit"
-                        className="ml-auto bg-emerald-600 hover:bg-emerald-700"
+                        className="ml-auto cursor-pointer select-none"
                         disabled={isSubmitting}
                       >
-                        {isSubmitting ? "Submitting..." : "Submit Application"}
+                        {isSubmitting ? t2("submitting") : t2("submit")}
                       </Button>
                     )}
                   </div>

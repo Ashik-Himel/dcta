@@ -72,7 +72,13 @@ export default function CourseCard({
           </div>
         </div>
         <Button className="w-full mt-auto" asChild>
-          <Link href={slug ? `/admission?course=${slug}` : "/admission"}>
+          <Link
+            href={
+              slug
+                ? `/admission?course=${slug}#admission`
+                : "/admission#admission"
+            }
+          >
             {t("get-admission")}
           </Link>
         </Button>

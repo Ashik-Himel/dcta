@@ -1,15 +1,13 @@
-import basicComputerApplication from "@/assets/courses/basic-computer-application.png";
-import digitalMarketing from "@/assets/courses/digital-marketing.png";
-import graphicDesign from "@/assets/courses/graphic-design.png";
-import webDevelopment from "@/assets/courses/web-development.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, BookOpenText } from "lucide-react";
 import { useTranslations } from "next-intl";
 import CourseCard from "../../components/cards/courseCard";
+import { courses } from "../data/courses";
 
 export default function PopularCoursesSection() {
   const t = useTranslations("HomePage.PopularCoursesSection");
+  const t2 = useTranslations("Information.Courses");
 
   return (
     <section className="pb-12 md:pb-16 lg:pb-20">
@@ -21,46 +19,24 @@ export default function PopularCoursesSection() {
           {t("subtitle")}
         </span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          <CourseCard
-            thumbnail={basicComputerApplication}
-            category={t("basic-computer")}
-            duration={6}
-            title={t("basic-computer-application")}
-            discountPrice={7999}
-            regularPrice={12000}
-            slug="basic-computer-application"
-            badgeText={t("top-selling")}
-          />
-          <CourseCard
-            thumbnail={webDevelopment}
-            category={t("web-development")}
-            duration={6}
-            title={t("web-development")}
-            discountPrice={12000}
-            regularPrice={20000}
-            slug="web-development"
-          />
-          <CourseCard
-            thumbnail={graphicDesign}
-            category={t("graphic-design")}
-            duration={6}
-            title={t("graphic-design")}
-            discountPrice={12000}
-            regularPrice={20000}
-            slug="graphic-design"
-          />
-          <CourseCard
-            thumbnail={digitalMarketing}
-            category={t("digital-marketing")}
-            duration={6}
-            title={t("advanced-digital-marketing")}
-            discountPrice={12000}
-            regularPrice={20000}
-            slug="advanced-digital-marketing"
-            badgeText={t("best-deal")}
-          />
+          {courses
+            ?.filter((tempCourse) => tempCourse?.featured)
+            ?.slice(0, 4)
+            ?.map((course, index) => (
+              <CourseCard
+                key={index}
+                thumbnail={course.thumbnail}
+                category={t2(course.category)}
+                duration={course.duration}
+                title={t2(course.title)}
+                discountPrice={course.discountPrice}
+                regularPrice={course.regularPrice}
+                slug={course.slug}
+                badgeText={course?.badgeText ? t2(course.badgeText) : undefined}
+              />
+            ))}
           <Link
-            href="/courses"
+            href="/courses#courses"
             className="hidden lg:flex xl:hidden rounded-lg card-border lg:py-16 bg-light-primary justify-center items-center"
           >
             <div className="flex items-center gap-2 text-xl font-medium text-primary">
@@ -73,7 +49,7 @@ export default function PopularCoursesSection() {
         </div>
         <div className="lg:hidden xl:block text-center mt-6 lg:mt-8">
           <Button size="lg" asChild>
-            <Link href="/courses">
+            <Link href="/courses#courses">
               <BookOpenText /> {t("view-all-courses")}
             </Link>
           </Button>

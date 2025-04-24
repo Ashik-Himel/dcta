@@ -1,6 +1,7 @@
 import basicComputer from "@/assets/icons/basic-computer.png";
 import digitalMarketing from "@/assets/icons/digital-marketing.png";
 import graphicDesign from "@/assets/icons/graphic-design.png";
+import hardware from "@/assets/icons/hardware.png";
 import webDevelopment from "@/assets/icons/web-development.png";
 
 export const categories = [
@@ -17,11 +18,16 @@ export const categories = [
   {
     img: graphicDesign,
     text: "graphic-design",
-    courseCount: 1,
+    courseCount: 2,
   },
   {
     img: digitalMarketing,
     text: "digital-marketing",
     courseCount: 1,
+  },
+  {
+    img: hardware,
+    text: "hardware",
+    courseCount: 2,
   },
 ];

@@ -13,7 +13,7 @@ export default function CategoryCard({
   courseCount: number;
 }) {
   const params = useParams();
-  const t = useTranslations("HomePage.CategoriesSection");
+  const t = useTranslations("Information.Courses");
 
   return (
     <div className="px-4 py-6 rounded-lg card-border bg-background text-center">

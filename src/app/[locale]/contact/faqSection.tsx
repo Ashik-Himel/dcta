@@ -66,9 +66,9 @@ export default function FaqSection() {
         </span>
         <div className="grid md:grid-cols-2 gap-6">
           {(params.locale === "en" ? faqs : faqsBangla).map((faq, index) => (
-            <div key={index} className="space-y-2 bg-white p-6 rounded-lg">
+            <div key={index} className="space-y-2 bg-background p-6 rounded-lg">
               <h3 className="text-xl font-bold">{faq.question}</h3>
-              <p className="text-slate-500">{faq.answer}</p>
+              <p className="text-gray">{faq.answer}</p>
             </div>
           ))}
         </div>

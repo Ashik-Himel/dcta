@@ -21,9 +21,7 @@ export default function CoursesHeroSection() {
               <span className="text-gradient">{t("heading-2")}</span>{" "}
               {t("heading-3")}
             </h1>
-            <p className="text-gray-600 md:text-xl/relaxed">
-              {t("description")}
-            </p>
+            <p className="text-gray md:text-xl/relaxed">{t("description")}</p>
             <div className="flex items-center gap-2">
               <Button size="lg" asChild>
                 <Link href="/courses/#courses">
@@ -31,7 +29,7 @@ export default function CoursesHeroSection() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/admission">
+                <Link href="/admission#admission">
                   <FileSliders /> {t("get-admission")}
                 </Link>
               </Button>

@@ -28,13 +28,13 @@ export default function SuccessStoriesSection() {
                 avatar={story.avatar}
                 name={story.name}
                 role={story.role}
-                thumbnail={story.thumbnail}
+                thumbnailLink={story.thumbnailLink}
                 videoUrl={story.videoUrl}
                 course={story.course}
               />
             ))}
           <Link
-            href="/success-stories"
+            href="/success-stories#stories"
             className="hidden md:flex lg:hidden rounded-lg card-border py-16 bg-light-primary justify-center items-center"
           >
             <div className="flex items-center gap-2 text-xl font-medium text-primary">
@@ -47,7 +47,7 @@ export default function SuccessStoriesSection() {
         </div>
         <div className="text-center mt-6 lg:mt-8 md:hidden lg:block">
           <Button size="lg" asChild>
-            <Link href="/success-stories">
+            <Link href="/success-stories#stories">
               <FileVideo /> {t("see-more")}
             </Link>
           </Button>

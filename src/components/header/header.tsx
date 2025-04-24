@@ -1,3 +1,5 @@
+"use client";
+
 import dctaLogoDark from "@/assets/dcta-logo-dark.png";
 import dctaLogo from "@/assets/dcta-logo.png";
 import { Link } from "@/i18n/navigation";
@@ -6,6 +8,7 @@ import { Mail, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { default as BaseLink } from "next/link";
+import { useEffect, useState } from "react";
 import LangToggler from "../language/langToggler";
 import { ThemeToggler } from "../theme/themeToggler";
 import { Button } from "../ui/button";
@@ -15,6 +18,16 @@ import { navLinks } from "./navLinks";
 
 export default function Header() {
   const t = useTranslations("Header");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -47,7 +60,11 @@ export default function Header() {
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-[#faf0f0]/60 dark:supports-[backdrop-filter]:bg-[#2f1010]/60">
+      <header
+        className={`sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-[#faf0f0]/60 dark:supports-[backdrop-filter]:bg-[#2f1010]/60 ${
+          scrolled ? "border-b shadow-lg" : ""
+        }`}
+      >
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-4">
             <HeaderDrawer />

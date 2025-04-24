@@ -21,9 +21,7 @@ export default function AdmissionHeroSection() {
               <span className="text-gradient">{t("heading-2")}</span>{" "}
               {t("heading-3")}
             </h1>
-            <p className="text-gray-600 md:text-xl/relaxed">
-              {t("description")}
-            </p>
+            <p className="text-gray md:text-xl/relaxed">{t("description")}</p>
             <Button size="lg" asChild>
               <Link href="/admission/#admission">
                 <ReceiptText /> {t("get-admission")}
