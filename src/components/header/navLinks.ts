@@ -10,32 +10,32 @@ import {
 export const navLinks = [
   {
     text: "home",
-    href: "/",
+    href: "/#top",
     icon: Home,
   },
   {
     text: "about",
-    href: "/about",
+    href: "/about#top",
     icon: ReceiptText,
   },
   {
     text: "success-stories",
-    href: "/success-stories",
+    href: "/success-stories#top",
     icon: ScrollText,
   },
   {
     text: "contact",
-    href: "/contact",
+    href: "/contact#top",
     icon: Contact,
   },
   {
     text: "courses",
-    href: "/courses",
+    href: "/courses#top",
     icon: BookOpenText,
   },
   {
     text: "get-admission",
-    href: "/admission",
+    href: "/admission#top",
     icon: FileSliders,
   },
 ];

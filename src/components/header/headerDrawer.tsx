@@ -17,7 +17,7 @@ export default function HeaderDrawer() {
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="bg-light-primary w-[18rem] p-2 gap-0"
+        className="w-[18rem] p-2 gap-0 backdrop-blur supports-[backdrop-filter]:bg-[#faf0f0]/60 dark:supports-[backdrop-filter]:bg-[#2f1010]/60"
       >
         <Image
           src={dctaLogo}

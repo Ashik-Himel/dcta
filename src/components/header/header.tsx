@@ -68,7 +68,7 @@ export default function Header() {
         <div className="container flex justify-between items-center py-4">
           <div className="flex items-center gap-4">
             <HeaderDrawer />
-            <Link href="/">
+            <Link href="/#top">
               <Image
                 src={dctaLogo}
                 alt="DCTA Logo"

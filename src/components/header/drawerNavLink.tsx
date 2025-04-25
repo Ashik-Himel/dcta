@@ -22,7 +22,7 @@ export default function DrawerNavLink({
         href={href}
         className={cn(
           "flex items-center gap-3 p-2 rounded-lg text-sidebar-foreground font-medium hover:bg-accent",
-          pathname === href ? "bg-primary text-background hover:bg-primary" : ""
+          pathname === href ? "bg-primary text-white hover:bg-primary" : ""
         )}
       >
         {icon}
