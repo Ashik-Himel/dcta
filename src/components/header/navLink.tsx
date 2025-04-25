@@ -10,7 +10,10 @@ export default function NavLink({
 }) {
   const pathname = usePathname();
   return (
-    <Link href={href} className={pathname === href ? "text-primary" : ""}>
+    <Link
+      href={href}
+      className={pathname === href?.split("#")[0] ? "text-primary" : ""}
+    >
       {text}
     </Link>
   );
