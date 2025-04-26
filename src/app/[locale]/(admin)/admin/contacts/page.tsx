@@ -1,5 +1,6 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
 import { Metadata } from "next";
+import ContactsPageContent from "./pageContent";
 
 export const metadata: Metadata = {
   title: "Contacts - Dashboard",
@@ -12,7 +13,7 @@ export default function AdminContacts() {
   return (
     <main>
       <DashboardHeading headingText="Contacts" />
-      <div className="p-4">Admin Contacts Page</div>
+      <ContactsPageContent />
     </main>
   );
 }

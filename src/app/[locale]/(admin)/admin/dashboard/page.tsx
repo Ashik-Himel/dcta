@@ -1,5 +1,6 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
 import { Metadata } from "next";
+import DashboardPageContent from "./pageContent";
 
 export const metadata: Metadata = {
   title: "Dashboard - DCTA",
@@ -12,7 +13,7 @@ export default function AdminDashboard() {
   return (
     <main>
       <DashboardHeading headingText="Dashboard" />
-      <div className="p-4">Admin Dashboard Page</div>
+      <DashboardPageContent />
     </main>
   );
 }

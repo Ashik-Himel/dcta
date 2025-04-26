@@ -1,5 +1,6 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
 import { Metadata } from "next";
+import AdmissionPageContent from "./pageContent";
 
 export const metadata: Metadata = {
   title: "Admissions - Dashboarrd",
@@ -12,7 +13,7 @@ export default function AdminAdmissions() {
   return (
     <main>
       <DashboardHeading headingText="Admissions" />
-      <div className="p-4">Admin Admissions Page</div>
+      <AdmissionPageContent />
     </main>
   );
 }
