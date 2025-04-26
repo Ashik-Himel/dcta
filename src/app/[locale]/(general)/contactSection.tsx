@@ -1,7 +1,7 @@
 import { Facebook, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { default as BaseLink } from "next/link";
-import ContactForm from "../../components/forms/contactForm";
+import ContactForm from "../../../components/forms/contactForm";
 
 export default function ContactSection() {
   const t = useTranslations("HomePage.ContactSection");

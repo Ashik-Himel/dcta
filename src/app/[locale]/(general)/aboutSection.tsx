@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { ReceiptText, UserRoundPen } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import AboutFeatureCard from "../../components/cards/aboutFeatureCard";
+import AboutFeatureCard from "../../../components/cards/aboutFeatureCard";
 
 export default function AboutSection() {
   const t = useTranslations("HomePage.AboutSection");

@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, FileVideo } from "lucide-react";
 import { useTranslations } from "next-intl";
-import StoryCard from "../../components/cards/storyCard";
-import { stories } from "../data/stories";
+import StoryCard from "../../../components/cards/storyCard";
+import { stories } from "../../../data/stories";
 
 export default function SuccessStoriesSection() {
   const t = useTranslations("HomePage.SuccessStoriesSection");

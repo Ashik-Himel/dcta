@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import InstructorCard from "../../components/cards/instructorCard";
-import { instructors } from "../data/instructors";
+import InstructorCard from "../../../components/cards/instructorCard";
+import { instructors } from "../../../data/instructors";
 
 export default function InstructorsSection() {
   const t = useTranslations("HomePage.InstructorsSection");

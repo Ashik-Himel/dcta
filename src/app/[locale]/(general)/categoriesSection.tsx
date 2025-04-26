@@ -6,8 +6,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CategoryCard from "../../components/cards/categoryCard";
-import { categories } from "../data/categories";
+import CategoryCard from "../../../components/cards/categoryCard";
+import { categories } from "../../../data/categories";
 
 export default function CategoriesSection() {
   const t = useTranslations("Information.Courses");

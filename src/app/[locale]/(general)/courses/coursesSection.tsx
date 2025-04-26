@@ -1,5 +1,5 @@
-import { courses } from "@/app/data/courses";
 import CourseCard from "@/components/cards/courseCard";
+import { courses } from "@/data/courses";
 import { useTranslations } from "next-intl";
 
 export default function CoursesSection() {

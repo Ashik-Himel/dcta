@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { courses } from "@/app/data/courses";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -28,6 +27,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { courses } from "@/data/courses";
 import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {

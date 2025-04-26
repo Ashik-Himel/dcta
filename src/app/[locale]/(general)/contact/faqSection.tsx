@@ -1,6 +1,6 @@
 "use client";
 
-import { contactFaqs, contactFaqsBangla } from "@/app/data/faqs";
+import { contactFaqs, contactFaqsBangla } from "@/data/faqs";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 

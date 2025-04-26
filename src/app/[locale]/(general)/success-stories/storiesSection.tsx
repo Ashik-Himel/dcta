@@ -1,5 +1,5 @@
-import { stories } from "@/app/data/stories";
 import StoryCard from "@/components/cards/storyCard";
+import { stories } from "@/data/stories";
 import { useTranslations } from "next-intl";
 
 export default function Stories() {
