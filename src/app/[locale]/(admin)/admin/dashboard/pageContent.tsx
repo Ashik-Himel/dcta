@@ -137,9 +137,7 @@ export default function DashboardPageContent() {
         </Card>
         <Card className="bg-background">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-sm font-medium">
-              Contact Contacts
-            </CardTitle>
+            <CardTitle className="text-sm font-medium">Contacts</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -164,7 +162,7 @@ export default function DashboardPageContent() {
                     className="w-full max-w-[100px] mx-auto"
                   />
                   <h4 className="text-2xl font-semibold mt-4 text-center">
-                    No Items Found!
+                    No Data Found!
                   </h4>
                 </div>
               ) : (
@@ -233,7 +231,7 @@ export default function DashboardPageContent() {
                     className="w-full max-w-[100px] mx-auto"
                   />
                   <h4 className="text-2xl font-semibold mt-4 text-center">
-                    No Items Found!
+                    No Data Found!
                   </h4>
                 </div>
               ) : (

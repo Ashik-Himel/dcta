@@ -96,7 +96,7 @@ export default function ContactsPageContent() {
   return (
     <div className="space-y-6 p-4">
       <div className="flex flex-col">
-        <h2 className="text-3xl font-bold tracking-tight">Contact Contacts</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Contacts</h2>
         <p className="text-muted-foreground">
           Manage and respond to contact form submissions.
         </p>
@@ -173,7 +173,7 @@ export default function ContactsPageContent() {
                   className="w-full max-w-[100px] mx-auto"
                 />
                 <h4 className="text-2xl font-semibold mt-4 text-center">
-                  No Items Found!
+                  No Data Found!
                 </h4>
               </div>
             ) : (

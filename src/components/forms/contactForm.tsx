@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import emailjs from "@emailjs/browser";
+import { serverDomain } from "@/lib/variables";
 import { Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
@@ -31,37 +31,40 @@ export default function ContactForm() {
       form.elements.namedItem("message") as HTMLInputElement
     ).value.trim();
 
-    emailjs
-      .send(
-        "dcta",
-        "dcta_contact",
-        { name, email, subject, message },
-        {
-          publicKey: "sSfKmZ_QCeyBKmoXJ",
-        }
-      )
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: t("success"),
-          text: t("success-text"),
-          iconColor: "#ff0000",
-          confirmButtonColor: "#ff0000",
-        });
-        form.reset();
-        setSubmitDisabled(false);
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: t("error"),
-          text: t("error-text"),
-          iconColor: "#ff0000",
-          confirmButtonColor: "#ff0000",
-        });
-        console.log(error);
-        setSubmitDisabled(false);
+    const res = await fetch(`${serverDomain}/api/contact`, {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        email,
+        subject,
+        message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+
+    if (data?.ok) {
+      Swal.fire({
+        icon: "success",
+        title: t("success"),
+        text: t("success-text"),
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
+      form.reset();
+      setSubmitDisabled(false);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: t("error"),
+        text: t("error-text"),
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
+      });
+      setSubmitDisabled(false);
+    }
   };
 
   return (

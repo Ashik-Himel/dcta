@@ -216,7 +216,7 @@ export default function AdmissionPageContent() {
                   className="w-full max-w-[100px] mx-auto"
                 />
                 <h4 className="text-2xl font-semibold mt-4 text-center">
-                  No Items Found!
+                  No Data Found!
                 </h4>
               </div>
             ) : (
