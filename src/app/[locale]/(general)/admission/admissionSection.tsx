@@ -29,6 +29,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { courses } from "@/data/courses";
 import { Link } from "@/i18n/navigation";
+import { serverDomain } from "@/lib/variables";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ArrowLeft,
@@ -58,12 +59,9 @@ export default function AdmissionSection() {
     fullName: z.string().min(2, {
       message: t2("name-error"),
     }),
-    email: z
-      .string()
-      .email({
-        message: t2("email-error"),
-      })
-      .optional(),
+    email: z.string().email({
+      message: t2("email-error"),
+    }),
     phone: z.string().min(10, {
       message: t2("phone-error"),
     }),
@@ -92,26 +90,34 @@ export default function AdmissionSection() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log(values);
+    const res = await fetch(`${serverDomain}/api/admission`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    const data = await res.json();
+
+    if (data?.ok) {
       setIsSubmitting(false);
       setIsSubmitted(true);
       admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
-      // toast({
-      //   title: "Application Submitted!",
-      //   description:
-      //     "We've received your application and will contact you soon.",
-      // });
-    }, 1500);
-  }
+    } else {
+      setIsSubmitting(false);
+      setStep(1);
+      admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const nextStep = () => {
     const fieldsToValidate =
-      step === 1 ? ["course", "batch"] : ["fullName", "phone", "address"];
+      step === 1
+        ? ["course", "batch"]
+        : ["fullName", "email", "phone", "address"];
 
     form.trigger(fieldsToValidate as any).then((isValid) => {
       if (isValid) {
@@ -259,8 +265,9 @@ export default function AdmissionSection() {
               </div>
               <Form {...form}>
                 <form
-                  onSubmit={form.handleSubmit(onSubmit)}
                   className="space-y-6"
+                  id="admission-form"
+                  onSubmit={form.handleSubmit(onSubmit)}
                 >
                   {step === 1 && (
                     <>
@@ -316,7 +323,7 @@ export default function AdmissionSection() {
                                 className="flex flex-wrap items-center gap-x-6 md:gap-x-12"
                               >
                                 <FormItem className="flex items-center space-x-1 space-y-0">
-                                  <FormControl className="bg-white text-primary cursor-pointer">
+                                  <FormControl className="bg-white text-primary cursor-pointer w-5 h-5">
                                     <RadioGroupItem value="sat-mon" />
                                   </FormControl>
                                   <FormLabel className="font-normal cursor-pointer select-none">
@@ -324,7 +331,7 @@ export default function AdmissionSection() {
                                   </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-1 space-y-0">
-                                  <FormControl className="bg-white text-primary cursor-pointer">
+                                  <FormControl className="bg-white text-primary cursor-pointer w-5 h-5">
                                     <RadioGroupItem value="tue-thurs" />
                                   </FormControl>
                                   <FormLabel className="font-normal cursor-pointer select-none">
@@ -443,40 +450,39 @@ export default function AdmissionSection() {
                       />
                     </>
                   )}
-
-                  <div className="flex justify-between">
-                    {step > 1 && (
-                      <Button
-                        type="button"
-                        form="none"
-                        variant="outline"
-                        onClick={prevStep}
-                        className="cursor-pointer select-none"
-                      >
-                        <ArrowLeft className="ml-2 h-4 w-4" /> {t2("previous")}
-                      </Button>
-                    )}
-                    {step < 2 ? (
-                      <Button
-                        type="button"
-                        form="none"
-                        className="ml-auto cursor-pointer select-none"
-                        onClick={nextStep}
-                      >
-                        {t2("next")} <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    ) : (
-                      <Button
-                        type="submit"
-                        className="ml-auto cursor-pointer select-none"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? t2("submitting") : t2("submit")}
-                      </Button>
-                    )}
-                  </div>
                 </form>
               </Form>
+
+              <div className="flex justify-between mt-6">
+                {step > 1 && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={prevStep}
+                    className="cursor-pointer select-none"
+                  >
+                    <ArrowLeft className="ml-2 h-4 w-4" /> {t2("previous")}
+                  </Button>
+                )}
+                {step < 2 ? (
+                  <Button
+                    type="button"
+                    className="ml-auto cursor-pointer select-none"
+                    onClick={nextStep}
+                  >
+                    {t2("next")} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                ) : (
+                  <Button
+                    type="submit"
+                    form="admission-form"
+                    className="ml-auto cursor-pointer select-none"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? t2("submitting") : t2("submit")}
+                  </Button>
+                )}
+              </div>
             </div>
           )}
         </div>

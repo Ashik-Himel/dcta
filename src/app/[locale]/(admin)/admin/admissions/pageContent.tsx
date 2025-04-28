@@ -29,39 +29,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { courses } from "@/data/courses";
-import { serverDomain } from "@/lib/variables";
-import Cookies from "js-cookie";
 import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function AdmissionPageContent() {
-  const token = Cookies.get("token");
+export default function AdmissionPageContent({
+  admissionsData,
+}: {
+  admissionsData: any[];
+}) {
   const t = useTranslations("Information.Courses");
-  const [admissionsData, setAdmissionsData] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string[]>([]);
   const [courseFilter, setCourseFilter] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
-
-  useEffect(() => {
-    fetch(`${serverDomain}/api/admission/all-applications`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setAdmissionsData(data?.allApplications);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
 
   // Filter applications based on search term and filters
   const filteredApplications = admissionsData.filter((app) => {

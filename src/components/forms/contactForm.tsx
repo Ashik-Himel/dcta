@@ -122,8 +122,14 @@ export default function ContactForm() {
         className="w-full cursor-pointer select-none"
         disabled={submitDisabled}
       >
-        <Send />
-        {t("send-message")}
+        {submitDisabled ? (
+          t("sending")
+        ) : (
+          <>
+            <Send />
+            {t("send-message")}
+          </>
+        )}
       </Button>
     </form>
   );

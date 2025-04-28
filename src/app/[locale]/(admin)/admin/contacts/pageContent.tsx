@@ -28,37 +28,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { serverDomain } from "@/lib/variables";
-import Cookies from "js-cookie";
 import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default function ContactsPageContent() {
-  const token = Cookies.get("token");
-  const [contactsData, setContactsData] = useState<any[]>([]);
+export default function ContactsPageContent({
+  contactsData,
+}: {
+  contactsData: any[];
+}) {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string[]>([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
-
-  useEffect(() => {
-    fetch(`${serverDomain}/api/contact/all-contacts`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setContactsData(data?.allContacts);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
 
   // Filter contacts based on search term and filters
   const filteredContacts = contactsData.filter((contact) => {

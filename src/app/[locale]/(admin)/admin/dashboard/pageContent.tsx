@@ -12,66 +12,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
-import { serverDomain } from "@/lib/variables";
-import Cookies from "js-cookie";
 import { CalendarDays, Clock, MessageSquare, UserPlus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
-export default function DashboardPageContent() {
+export default function DashboardPageContent({
+  stats,
+  recentApplications,
+  recentContacts,
+}: {
+  stats: any;
+  recentApplications: any[];
+  recentContacts: any[];
+}) {
   const t = useTranslations("Information.Courses");
-  const token = Cookies.get("token");
-  const [recentApplications, setRecentApplications] = useState<any[]>([]);
-  const [recentContacts, setRecentContacts] = useState<any[]>([]);
-  const [stats, setStats] = useState<any>({});
-
-  useEffect(() => {
-    fetch(`${serverDomain}/api/admin-stats`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setStats(data?.stats);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-
-    fetch(`${serverDomain}/api/admission/recent-applications`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setRecentApplications(data?.recentApplications);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-
-    fetch(`${serverDomain}/api/contact/recent-contacts`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setRecentContacts(data?.recentContacts);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
