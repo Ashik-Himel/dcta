@@ -45,6 +45,8 @@ export default function ContactAction({
         title: "Status Updated",
         text: "Contact status updated successfully.",
         icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
       setCurrentStatus(newStatus);
     } else {
@@ -52,6 +54,8 @@ export default function ContactAction({
         title: "Error",
         text: data?.message || "Something went wrong.",
         icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
     }
     setSubmitting(false);
@@ -79,7 +83,7 @@ export default function ContactAction({
           </Badge>
         </div>
         <form
-          className="flex justify-between items-center gap-4"
+          className="flex flex-wrap justify-between items-center gap-4"
           onSubmit={handleContactAction}
         >
           <span className="font-medium">Mark As:</span>

@@ -47,6 +47,8 @@ export default function ApplicationAction({
         title: "Status Updated",
         text: "Application status updated successfully.",
         icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
       setCurrentStatus(newStatus);
     } else {
@@ -54,6 +56,8 @@ export default function ApplicationAction({
         title: "Error",
         text: data?.message || "Something went wrong.",
         icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
     }
     setSubmitting(false);
@@ -83,7 +87,7 @@ export default function ApplicationAction({
           </Badge>
         </div>
         <form
-          className="flex justify-between items-center gap-4"
+          className="flex flex-wrap justify-between items-center gap-4"
           onSubmit={handleApplicationAction}
         >
           <span className="font-medium">Mark As:</span>

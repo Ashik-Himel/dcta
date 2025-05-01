@@ -1,6 +1,7 @@
 import FloatingSocialIcons from "@/components/floating-social-icons/floatingSocialIcons";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import ToastContainerComp from "@/components/toast/toastContainer";
 import { routing } from "@/i18n/routing";
 import { bengali, english } from "@/lib/fonts";
 import type { Metadata } from "next";
@@ -50,6 +51,7 @@ export default async function RootLayout({
             <div className="flex-1">{children}</div>
             <Footer />
             <FloatingSocialIcons />
+            <ToastContainerComp />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

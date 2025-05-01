@@ -1,4 +1,5 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -60,16 +61,16 @@ export default async function ApplicationDetailsPage({
       <DashboardHeading headingText="Application Details" />
 
       <div className="p-4 space-y-6">
-        <div className="flex flex-col">
-          <div className="flex items-center gap-2">
-            <h2 className="text-3xl font-bold tracking-tight">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-4">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Application Details
             </h2>
-            <Button size="sm" asChild>
-              <Link href="/admin/admissions">
+            <Link href="/admin/admissions">
+              <Badge>
                 <ArrowLeft /> Back
-              </Link>
-            </Button>
+              </Badge>
+            </Link>
           </div>
           <p className="text-muted-foreground">
             Here is the application details.

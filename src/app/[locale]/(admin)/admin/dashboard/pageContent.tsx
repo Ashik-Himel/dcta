@@ -48,15 +48,17 @@ export default function DashboardPageContent({
 
   return (
     <div className="space-y-6 p-4">
-      <div className="flex flex-col">
-        <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+      <div className="flex flex-col gap-1">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+          Dashboard
+        </h2>
         <p className="text-muted-foreground">
           Welcome to your admin dashboard.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="bg-background">
+        <Card className="bg-background w-full">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium">
               New Applications
@@ -69,7 +71,7 @@ export default function DashboardPageContent({
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-background">
+        <Card className="bg-background w-full">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium">New Contacts</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
@@ -78,7 +80,7 @@ export default function DashboardPageContent({
             <div className="text-2xl font-bold">{stats?.newContacts || 0}</div>
           </CardContent>
         </Card>
-        <Card className="bg-background">
+        <Card className="bg-background w-full">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium">
               Total Applications
@@ -89,7 +91,7 @@ export default function DashboardPageContent({
             <div className="text-2xl font-bold">{stats?.applications || 0}</div>
           </CardContent>
         </Card>
-        <Card className="bg-background">
+        <Card className="bg-background w-full">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium">Contacts</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
@@ -100,14 +102,14 @@ export default function DashboardPageContent({
         </Card>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-7">
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-7">
         <Card className="lg:col-span-4 bg-background">
           <CardHeader>
             <CardTitle>Recent Applications</CardTitle>
             <CardDescription>Here are the recent applications.</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-4 overflow-x-auto">
               {recentApplications?.length === 0 ? (
                 <div className="py-4">
                   <Image
@@ -123,7 +125,7 @@ export default function DashboardPageContent({
                 recentApplications?.map((application) => (
                   <div
                     key={application._id}
-                    className="flex items-center justify-between"
+                    className="flex items-center justify-between gap-6 w-full min-w-fit text-nowrap"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="space-y-1">
@@ -176,7 +178,7 @@ export default function DashboardPageContent({
             <CardDescription>Here are the new contacts.</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-4 overflow-x-auto">
               {recentContacts?.length === 0 ? (
                 <div className="py-4">
                   <Image
@@ -192,7 +194,7 @@ export default function DashboardPageContent({
                 recentContacts?.map((contact) => (
                   <div
                     key={contact._id}
-                    className="flex items-center justify-between"
+                    className="flex items-center justify-between gap-6 w-full min-w-fit text-nowrap"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="space-y-1">

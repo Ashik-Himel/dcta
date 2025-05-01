@@ -256,12 +256,7 @@
       "next": "Next",
       "submitting": "Submitting...",
       "submit": "Submit Application",
-      "name-error": "Full name must be at least 2 characters.",
-      "email-error": "Please enter a valid email address.",
-      "phone-error": "Please enter a valid phone number.",
-      "address-error": "Address must be at least 5 characters.",
-      "course-error": "Please select a course.",
-      "batch-error": "Please select a preferred batch."
+      "step1-error": "All fields required!"
     },
     "CtaSection": {
       "title": "Still Have Questions?",

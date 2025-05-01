@@ -83,8 +83,8 @@ export default function AdmissionPageContent({
 
   return (
     <div className="space-y-6 p-4">
-      <div className="flex flex-col">
-        <h2 className="text-3xl font-bold tracking-tight">
+      <div className="flex flex-col gap-1">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
           Admission Applications
         </h2>
         <p className="text-muted-foreground">
@@ -92,7 +92,7 @@ export default function AdmissionPageContent({
         </p>
       </div>
 
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-wrap gap-4 items-center justify-between">
         <div className="flex w-full max-w-sm items-center space-x-2">
           <Input
             placeholder="Search applications..."
@@ -109,7 +109,7 @@ export default function AdmissionPageContent({
             <span className="ml-2 hidden lg:inline">Search</span>
           </Button>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -191,152 +191,148 @@ export default function AdmissionPageContent({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="w-full overflow-x-auto">
-            {currentItems.length === 0 ? (
-              <div className="py-4">
-                <Image
-                  src={emptyIcon}
-                  alt="Empty Icon"
-                  className="w-full max-w-[100px] mx-auto"
-                />
-                <h4 className="text-2xl font-semibold mt-4 text-center">
-                  No Data Found!
-                </h4>
-              </div>
-            ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead className="hidden md:table-cell">
-                      Course
-                    </TableHead>
-                    <TableHead className="hidden lg:table-cell">Date</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Action</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {currentItems.map((application) => (
-                    <TableRow key={application._id}>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{application.fullName}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {application.phone}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        {t(application.course)}
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        <div className="flex items-center">
-                          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
-                          <span>{formatDate(application.date)}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <Badge
-                          className={
-                            application.status === "New"
-                              ? "bg-gradient"
-                              : application.status === "Called"
-                              ? "bg-yellow-500"
-                              : application.status === "Admitted"
-                              ? "bg-green-500"
-                              : application.status === "Rejected"
-                              ? "bg-red-500"
-                              : ""
-                          }
-                        >
-                          {application.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button size="sm" asChild>
-                          <Link href={`/admin/admissions/${application._id}`}>
-                            View
-                          </Link>
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            )}
-            <div className="flex items-center justify-between px-4 py-3 border-t">
-              <div className="text-sm text-muted-foreground">
-                Showing{" "}
-                <span className="font-medium">{indexOfFirstItem + 1}</span> to{" "}
-                <span className="font-medium">
-                  {Math.min(indexOfLastItem, filteredApplications.length)}
-                </span>{" "}
-                of{" "}
-                <span className="font-medium">
-                  {filteredApplications.length}
-                </span>{" "}
-                results
-              </div>
-              <div className="flex space-x-1">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="cursor-pointer select-none"
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  disabled={currentPage === 1}
-                >
-                  Previous
-                </Button>
-                <div className="flex items-center space-x-1">
-                  {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                    // Show pages around current page
-                    let pageToShow = i + 1;
-                    if (totalPages > 5 && currentPage > 3) {
-                      pageToShow = currentPage - 2 + i;
-                    }
-                    if (pageToShow > totalPages) return null;
-
-                    return (
-                      <Button
-                        key={pageToShow}
-                        variant={
-                          currentPage === pageToShow ? "default" : "outline"
+          {currentItems.length === 0 ? (
+            <div className="py-4">
+              <Image
+                src={emptyIcon}
+                alt="Empty Icon"
+                className="w-full max-w-[100px] mx-auto"
+              />
+              <h4 className="text-2xl font-semibold mt-4 text-center">
+                No Data Found!
+              </h4>
+            </div>
+          ) : (
+            <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead className="hidden lg:table-cell">Course</TableHead>
+                  <TableHead className="hidden lg:table-cell">Date</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {currentItems.map((application) => (
+                  <TableRow key={application._id}>
+                    <TableCell>
+                      <div>
+                        <p className="font-medium w-max max-w-[150px] overflow-hidden text-ellipsis">
+                          {application.fullName}
+                        </p>
+                        <p className="text-xs text-muted-foreground w-max max-w-[155px] overflow-hidden text-ellipsis">
+                          {application.phone}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden lg:table-cell w-max max-w-[180px] overflow-hidden text-ellipsis">
+                      {t(application.course)}
+                    </TableCell>
+                    <TableCell className="hidden lg:table-cell">
+                      <div className="flex items-center">
+                        <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
+                        <span>{formatDate(application.date)}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge
+                        className={
+                          application.status === "New"
+                            ? "bg-gradient"
+                            : application.status === "Called"
+                            ? "bg-yellow-500"
+                            : application.status === "Admitted"
+                            ? "bg-green-500"
+                            : application.status === "Rejected"
+                            ? "bg-red-500"
+                            : ""
                         }
-                        size="sm"
-                        className="w-8 cursor-pointer select-none"
-                        onClick={() => setCurrentPage(pageToShow)}
                       >
-                        {pageToShow}
+                        {application.status}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <Button size="sm" asChild>
+                        <Link href={`/admin/admissions/${application._id}`}>
+                          View
+                        </Link>
                       </Button>
-                    );
-                  })}
-                  {totalPages > 5 && currentPage < totalPages - 2 && (
-                    <>
-                      <span className="px-2">...</span>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-8 cursor-pointer select-none"
-                        onClick={() => setCurrentPage(totalPages)}
-                      >
-                        {totalPages}
-                      </Button>
-                    </>
-                  )}
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="cursor-pointer select-none"
-                  onClick={() =>
-                    setCurrentPage(Math.min(totalPages, currentPage + 1))
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+          <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 border-t">
+            <div className="text-sm text-muted-foreground">
+              Showing{" "}
+              <span className="font-medium">{indexOfFirstItem + 1}</span> to{" "}
+              <span className="font-medium">
+                {Math.min(indexOfLastItem, filteredApplications.length)}
+              </span>{" "}
+              of{" "}
+              <span className="font-medium">{filteredApplications.length}</span>{" "}
+              results
+            </div>
+            <div className="flex space-x-1">
+              <Button
+                variant="outline"
+                size="sm"
+                className="cursor-pointer select-none"
+                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </Button>
+              <div className="flex items-center space-x-1">
+                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                  // Show pages around current page
+                  let pageToShow = i + 1;
+                  if (totalPages > 5 && currentPage > 3) {
+                    pageToShow = currentPage - 2 + i;
                   }
-                  disabled={currentPage === totalPages}
-                >
-                  Next
-                </Button>
+                  if (pageToShow > totalPages) return null;
+
+                  return (
+                    <Button
+                      key={pageToShow}
+                      variant={
+                        currentPage === pageToShow ? "default" : "outline"
+                      }
+                      size="sm"
+                      className="w-8 cursor-pointer select-none"
+                      onClick={() => setCurrentPage(pageToShow)}
+                    >
+                      {pageToShow}
+                    </Button>
+                  );
+                })}
+                {totalPages > 5 && currentPage < totalPages - 2 && (
+                  <>
+                    <span className="px-2">...</span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-8 cursor-pointer select-none"
+                      onClick={() => setCurrentPage(totalPages)}
+                    >
+                      {totalPages}
+                    </Button>
+                  </>
+                )}
               </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="cursor-pointer select-none"
+                onClick={() =>
+                  setCurrentPage(Math.min(totalPages, currentPage + 1))
+                }
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </Button>
             </div>
           </div>
         </CardContent>

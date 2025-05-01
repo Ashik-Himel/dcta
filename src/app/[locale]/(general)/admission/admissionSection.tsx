@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -8,16 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
@@ -30,7 +21,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { courses } from "@/data/courses";
 import { Link } from "@/i18n/navigation";
 import { serverDomain } from "@/lib/variables";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ArrowLeft,
   ArrowRight,
@@ -42,8 +32,8 @@ import {
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 export default function AdmissionSection() {
   const t = useTranslations("AdmissionPage.StepsSection");
@@ -52,53 +42,39 @@ export default function AdmissionSection() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [courseValue, setCourseValue] = useState<string | null>(null);
+  const [batchValue, setBatchValue] = useState<string | null>(null);
   const admissionFormRef = useRef<HTMLElement | null>(null);
   const courseParam = useSearchParams().get("course");
 
-  const formSchema = z.object({
-    fullName: z.string().min(2, {
-      message: t2("name-error"),
-    }),
-    email: z.string().email({
-      message: t2("email-error"),
-    }),
-    phone: z.string().min(10, {
-      message: t2("phone-error"),
-    }),
-    address: z.string().min(5, {
-      message: t2("address-error"),
-    }),
-    course: z.string({
-      required_error: t2("course-error"),
-    }),
-    batch: z.string({
-      required_error: t2("batch-error"),
-    }),
-    message: z.string().optional(),
-  });
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-      address: "",
-      course: "",
-      batch: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleAdmissionSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log("form submitting");
+    e.preventDefault();
     setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const course = formData.get("course") as string;
+    const batch = formData.get("batch") as string;
+    const fullName = formData.get("fullName") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const address = formData.get("address") as string;
+    const message = (formData.get("message") as string) || "";
 
     const res = await fetch(`${serverDomain}/api/admission/applications`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify({
+        course,
+        batch,
+        fullName,
+        email,
+        phone,
+        address,
+        message,
+      }),
     });
     const data = await res.json();
 
@@ -107,24 +83,27 @@ export default function AdmissionSection() {
       setIsSubmitted(true);
       admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
     } else {
-      setIsSubmitting(false);
-      setStep(1);
-      admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
+      Swal.fire({
+        title: "Error",
+        text: data?.message || "Something went wrong!",
+        icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
+      }).then(() => {
+        setIsSubmitting(false);
+        setStep(1);
+        admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
+      });
     }
   };
 
   const nextStep = () => {
-    const fieldsToValidate =
-      step === 1
-        ? ["course", "batch"]
-        : ["fullName", "email", "phone", "address"];
-
-    form.trigger(fieldsToValidate as any).then((isValid) => {
-      if (isValid) {
-        setStep(step + 1);
-        admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
-      }
-    });
+    if (courseValue && batchValue) {
+      setStep(step + 1);
+      admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      toast.error(t2("step1-error"));
+    }
   };
 
   const prevStep = () => {
@@ -263,225 +242,157 @@ export default function AdmissionSection() {
                   </p>
                 </div>
               </div>
-              <Form {...form}>
-                <form
-                  className="space-y-6"
-                  id="admission-form"
-                  onSubmit={form.handleSubmit(onSubmit)}
-                >
-                  {step === 1 && (
-                    <>
-                      <FormField
-                        control={form.control}
-                        name="course"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormLabel className="mb-2">
-                              {t2("course-label")}
-                            </FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={
-                                courseParam ? courseParam : field.value
-                              }
-                            >
-                              <FormControl className="w-full bg-white cursor-pointer select-none">
-                                <SelectTrigger>
-                                  <SelectValue
-                                    placeholder={t2("course-placeholder")}
-                                  />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                {courses?.map((course) => (
-                                  <SelectItem
-                                    key={course.title}
-                                    value={course.title}
-                                    className="cursor-pointer select-none"
-                                  >
-                                    {t3(course.title)}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+              <form id="admission-form" onSubmit={handleAdmissionSubmit}>
+                <div className={step === 1 ? "space-y-6" : "hidden"}>
+                  <Label htmlFor="course" className="mb-3">
+                    {t2("course-label")}
+                  </Label>
+                  <Select
+                    name="course"
+                    defaultValue={courseParam ? courseParam : ""}
+                    onValueChange={(e) => setCourseValue(e)}
+                    required
+                  >
+                    <SelectTrigger className="w-full bg-white cursor-pointer select-none">
+                      <SelectValue placeholder={t2("course-placeholder")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {courses?.map((course) => (
+                        <SelectItem
+                          key={course.title}
+                          value={course.title}
+                          className="cursor-pointer select-none"
+                        >
+                          {t3(course.title)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Label htmlFor="batch" className="mb-3">
+                    {t2("batch-label")}
+                  </Label>
+                  <RadioGroup
+                    name="batch"
+                    onValueChange={(e) => setBatchValue(e)}
+                    className="flex flex-wrap items-center gap-x-6 md:gap-x-12"
+                    required
+                  >
+                    <div className="flex items-center space-x-2 space-y-0">
+                      <RadioGroupItem
+                        value="sat-mon"
+                        id="sat-mon"
+                        className="bg-white text-primary cursor-pointer w-5 h-5"
                       />
-                      <FormField
-                        control={form.control}
-                        name="batch"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormLabel className="mb-2">
-                              {t2("batch-label")}
-                            </FormLabel>
-                            <FormControl className="w-full">
-                              <RadioGroup
-                                onValueChange={field.onChange}
-                                defaultValue={field.value}
-                                className="flex flex-wrap items-center gap-x-6 md:gap-x-12"
-                              >
-                                <FormItem className="flex items-center space-x-1 space-y-0">
-                                  <FormControl className="bg-white text-primary cursor-pointer w-5 h-5">
-                                    <RadioGroupItem value="sat-mon" />
-                                  </FormControl>
-                                  <FormLabel className="font-normal cursor-pointer select-none">
-                                    {t2("sat-mon")}
-                                  </FormLabel>
-                                </FormItem>
-                                <FormItem className="flex items-center space-x-1 space-y-0">
-                                  <FormControl className="bg-white text-primary cursor-pointer w-5 h-5">
-                                    <RadioGroupItem value="tue-thurs" />
-                                  </FormControl>
-                                  <FormLabel className="font-normal cursor-pointer select-none">
-                                    {t2("tue-thurs")}
-                                  </FormLabel>
-                                </FormItem>
-                              </RadioGroup>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                      <Label
+                        htmlFor="sat-mon"
+                        className="font-normal cursor-pointer select-none"
+                      >
+                        {t2("sat-mon")}
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2 space-y-0">
+                      <RadioGroupItem
+                        value="tue-thurs"
+                        id="tue-thurs"
+                        className="bg-white text-primary cursor-pointer w-5 h-5"
                       />
-                    </>
-                  )}
+                      <Label
+                        htmlFor="tue-thurs"
+                        className="font-normal cursor-pointer select-none"
+                      >
+                        {t2("tue-thurs")}
+                      </Label>
+                    </div>
+                  </RadioGroup>
+                </div>
 
-                  {step === 2 && (
-                    <>
-                      <FormField
-                        control={form.control}
-                        name="fullName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="mb-2">
-                              {t2("name-label")}
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder={t2("name-placeholder")}
-                                className="bg-white"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="mb-2">
-                              {t2("email-label")}
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="email"
-                                placeholder={t2("email-placeholder")}
-                                className="bg-white"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="mb-2">
-                              {t2("phone-label")}
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder={t2("phone-placeholder")}
-                                className="bg-white"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="address"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="mb-2">
-                              {t2("address-label")}
-                            </FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder={t2("address-placeholder")}
-                                className="bg-white"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="mb-2">
-                              {t2("message-label")}
-                            </FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder={t2("message-placeholder")}
-                                className="bg-white"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormDescription>
-                              {t2("message-description")}
-                            </FormDescription>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </>
-                  )}
-                </form>
-              </Form>
+                <div className={step === 2 ? "space-y-6" : "hidden"}>
+                  <Label htmlFor="fullName" className="mb-2">
+                    {t2("name-label")}
+                  </Label>
+                  <Input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder={t2("name-placeholder")}
+                    className="bg-white"
+                    required
+                  />
+                  <Label htmlFor="email" className="mb-2">
+                    {t2("email-label")}
+                  </Label>
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder={t2("email-placeholder")}
+                    className="bg-white"
+                    required
+                  />
+                  <Label htmlFor="phone" className="mb-2">
+                    {t2("phone-label")}
+                  </Label>
+                  <Input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder={t2("phone-placeholder")}
+                    className="bg-white"
+                    required
+                  />
+                  <Label htmlFor="address" className="mb-2">
+                    {t2("address-label")}
+                  </Label>
+                  <Textarea
+                    id="address"
+                    name="address"
+                    placeholder={t2("address-placeholder")}
+                    className="bg-white resize-none"
+                    required
+                  />
+                  <Label htmlFor="message" className="mb-2">
+                    {t2("message-label")}
+                  </Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder={t2("message-placeholder")}
+                    className="bg-white resize-none"
+                  />
+                  <p>{t2("message-description")}</p>
+                </div>
+              </form>
 
               <div className="flex justify-between mt-6">
-                {step > 1 && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={prevStep}
-                    className="cursor-pointer select-none"
-                  >
-                    <ArrowLeft className="ml-2 h-4 w-4" /> {t2("previous")}
-                  </Button>
-                )}
-                {step < 2 ? (
-                  <Button
-                    type="button"
-                    className="ml-auto cursor-pointer select-none"
-                    onClick={nextStep}
-                  >
-                    {t2("next")} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                ) : (
-                  <Button
-                    type="submit"
-                    form="admission-form"
-                    className="ml-auto cursor-pointer select-none"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? t2("submitting") : t2("submit")}
-                  </Button>
-                )}
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={prevStep}
+                  className={`cursor-pointer select-none ${
+                    step > 1 ? "" : "hidden"
+                  }`}
+                >
+                  <ArrowLeft className="ml-2 h-4 w-4" /> {t2("previous")}
+                </Button>
+                <Button
+                  type="button"
+                  className={`ml-auto cursor-pointer select-none ${
+                    step < 2 ? "" : "hidden"
+                  }`}
+                  onClick={nextStep}
+                >
+                  {t2("next")} <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  type="submit"
+                  form="admission-form"
+                  className={`ml-auto cursor-pointer select-none ${
+                    step < 2 ? "hidden" : ""
+                  }`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t2("submitting") : t2("submit")}
+                </Button>
               </div>
             </div>
           )}

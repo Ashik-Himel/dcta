@@ -45,6 +45,8 @@ export default function AddNote({
         title: "Note Updated",
         text: "Admin note updated successfully.",
         icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
       setCurrentAdminNote(NewAdminNote);
       setButtonDisabled(true);
@@ -53,6 +55,8 @@ export default function AddNote({
         title: "Error",
         text: data?.message || "Something went wrong.",
         icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
     }
     setSubmitting(false);

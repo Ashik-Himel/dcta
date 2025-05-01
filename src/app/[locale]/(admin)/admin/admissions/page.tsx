@@ -26,9 +26,9 @@ export default async function AdminAdmissions() {
   const allApplications = data?.allApplications;
 
   return (
-    <main>
+    <>
       <DashboardHeading headingText="Admissions" />
       <AdmissionPageContent admissionsData={allApplications} />
-    </main>
+    </>
   );
 }

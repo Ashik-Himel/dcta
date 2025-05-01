@@ -34,6 +34,8 @@ export default function DeleteApplication({ id }: { id: string }) {
         title: "Application Deleted",
         text: "Application deleted successfully.",
         icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       }).then((result) => {
         if (result.isConfirmed) {
           router.push("/admin/admissions");
@@ -44,6 +46,8 @@ export default function DeleteApplication({ id }: { id: string }) {
         title: "Error",
         text: data?.message || "Something went wrong.",
         icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
     }
   };

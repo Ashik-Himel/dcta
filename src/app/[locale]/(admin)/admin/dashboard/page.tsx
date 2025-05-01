@@ -49,13 +49,13 @@ export default async function AdminDashboard() {
   const recentContacts = data3?.recentContacts;
 
   return (
-    <main>
+    <>
       <DashboardHeading headingText="Dashboard" />
       <DashboardPageContent
         stats={stats}
         recentApplications={recentApplications}
         recentContacts={recentContacts}
       />
-    </main>
+    </>
   );
 }

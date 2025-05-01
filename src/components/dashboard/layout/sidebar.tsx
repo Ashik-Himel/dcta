@@ -20,9 +20,15 @@ import {
   MessageCircleMore,
   UserPlus,
 } from "lucide-react";
+import { Oleo_Script } from "next/font/google";
 import Image from "next/image";
 import { SheetClose } from "../../ui/sheet";
 import { NavUser } from "./navUser";
+
+const oleo = Oleo_Script({
+  weight: ["400"],
+  subsets: ["latin"],
+});
 
 const adminNavLinks = [
   {
@@ -71,7 +77,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 alt="Site Icon"
                 className="w-8"
               />
-              <div className="group-data-[collapsible=icon]:hidden text-3xl font-semibold text-gradient">
+              <div
+                className={`group-data-[collapsible=icon]:hidden text-3xl font-semibold text-gradient ${oleo.className}`}
+              >
                 DCTA
               </div>
             </SidebarMenuButton>

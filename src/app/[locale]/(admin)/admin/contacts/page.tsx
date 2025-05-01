@@ -26,9 +26,9 @@ export default async function AdminContacts() {
   const allContacts = data?.allContacts;
 
   return (
-    <main>
+    <>
       <DashboardHeading headingText="Contacts" />
       <ContactsPageContent contactsData={allContacts} />
-    </main>
+    </>
   );
 }

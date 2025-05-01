@@ -34,6 +34,8 @@ export default function DeleteContact({ id }: { id: string }) {
         title: "Contact Deleted",
         text: "Contact deleted successfully.",
         icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       }).then((result) => {
         if (result.isConfirmed) {
           router.push("/admin/contacts");
@@ -44,6 +46,8 @@ export default function DeleteContact({ id }: { id: string }) {
         title: "Error",
         text: data?.message || "Something went wrong.",
         icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
       });
     }
   };
