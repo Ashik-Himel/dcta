@@ -93,7 +93,7 @@ export default function AdmissionSection() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
-    const res = await fetch(`${serverDomain}/api/admission`, {
+    const res = await fetch(`${serverDomain}/api/admission/applications`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

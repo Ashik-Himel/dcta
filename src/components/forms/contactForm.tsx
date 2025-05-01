@@ -31,7 +31,7 @@ export default function ContactForm() {
       form.elements.namedItem("message") as HTMLInputElement
     ).value.trim();
 
-    const res = await fetch(`${serverDomain}/api/contact`, {
+    const res = await fetch(`${serverDomain}/api/contact/contacts`, {
       method: "POST",
       body: JSON.stringify({
         name,

@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/dashboard/layout/sidebar";
 import FetchUserState from "@/components/fetchUser/fetchUserState";
+import QueryProvider from "@/components/tanstack-query/queryProvider";
 import ToastContainerComp from "@/components/toast/toastContainer";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { routing } from "@/i18n/routing";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function RootLayout({
+export default async function AdminDashboardLayout({
   children,
   params,
 }: Readonly<{
@@ -39,14 +40,16 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider>
-            <SidebarProvider>
-              <AppSidebar />
-              <SidebarInset className="selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-[#2f1010]">
-                {children}
-              </SidebarInset>
-            </SidebarProvider>
-            <ToastContainerComp />
-            <FetchUserState />
+            <QueryProvider>
+              <SidebarProvider>
+                <AppSidebar />
+                <SidebarInset className="selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-[#2f1010]">
+                  {children}
+                </SidebarInset>
+              </SidebarProvider>
+              <ToastContainerComp />
+              <FetchUserState />
+            </QueryProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

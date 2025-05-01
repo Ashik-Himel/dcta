@@ -29,6 +29,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { courses } from "@/data/courses";
+import { Link } from "@/i18n/navigation";
 import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -253,11 +254,10 @@ export default function AdmissionPageContent({
                         </Badge>
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button
-                          className="cursor-pointer select-none"
-                          size="sm"
-                        >
-                          View
+                        <Button size="sm" asChild>
+                          <Link href={`/admin/admissions/${application._id}`}>
+                            View
+                          </Link>
                         </Button>
                       </TableCell>
                     </TableRow>

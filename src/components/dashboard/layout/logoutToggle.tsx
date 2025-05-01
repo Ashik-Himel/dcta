@@ -39,7 +39,12 @@ export default function LogoutToggle({
         <p>Are you sure to logout?</p>
         <DialogFooter className="flex-row-reverse">
           <DialogClose asChild>
-            <Button onClick={handleLogout}>Logout</Button>
+            <Button
+              onClick={handleLogout}
+              className="cursor-pointer select-none"
+            >
+              Logout
+            </Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

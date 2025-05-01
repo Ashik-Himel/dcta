@@ -28,6 +28,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Link } from "@/i18n/navigation";
 import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -211,8 +212,11 @@ export default function ContactsPageContent({
                         <Button
                           size="sm"
                           className="cursor-pointer select-none"
+                          asChild
                         >
-                          View
+                          <Link href={`/admin/contacts/${contact._id}`}>
+                            View
+                          </Link>
                         </Button>
                       </TableCell>
                     </TableRow>
