@@ -30,7 +30,7 @@ export default function ApplicationAction({
     const newStatus = formData.get("status") as string;
 
     const res = await fetch(
-      `${serverDomain}/api/admission/application/${id}/status`,
+      `${serverDomain}/api/applications/application/${id}/status`,
       {
         method: "PUT",
         headers: {
@@ -87,7 +87,7 @@ export default function ApplicationAction({
           </Badge>
         </div>
         <form
-          className="flex flex-wrap justify-between items-center gap-4"
+          className="flex flex-wrap justify-between items-center gap-x-4 gap-y-2"
           onSubmit={handleApplicationAction}
         >
           <span className="font-medium">Mark As:</span>

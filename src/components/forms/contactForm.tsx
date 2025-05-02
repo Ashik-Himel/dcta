@@ -31,7 +31,7 @@ export default function ContactForm() {
       form.elements.namedItem("message") as HTMLInputElement
     ).value.trim();
 
-    const res = await fetch(`${serverDomain}/api/contact/contacts`, {
+    const res = await fetch(`${serverDomain}/api/contacts`, {
       method: "POST",
       body: JSON.stringify({
         name,
@@ -55,6 +55,19 @@ export default function ContactForm() {
       });
       form.reset();
       setSubmitDisabled(false);
+
+      await fetch(`${serverDomain}/api/contacts/email`, {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
     } else {
       Swal.fire({
         icon: "error",

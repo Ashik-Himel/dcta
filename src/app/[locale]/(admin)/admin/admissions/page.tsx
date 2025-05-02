@@ -15,7 +15,7 @@ export default async function AdminAdmissions() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
-  const res = await fetch(`${serverDomain}/api/admission/all-applications`, {
+  const res = await fetch(`${serverDomain}/api/applications`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

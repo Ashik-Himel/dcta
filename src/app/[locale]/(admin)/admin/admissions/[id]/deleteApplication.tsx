@@ -20,13 +20,16 @@ export default function DeleteApplication({ id }: { id: string }) {
   const token = Cookies.get("token");
 
   const handleApplicationDelete = async () => {
-    const res = await fetch(`${serverDomain}/api/admission/application/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const res = await fetch(
+      `${serverDomain}/api/applications/application/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const data = await res.json();
 
     if (data?.ok) {

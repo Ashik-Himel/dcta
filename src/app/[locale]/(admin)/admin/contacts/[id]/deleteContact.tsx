@@ -20,7 +20,7 @@ export default function DeleteContact({ id }: { id: string }) {
   const token = Cookies.get("token");
 
   const handleContactDelete = async () => {
-    const res = await fetch(`${serverDomain}/api/contact/contact/${id}`, {
+    const res = await fetch(`${serverDomain}/api/contacts/contact/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

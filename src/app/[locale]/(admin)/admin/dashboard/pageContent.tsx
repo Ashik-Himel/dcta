@@ -57,7 +57,7 @@ export default function DashboardPageContent({
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card className="bg-background w-full">
           <CardHeader className="flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium">
@@ -67,7 +67,7 @@ export default function DashboardPageContent({
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {stats?.newApplications || 0}
+              {stats?.newApplicationsCount || 0}
             </div>
           </CardContent>
         </Card>
@@ -77,7 +77,9 @@ export default function DashboardPageContent({
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats?.newContacts || 0}</div>
+            <div className="text-2xl font-bold">
+              {stats?.newContactsCount || 0}
+            </div>
           </CardContent>
         </Card>
         <Card className="bg-background w-full">
@@ -88,7 +90,9 @@ export default function DashboardPageContent({
             <UserPlus className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats?.applications || 0}</div>
+            <div className="text-2xl font-bold">
+              {stats?.applicationsCount || 0}
+            </div>
           </CardContent>
         </Card>
         <Card className="bg-background w-full">
@@ -97,7 +101,9 @@ export default function DashboardPageContent({
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats?.contacts || 0}</div>
+            <div className="text-2xl font-bold">
+              {stats?.contactsCount || 0}
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -136,7 +142,7 @@ export default function DashboardPageContent({
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
-                      <div className="hidden space-y-1 md:block">
+                      <div className="space-y-1">
                         <p className="text-sm font-medium">
                           {t(application.course)}
                         </p>
@@ -205,7 +211,7 @@ export default function DashboardPageContent({
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
-                      <div className="hidden space-y-1 md:block">
+                      <div className="space-y-1">
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Clock className="mr-1 h-3 w-3" />
                           {formatDate2(contact.date)}

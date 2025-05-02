@@ -28,7 +28,7 @@ export default function ContactAction({
     const newStatus = formData.get("status") as string;
 
     const res = await fetch(
-      `${serverDomain}/api/contact/contact/${id}/status`,
+      `${serverDomain}/api/contacts/contact/${id}/status`,
       {
         method: "PUT",
         headers: {
@@ -83,7 +83,7 @@ export default function ContactAction({
           </Badge>
         </div>
         <form
-          className="flex flex-wrap justify-between items-center gap-4"
+          className="flex flex-wrap justify-between items-center gap-x-4 gap-y-2"
           onSubmit={handleContactAction}
         >
           <span className="font-medium">Mark As:</span>

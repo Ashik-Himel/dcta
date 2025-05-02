@@ -162,70 +162,68 @@ export default function ContactsPageContent({
               </h4>
             </div>
           ) : (
-            <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead className="hidden lg:table-cell">
-                    Subject
-                  </TableHead>
-                  <TableHead className="hidden lg:table-cell">Date</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {currentItems.map((contact) => (
-                  <TableRow key={contact._id}>
-                    <TableCell>
-                      <div>
-                        <p className="font-medium w-max max-w-[160px] overflow-hidden text-ellipsis">
-                          {contact.name}
-                        </p>
-                        <p className="text-xs text-muted-foreground w-max max-w-[160px] overflow-hidden text-ellipsis">
-                          {contact.email}
-                        </p>
-                      </div>
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell w-max max-w-[160px] overflow-hidden text-ellipsis">
-                      {contact.subject}
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell">
-                      <div className="flex items-center">
-                        <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
-                        <span>{formatDate(contact.date)}</span>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        className={
-                          contact.status === "New"
-                            ? "bg-gradient"
-                            : contact.status === "Read"
-                            ? "bg-yellow-500"
-                            : contact.status === "Replied"
-                            ? "bg-green-500"
-                            : ""
-                        }
-                      >
-                        {contact.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Button
-                        size="sm"
-                        className="cursor-pointer select-none"
-                        asChild
-                      >
-                        <Link href={`/admin/contacts/${contact._id}`}>
-                          View
-                        </Link>
-                      </Button>
-                    </TableCell>
+            <div className="grid grid-cols-1">
+              <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Subject</TableHead>
+                    <TableHead>Date</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-right">Action</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {currentItems.map((contact) => (
+                    <TableRow key={contact._id}>
+                      <TableCell>
+                        <div>
+                          <p className="font-medium">{contact.name}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {contact.email}
+                          </p>
+                        </div>
+                      </TableCell>
+                      <TableCell className="w-max max-w-[220px] overflow-hidden text-ellipsis">
+                        {contact.subject}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center">
+                          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
+                          <span>{formatDate(contact.date)}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge
+                          className={
+                            contact.status === "New"
+                              ? "bg-gradient"
+                              : contact.status === "Read"
+                              ? "bg-yellow-500"
+                              : contact.status === "Replied"
+                              ? "bg-green-500"
+                              : ""
+                          }
+                        >
+                          {contact.status}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button
+                          size="sm"
+                          className="cursor-pointer select-none"
+                          asChild
+                        >
+                          <Link href={`/admin/contacts/${contact._id}`}>
+                            View
+                          </Link>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           )}
           <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 border-t">
             <div className="text-sm text-muted-foreground">

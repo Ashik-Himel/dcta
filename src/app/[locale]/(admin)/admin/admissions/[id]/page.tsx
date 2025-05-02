@@ -23,13 +23,16 @@ export default async function ApplicationDetailsPage({
   const t = await getTranslations("Information.Courses");
   const t2 = await getTranslations("AdmissionPage.AdmissionSection");
 
-  const res = await fetch(`${serverDomain}/api/admission/application/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const res = await fetch(
+    `${serverDomain}/api/applications/application/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   const data = await res.json();
   const application = data?.application;
 
@@ -80,7 +83,7 @@ export default async function ApplicationDetailsPage({
         <div className="grid lg:grid-cols-2 gap-6">
           <Card className="p-6 space-y-4 bg-background">
             <div>
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-x-4 gap-y-1">
                 <h3 className="text-lg font-semibold">Applicant Information</h3>
                 <span className="text-sm text-gray">
                   {formatDate(application?.date)}
@@ -132,10 +135,12 @@ export default async function ApplicationDetailsPage({
             <div>
               <h3 className="text-lg font-semibold">Additional Messages</h3>
               <Separator className="my-2" />
-              <div className="space-y-4 mt-4">
-                {application?.messages?.length > 0 && (
-                  <div className="space-y-2">
-                    <p className="font-medium">Student&apos;s Message</p>
+              <div className="space-y-6 mt-4">
+                {application?.message?.length > 0 && (
+                  <div>
+                    <p className="font-medium text-sm mb-1">
+                      Student&apos;s Message
+                    </p>
                     <p>{application?.message}</p>
                   </div>
                 )}

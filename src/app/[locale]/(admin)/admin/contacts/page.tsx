@@ -15,7 +15,7 @@ export default async function AdminContacts() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
-  const res = await fetch(`${serverDomain}/api/contact/all-contacts`, {
+  const res = await fetch(`${serverDomain}/api/contacts`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

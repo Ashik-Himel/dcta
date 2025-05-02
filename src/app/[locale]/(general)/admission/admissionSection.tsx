@@ -36,19 +36,20 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 export default function AdmissionSection() {
+  const courseParam = useSearchParams().get("course");
   const t = useTranslations("AdmissionPage.StepsSection");
   const t2 = useTranslations("AdmissionPage.AdmissionSection");
   const t3 = useTranslations("Information.Courses");
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [courseValue, setCourseValue] = useState<string | null>(null);
+  const [courseValue, setCourseValue] = useState<string | null>(
+    courseParam ? courseParam : null
+  );
   const [batchValue, setBatchValue] = useState<string | null>(null);
   const admissionFormRef = useRef<HTMLElement | null>(null);
-  const courseParam = useSearchParams().get("course");
 
   const handleAdmissionSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("form submitting");
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -61,7 +62,7 @@ export default function AdmissionSection() {
     const address = formData.get("address") as string;
     const message = (formData.get("message") as string) || "";
 
-    const res = await fetch(`${serverDomain}/api/admission/applications`, {
+    const res = await fetch(`${serverDomain}/api/applications`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,6 +83,18 @@ export default function AdmissionSection() {
       setIsSubmitting(false);
       setIsSubmitted(true);
       admissionFormRef.current?.scrollIntoView({ behavior: "smooth" });
+
+      await fetch(`${serverDomain}/api/applications/email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          course: t3(course),
+        }),
+      });
     } else {
       Swal.fire({
         title: "Error",
@@ -357,9 +370,11 @@ export default function AdmissionSection() {
                     id="message"
                     name="message"
                     placeholder={t2("message-placeholder")}
-                    className="bg-white resize-none"
+                    className="bg-white resize-none mb-2"
                   />
-                  <p>{t2("message-description")}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t2("message-description")}
+                  </p>
                 </div>
               </form>
 

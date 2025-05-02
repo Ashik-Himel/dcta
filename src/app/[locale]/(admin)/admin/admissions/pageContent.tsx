@@ -203,66 +203,64 @@ export default function AdmissionPageContent({
               </h4>
             </div>
           ) : (
-            <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead className="hidden lg:table-cell">Course</TableHead>
-                  <TableHead className="hidden lg:table-cell">Date</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {currentItems.map((application) => (
-                  <TableRow key={application._id}>
-                    <TableCell>
-                      <div>
-                        <p className="font-medium w-max max-w-[150px] overflow-hidden text-ellipsis">
-                          {application.fullName}
-                        </p>
-                        <p className="text-xs text-muted-foreground w-max max-w-[155px] overflow-hidden text-ellipsis">
-                          {application.phone}
-                        </p>
-                      </div>
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell w-max max-w-[180px] overflow-hidden text-ellipsis">
-                      {t(application.course)}
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell">
-                      <div className="flex items-center">
-                        <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
-                        <span>{formatDate(application.date)}</span>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        className={
-                          application.status === "New"
-                            ? "bg-gradient"
-                            : application.status === "Called"
-                            ? "bg-yellow-500"
-                            : application.status === "Admitted"
-                            ? "bg-green-500"
-                            : application.status === "Rejected"
-                            ? "bg-red-500"
-                            : ""
-                        }
-                      >
-                        {application.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Button size="sm" asChild>
-                        <Link href={`/admin/admissions/${application._id}`}>
-                          View
-                        </Link>
-                      </Button>
-                    </TableCell>
+            <div className="grid grid-cols-1">
+              <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Course</TableHead>
+                    <TableHead>Date</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-right">Action</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {currentItems.map((application) => (
+                    <TableRow key={application._id}>
+                      <TableCell>
+                        <div>
+                          <p className="font-medium">{application.fullName}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {application.phone}
+                          </p>
+                        </div>
+                      </TableCell>
+                      <TableCell>{t(application.course)}</TableCell>
+                      <TableCell>
+                        <div className="flex items-center">
+                          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
+                          <span>{formatDate(application.date)}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge
+                          className={
+                            application.status === "New"
+                              ? "bg-gradient"
+                              : application.status === "Called"
+                              ? "bg-yellow-500"
+                              : application.status === "Admitted"
+                              ? "bg-green-500"
+                              : application.status === "Rejected"
+                              ? "bg-red-500"
+                              : ""
+                          }
+                        >
+                          {application.status}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button size="sm" asChild>
+                          <Link href={`/admin/admissions/${application._id}`}>
+                            View
+                          </Link>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           )}
           <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 border-t">
             <div className="text-sm text-muted-foreground">

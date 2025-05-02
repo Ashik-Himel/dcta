@@ -15,7 +15,7 @@ export default async function AdminDashboard() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
-  const res = await fetch(`${serverDomain}/api/admin-stats`, {
+  const res = await fetch(`${serverDomain}/api/admin/stats`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -25,20 +25,17 @@ export default async function AdminDashboard() {
   const data = await res.json();
   const stats = data?.stats;
 
-  const res2 = await fetch(
-    `${serverDomain}/api/admission/recent-applications`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const res2 = await fetch(`${serverDomain}/api/applications/recent`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
   const data2 = await res2.json();
   const recentApplications = data2?.recentApplications;
 
-  const res3 = await fetch(`${serverDomain}/api/contact/recent-contacts`, {
+  const res3 = await fetch(`${serverDomain}/api/contacts/recent`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

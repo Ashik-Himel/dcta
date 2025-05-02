@@ -28,7 +28,7 @@ export default function AddNote({
     const NewAdminNote = formData.get("adminNote") as string;
 
     const res = await fetch(
-      `${serverDomain}/api/admission/application/${id}/adminNote`,
+      `${serverDomain}/api/applications/application/${id}/adminNote`,
       {
         method: "PUT",
         headers: {

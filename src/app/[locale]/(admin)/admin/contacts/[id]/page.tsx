@@ -19,7 +19,7 @@ export default async function ContactDetailsPage({
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
-  const res = await fetch(`${serverDomain}/api/contact/contact/${id}`, {
+  const res = await fetch(`${serverDomain}/api/contacts/contact/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -76,7 +76,7 @@ export default async function ContactDetailsPage({
         <div className="grid lg:grid-cols-2 gap-6">
           <Card className="p-6 space-y-4 bg-background">
             <div>
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-x-4 gap-y-1">
                 <h3 className="text-lg font-semibold">User Information</h3>
                 <span className="text-sm text-gray">
                   {formatDate(contact?.date)}
