@@ -42,7 +42,7 @@ export default async function ApplicationDetailsPage({
         <DashboardHeading headingText="Application Details" />
         <p className="p-4">No application found!</p>
         <Button size="sm" asChild>
-          <Link href="/admin/admissions">
+          <Link href="/admin/admissions" className="mx-4">
             <ArrowLeft /> Back
           </Link>
         </Button>
@@ -141,7 +141,9 @@ export default async function ApplicationDetailsPage({
                     <p className="font-medium text-sm mb-1">
                       Student&apos;s Message
                     </p>
-                    <p>{application?.message}</p>
+                    <p className="px-4 py-2 bg-[#faf0f0] dark:bg-[#2f1010] rounded-lg border text-sm">
+                      {application?.message}
+                    </p>
                   </div>
                 )}
                 <AddNote

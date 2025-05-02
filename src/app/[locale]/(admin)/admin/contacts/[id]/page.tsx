@@ -32,10 +32,10 @@ export default async function ContactDetailsPage({
   if (!contact) {
     return (
       <main>
-        <DashboardHeading headingText="Application Details" />
-        <p className="p-4">No application found!</p>
+        <DashboardHeading headingText="Contact Details" />
+        <p className="p-4">No contact found!</p>
         <Button size="sm" asChild>
-          <Link href="/admin/admissions">
+          <Link href="/admin/contacts" className="mx-4">
             <ArrowLeft /> Back
           </Link>
         </Button>
@@ -101,14 +101,18 @@ export default async function ContactDetailsPage({
             <div>
               <h3 className="text-lg font-semibold">Message Details</h3>
               <Separator className="my-2" />
-              <div className="space-y-4 mt-4">
+              <div className="space-y-6 mt-4">
                 <div className="space-y-2">
-                  <p className="font-medium">Subject</p>
-                  <p>{contact?.subject}</p>
+                  <p className="font-medium text-sm">Subject</p>
+                  <p className="px-4 py-2 bg-[#faf0f0] dark:bg-[#2f1010] rounded-lg border text-sm">
+                    {contact?.subject}
+                  </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="font-medium">Message</p>
-                  <p>{contact?.message}</p>
+                  <p className="font- text-sm">Message</p>
+                  <p className="px-4 py-2 bg-[#faf0f0] dark:bg-[#2f1010] rounded-lg border text-sm">
+                    {contact?.message}
+                  </p>
                 </div>
               </div>
             </div>
