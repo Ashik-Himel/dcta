@@ -5,6 +5,7 @@ import eti from "@/assets/instructors/eti.jpeg";
 import farhan from "@/assets/instructors/farhan.jpg";
 import farokh from "@/assets/instructors/farokh.jpeg";
 import faruk from "@/assets/instructors/faruk.jpeg";
+import foysal from "@/assets/instructors/foysal.jpeg";
 import mabiya from "@/assets/instructors/mabiya.jpeg";
 import rabbi from "@/assets/instructors/rabbi.jpeg";
 import sadhin from "@/assets/instructors/sadhin.jpeg";
@@ -51,25 +52,6 @@ export const instructors = [
     ],
   },
   {
-    name: "siam-islam",
-    title: "assistant-digital-marketer",
-    photo: siam,
-    socials: [
-      {
-        icon: fbIcon,
-        link: "https://m.me/profile.php?id=61575025742869",
-      },
-      {
-        icon: wpIcon,
-        link: "https://wa.me/+8801314847035",
-      },
-      {
-        icon: phoneIcon,
-        link: "tel:+8801314847035",
-      },
-    ],
-  },
-  {
     name: "kh-sadhin",
     title: "graphic-design-instructor",
     photo: sadhin,
@@ -89,6 +71,25 @@ export const instructors = [
     ],
   },
   {
+    name: "faruk-al-mamun",
+    title: "digital-marketing-instructor",
+    photo: faruk,
+    socials: [
+      {
+        icon: fbIcon,
+        link: "https://m.me/farukalmamun.fb",
+      },
+      {
+        icon: wpIcon,
+        link: "https://wa.me/+8801602080672",
+      },
+      {
+        icon: phoneIcon,
+        link: "tel:+8801602080672",
+      },
+    ],
+  },
+  {
     name: "mahfuja-islam-iti",
     title: "head-of-department",
     photo: eti,
@@ -104,6 +105,25 @@ export const instructors = [
       {
         icon: phoneIcon,
         link: "tel:+8801334766162",
+      },
+    ],
+  },
+  {
+    name: "md-somon-mia",
+    title: "basic-computer-instructor",
+    photo: somon,
+    socials: [
+      {
+        icon: fbIcon,
+        link: "https://m.me/sumon.sheikh.85",
+      },
+      {
+        icon: wpIcon,
+        link: "https://wa.me/+8801990665061",
+      },
+      {
+        icon: phoneIcon,
+        link: "tel:+8801990665061",
       },
     ],
   },
@@ -146,40 +166,40 @@ export const instructors = [
     ],
   },
   {
-    name: "faruk-al-mamun",
-    title: "digital-marketing-instructor",
-    photo: faruk,
+    name: "siam-islam",
+    title: "assistant-digital-marketer",
+    photo: siam,
     socials: [
       {
         icon: fbIcon,
-        link: "https://m.me/farukalmamun.fb",
+        link: "https://m.me/profile.php?id=61575025742869",
       },
       {
         icon: wpIcon,
-        link: "https://wa.me/+8801602080672",
+        link: "https://wa.me/+8801314847035",
       },
       {
         icon: phoneIcon,
-        link: "tel:+8801602080672",
+        link: "tel:+8801314847035",
       },
     ],
   },
   {
-    name: "md-somon-mia",
-    title: "basic-computer-instructor",
-    photo: somon,
+    name: "moniruzzaman-foysal",
+    title: "marketing-officer-brand-ambassador",
+    photo: foysal,
     socials: [
       {
         icon: fbIcon,
-        link: "https://m.me/sumon.sheikh.85",
+        link: "https://m.me/profile.php?id=100082143855394",
       },
       {
         icon: wpIcon,
-        link: "https://wa.me/+8801990665061",
+        link: "https://wa.me/+8801403816543",
       },
       {
         icon: phoneIcon,
-        link: "tel:+8801990665061",
+        link: "tel:+8801403816543",
       },
     ],
   },

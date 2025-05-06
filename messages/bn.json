@@ -120,7 +120,10 @@
       "success": "বার্তা পাঠানো হয়েছে",
       "success-text": "আপনার বার্তা সফলভাবে পাঠানো হয়েছে!",
       "error": "সমস্যা",
-      "error-text": "আপনার বার্তা পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।"
+      "error-text": "আপনার বার্তা পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
+      "office": "আফিস",
+      "admission": "এডমিশন",
+      "director": "পরিচালক"
     }
   },
   "AboutPage": {
@@ -237,10 +240,10 @@
       "information-description": "অনুগ্রহ করে নিচে আপনার ব্যক্তিগত তথ্য দিন।",
       "course-label": "কোর্স",
       "course-placeholder": "আপনার কোর্স নির্বাচন করুন",
-      "batch-label": "ব্যাচ টাইমিং",
-      "batch-placeholder": "আপনার ব্যাচ টাইমিং নির্বাচন করুন",
-      "sat-mon": "শনিবার - সোমবার",
-      "tue-thurs": "মঙ্গলবার - বৃহস্পতিবার",
+      "batch-label": "ক্লাসের দিনসমূহ",
+      "batch-placeholder": "আপনার ক্লাসের দিনসমূহ নির্বাচন করুন",
+      "batch-1": "শনি, সোম, বুধ",
+      "batch-2": "রবি, মঙ্গল, বৃহস্পতি",
       "name-label": "পূর্ণ নাম",
       "name-placeholder": "আপনার পূর্ণ নাম লিখুন",
       "email-label": "ইমেইল",
@@ -267,14 +270,14 @@
   },
   "Information": {
     "Courses": {
-      "graphic-design-with-freelancing": "ফ্রিল্যান্সিংসহ গ্রাফিক ডিজাইন",
-      "digital-marketing-with-freelancing": "ফ্রিল্যান্সিংসহ ডিজিটাল মার্কেটিং",
-      "web-design-with-freelancing": "ফ্রিল্যান্সিংসহ ওয়েব ডিজাইন",
-      "video-editing-with-freelancing": "ফ্রিল্যান্সিংসহ ভিডিও ইডিটিং",
-      "basic-computer-office-application": "বেসিক কম্পিউটার অফিস অ্যাপ্লিকেশন",
-      "basic-computer-office-application-2": "বেসিক কম্পিউটার অফিস অ্যাপ্লিকেশন ২",
+      "graphic-design-with-freelancing": "গ্রাফিক ডিজাইন উইথ ফ্রিল্যান্সিং",
+      "digital-marketing-with-freelancing": "ডিজিটাল মার্কেটিং উইথ ফ্রিল্যান্সিং",
+      "web-design-with-freelancing": "ওয়েব ডিজাইন উইথ ফ্রিল্যান্সিং",
+      "video-editing-with-freelancing": "ভিডিও ইডিটিং উইথ ফ্রিল্যান্সিং",
+      "computer-office-application-6-months": "কম্পিউটার অফিস অ্যাপ্লিকেশন (৬ মাস)",
+      "computer-office-application-3-months": "কম্পিউটার অফিস অ্যাপ্লিকেশন (৩ মাস)",
       "mobile-phone-servicing": "মোবাইল ফোন সার্ভিসিং",
-      "computer-servicing-with-hardware-and-networking": "হার্ডওয়্যার ও নেটওয়ার্কিংসহ কম্পিউটার সার্ভিসিং",
+      "computer-servicing-with-hardware-and-networking": "কম্পিউটার সার্ভিসিং উইথ হার্ডওয়্যার ও নেটওয়ার্কিং",
       "web-development": "ওয়েব ডেভেলপমেন্ট",
       "graphic-design": "গ্রাফিক ডিজাইন",
       "digital-marketing": "ডিজিটাল মার্কেটিং",
@@ -297,13 +300,25 @@
       "mahfuja-islam-iti": "মাহফুজা ইসলাম ইতি",
       "head-of-department": "বিভাগীয় প্রধান",
       "mabiya-sheikh": "মাবিয়া শেখ",
-      "head-of-admission": "ভর্তির প্রধান",
+      "head-of-admission": "ভর্তি প্রধান",
       "farhan-ahmed": "ফারহান আহমেদ",
       "video-editing-trainer": "ভিডিও এডিটিং প্রশিক্ষক",
       "faruk-al-mamun": "ফারুক আল মামুন",
       "digital-marketing-instructor": "ডিজিটাল মার্কেটিং প্রশিক্ষক",
       "md-somon-mia": "মোঃ সুমন মিয়া",
-      "basic-computer-instructor": "বেসিক কম্পিউটার প্রশিক্ষক"
+      "basic-computer-instructor": "বেসিক কম্পিউটার প্রশিক্ষক",
+      "moniruzzaman-foysal": "মনিরুজ্জামান ফয়সাল",
+      "marketing-officer-brand-ambassador": "মার্কেটিং অফিসার, ব্র্যান্ড অ্যাম্বাসেডর"
+    },
+    "Stories": {
+      "student-of-dcta": "DCTA-এর শিক্ষার্থী",
+      "md-ramim-sheikh": "মোহাম্মদ রামিম শেখ",
+      "md-anisur-rahman": "মোহাম্মদ আনিসুর রহমান",
+      "student": "শিক্ষার্থী",
+      "md-ruhul-amin": "মোহাম্মদ রুহুল আমিন",
+      "fahad-hossain-dipu": "ফাহাদ হোসেন দীপু",
+      "md-mahbub": "মোহাম্মদ মাহবুব",
+      "md-parvej": "মোহাম্মদ পারভেজ"
     }
   }
 }

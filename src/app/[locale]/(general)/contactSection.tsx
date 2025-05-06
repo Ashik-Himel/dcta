@@ -1,5 +1,9 @@
+import messenger from "@/assets/icons/messenger.png";
+import phone from "@/assets/icons/telephone.png";
+import whatsapp from "@/assets/icons/whatsapp.png";
 import { Facebook, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { default as BaseLink } from "next/link";
 import ContactForm from "../../../components/forms/contactForm";
 
@@ -34,7 +38,25 @@ export default function ContactSection() {
                   className="flex items-center gap-3"
                 >
                   <Phone className="h-5 w-5 text-primary" />
-                  <p>01334766160</p>
+                  <p>01334766160 ({t("office")})</p>
+                </BaseLink>
+                <BaseLink
+                  href="tel:+8801334766163"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <Phone className="h-5 w-5 text-primary" />
+                  <p>01334766163 ({t("admission")})</p>
+                </BaseLink>
+                <BaseLink
+                  href="tel:+8801715363919"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <Phone className="h-5 w-5 text-primary" />
+                  <p>01715363919 ({t("director")})</p>
                 </BaseLink>
                 <BaseLink
                   href="mailto:help@dctabd.net"
@@ -48,8 +70,38 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="space-y-4">
+              <h3 className="text-2xl font-bold">{t("contact-us")}</h3>
+              <div className="flex gap-4">
+                <BaseLink
+                  href="tel:+8801334766160"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={phone} alt="Telephone Icon" className="w-10" />
+                </BaseLink>
+                <BaseLink
+                  href="https://wa.me/+8801334766160"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={whatsapp} alt="WhatsApp Icon" className="w-10" />
+                </BaseLink>
+                <BaseLink
+                  href="https://m.me/dctamc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={messenger}
+                    alt="Messenger Icon"
+                    className="w-10"
+                  />
+                </BaseLink>
+              </div>
+            </div>
+            <div className="space-y-4">
               <h3 className="text-2xl font-bold">{t("follow-us")}</h3>
-              <div className="flex gap-2">
+              <div className="flex gap-4">
                 <BaseLink
                   href="https://www.facebook.com/dctamc"
                   target="_blank"

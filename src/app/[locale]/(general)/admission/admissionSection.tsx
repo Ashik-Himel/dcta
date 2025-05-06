@@ -292,28 +292,28 @@ export default function AdmissionSection() {
                   >
                     <div className="flex items-center space-x-2 space-y-0">
                       <RadioGroupItem
-                        value="sat-mon"
-                        id="sat-mon"
+                        value="batch-1"
+                        id="batch-1"
                         className="bg-white text-primary cursor-pointer w-5 h-5"
                       />
                       <Label
-                        htmlFor="sat-mon"
+                        htmlFor="batch-1"
                         className="font-normal cursor-pointer select-none"
                       >
-                        {t2("sat-mon")}
+                        {t2("batch-1")}
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 space-y-0">
                       <RadioGroupItem
-                        value="tue-thurs"
-                        id="tue-thurs"
+                        value="batch-2"
+                        id="batch-2"
                         className="bg-white text-primary cursor-pointer w-5 h-5"
                       />
                       <Label
-                        htmlFor="tue-thurs"
+                        htmlFor="batch-2"
                         className="font-normal cursor-pointer select-none"
                       >
-                        {t2("tue-thurs")}
+                        {t2("batch-2")}
                       </Label>
                     </div>
                   </RadioGroup>

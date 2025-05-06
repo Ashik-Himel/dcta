@@ -34,6 +34,7 @@ export default function StoryCard({
   course,
 }: StoryProps) {
   const t = useTranslations("Information.Courses");
+  const t2 = useTranslations("Information.Stories");
 
   return (
     <Card className="overflow-hidden transition-all hover:shadow-lg p-0 gap-0 dark:bg-background">
@@ -47,8 +48,8 @@ export default function StoryCard({
             />
           </div>
           <div>
-            <h4 className="font-medium">{name}</h4>
-            <p className="text-sm text-gray">{role}</p>
+            <h4 className="font-medium">{t2(name)}</h4>
+            <p className="text-sm text-gray">{t2(role)}</p>
           </div>
         </div>
       </CardHeader>

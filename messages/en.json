@@ -120,7 +120,10 @@
       "success": "Message Sent",
       "success-text": "Your message has been sent successfully!",
       "error": "Error",
-      "error-text": "Failed to send your message. Please try again later."
+      "error-text": "Failed to send your message. Please try again later.",
+      "office": "Office",
+      "admission": "Admission",
+      "director": "Director"
     }
   },
   "AboutPage": {
@@ -237,10 +240,10 @@
       "information-description": "Please provide your personal details below.",
       "course-label": "Course",
       "course-placeholder": "Choose your course",
-      "batch-label": "Batch Timing",
-      "batch-placeholder": "Choose your batch timing",
-      "sat-mon": "Saturday - Monday",
-      "tue-thurs": "Tuesday - Thursday",
+      "batch-label": "Class Days",
+      "batch-placeholder": "Choose your class days",
+      "batch-1": "Sat, Mon, Wed",
+      "batch-2": "Sun, Tues, Thursday",
       "name-label": "Full Name",
       "name-placeholder": "Write your full name",
       "email-label": "Email",
@@ -271,8 +274,8 @@
       "digital-marketing-with-freelancing": "Digital Marketing with Freelancing",
       "web-design-with-freelancing": "Web Design with Freelancing",
       "video-editing-with-freelancing": "Video Editing with Freelancing",
-      "basic-computer-office-application": "Basic Computer Office Application",
-      "basic-computer-office-application-2": "Basic Computer Office Application 2",
+      "computer-office-application-6-months": "Computer Office Application (6 Months)",
+      "computer-office-application-3-months": "Computer Office Application (3 Months)",
       "mobile-phone-servicing": "Mobile Phone Servicing",
       "computer-servicing-with-hardware-and-networking": "Computer Servicing with Hardware and Networking",
       "web-development": "Web Development",
@@ -303,7 +306,19 @@
       "faruk-al-mamun": "Faruk Al Mamun",
       "digital-marketing-instructor": "Digital Marketing Instructor",
       "md-somon-mia": "MD Somon Mia",
-      "basic-computer-instructor": "Basic Computer Instructor"
+      "basic-computer-instructor": "Basic Computer Instructor",
+      "moniruzzaman-foysal": "Moniruzzaman Foysal",
+      "marketing-officer-brand-ambassador": "Marketing Officer, Brand Ambassador"
+    },
+    "Stories": {
+      "student-of-dcta": "Student of DCTA",
+      "md-ramim-sheikh": "MD Ramim Sheikh",
+      "md-anisur-rahman": "MD Anisur Rahman",
+      "student": "Student",
+      "md-ruhul-amin": "MD Ruhul Amin",
+      "fahad-hossain-dipu": "Fahad Hossain Dipu",
+      "md-mahbub": "MD Mahbub",
+      "md-parvej": "MD Parvej"
     }
   }
 }
