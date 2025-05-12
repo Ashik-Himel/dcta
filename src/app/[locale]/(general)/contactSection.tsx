@@ -1,7 +1,9 @@
+import facebook from "@/assets/icons/facebook.png";
 import messenger from "@/assets/icons/messenger.png";
 import phone from "@/assets/icons/telephone.png";
 import whatsapp from "@/assets/icons/whatsapp.png";
-import { Facebook, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import youtube from "@/assets/icons/youtube.png";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { default as BaseLink } from "next/link";
@@ -70,21 +72,14 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold">{t("contact-us")}</h3>
+              <h3 className="text-2xl font-bold">{t("socials-contacts")}</h3>
               <div className="flex gap-4">
                 <BaseLink
-                  href="tel:+8801334766160"
+                  href="https://www.facebook.com/dctamc"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image src={phone} alt="Telephone Icon" className="w-10" />
-                </BaseLink>
-                <BaseLink
-                  href="https://wa.me/+8801334766160"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src={whatsapp} alt="WhatsApp Icon" className="w-10" />
+                  <Image src={facebook} alt="Facebook Icon" className="w-10" />
                 </BaseLink>
                 <BaseLink
                   href="https://m.me/dctamc"
@@ -97,28 +92,26 @@ export default function ContactSection() {
                     className="w-10"
                   />
                 </BaseLink>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold">{t("follow-us")}</h3>
-              <div className="flex gap-4">
                 <BaseLink
-                  href="https://www.facebook.com/dctamc"
+                  href="https://wa.me/+8801334766160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-gradient text-white w-10 h-10 flex items-center justify-center"
                 >
-                  <Facebook className="h-5 w-5" />
-                  <span className="sr-only">Facebook</span>
+                  <Image src={whatsapp} alt="WhatsApp Icon" className="w-10" />
+                </BaseLink>
+                <BaseLink
+                  href="tel:+8801334766160"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={phone} alt="Telephone Icon" className="w-10" />
                 </BaseLink>
                 <BaseLink
                   href="https://www.youtube.com/@digitalcomputerstrainingac7975"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-gradient text-white w-10 h-10 flex items-center justify-center"
                 >
-                  <Youtube className="h-5 w-5" />
-                  <span className="sr-only">YouTube</span>
+                  <Image src={youtube} alt="YouTube Icon" className="w-10" />
                 </BaseLink>
               </div>
             </div>
