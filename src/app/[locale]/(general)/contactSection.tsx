@@ -37,7 +37,7 @@ export default function ContactSection() {
                   href="tel:+8801334766160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3"
+                  className="flex w-fit items-center gap-3"
                 >
                   <Phone className="h-5 w-5 text-primary" />
                   <p>01334766160 ({t("office")})</p>
@@ -46,7 +46,7 @@ export default function ContactSection() {
                   href="tel:+8801334766163"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3"
+                  className="flex w-fit items-center gap-3"
                 >
                   <Phone className="h-5 w-5 text-primary" />
                   <p>01334766163 ({t("admission")})</p>
@@ -55,7 +55,7 @@ export default function ContactSection() {
                   href="tel:+8801715363919"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3"
+                  className="flex w-fit items-center gap-3"
                 >
                   <Phone className="h-5 w-5 text-primary" />
                   <p>01715363919 ({t("director")})</p>
@@ -64,7 +64,7 @@ export default function ContactSection() {
                   href="mailto:help@dctabd.net"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3"
+                  className="flex w-fit items-center gap-3"
                 >
                   <Mail className="h-5 w-5 text-primary" />
                   <p>help@dctabd.net</p>
@@ -119,7 +119,7 @@ export default function ContactSection() {
               <h3 className="text-2xl font-bold">{t("office-hours")}</h3>
               <div className="grid grid-cols-2 gap-2">
                 <div>{t("everyday")}</div>
-                <div>9:00 AM - 10:00 PM</div>
+                <div>{t("9to10")}</div>
               </div>
             </div>
           </div>

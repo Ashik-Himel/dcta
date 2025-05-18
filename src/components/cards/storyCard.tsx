@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
+
 import {
   Card,
   CardContent,
@@ -12,29 +13,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Story } from "@/lib/models";
 import { Play, X } from "lucide-react";
-import { useTranslations } from "next-intl";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import { useParams } from "next/navigation";
 
-interface StoryProps {
-  avatar: StaticImageData;
-  name: string;
-  role: string;
-  thumbnailLink: string;
-  videoUrl: string;
-  course: string;
-}
-
-export default function StoryCard({
-  avatar,
-  name,
-  role,
-  thumbnailLink,
-  videoUrl,
-  course,
-}: StoryProps) {
-  const t = useTranslations("Information.Courses");
-  const t2 = useTranslations("Information.Stories");
+export default function StoryCard({ story }: { story: Story }) {
+  const params = useParams();
+  const { locale } = params;
+  const { avatar, name, nameBn, role, roleBn, thumbnail, video, course } =
+    story;
 
   return (
     <Card className="overflow-hidden transition-all hover:shadow-lg p-0 gap-0 dark:bg-background">
@@ -44,12 +32,16 @@ export default function StoryCard({
             <Image
               src={avatar}
               alt={name}
+              width={256}
+              height={256}
               className="w-full h-full object-cover"
             />
           </div>
           <div>
-            <h4 className="font-medium">{t2(name)}</h4>
-            <p className="text-sm text-gray">{t2(role)}</p>
+            <h4 className="font-medium">{locale === "bn" ? nameBn : name}</h4>
+            <p className="text-sm text-gray">
+              {locale === "bn" ? roleBn : role}
+            </p>
           </div>
         </div>
       </CardHeader>
@@ -58,9 +50,11 @@ export default function StoryCard({
           <DialogTrigger className="w-full">
             <div className="relative aspect-video w-full overflow-hidden">
               <div className="group relative h-full w-full cursor-pointer">
-                <img
-                  src={thumbnailLink}
+                <Image
+                  src={thumbnail}
                   alt={`${name}'s story thumbnail`}
+                  width={512}
+                  height={288}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity group-hover:bg-black/40">
@@ -77,7 +71,7 @@ export default function StoryCard({
             </DialogClose>
             <DialogTitle className="sr-only">Success Story</DialogTitle>
             <iframe
-              src={videoUrl}
+              src={video}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -88,7 +82,7 @@ export default function StoryCard({
         </Dialog>
       </CardContent>
       <CardFooter className="px-4 pb-2 pt-1 text-sm">
-        <p>{t(course)}</p>
+        <p>{locale === "bn" ? course?.titleBn : course?.title}</p>
       </CardFooter>
     </Card>
   );

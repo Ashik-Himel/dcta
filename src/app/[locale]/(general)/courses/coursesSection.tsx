@@ -1,10 +1,14 @@
 import CourseCard from "@/components/cards/courseCard";
-import { courses } from "@/data/courses";
-import { useTranslations } from "next-intl";
+import { Course } from "@/lib/models";
+import { serverDomain } from "@/lib/variables";
+import { getTranslations } from "next-intl/server";
 
-export default function CoursesSection() {
-  const t = useTranslations("HomePage.PopularCoursesSection");
-  const t2 = useTranslations("Information.Courses");
+export default async function CoursesSection() {
+  const t = await getTranslations("HomePage.PopularCoursesSection");
+
+  const res = await fetch(`${serverDomain}/api/courses`);
+  const data = await res.json();
+  const courses = data?.courses;
 
   return (
     <section
@@ -19,18 +23,8 @@ export default function CoursesSection() {
           {t("subtitle-2")}
         </span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          {courses?.map((course, index) => (
-            <CourseCard
-              key={index}
-              thumbnail={course.thumbnail}
-              category={t2(course.category)}
-              duration={course.duration}
-              title={t2(course.title)}
-              discountPrice={course.discountPrice}
-              regularPrice={course.regularPrice}
-              slug={course.slug}
-              badgeText={course?.badgeText ? t2(course.badgeText) : undefined}
-            />
+          {courses?.map((course: Course) => (
+            <CourseCard key={course?._id} course={course} />
           ))}
         </div>
       </div>

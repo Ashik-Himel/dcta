@@ -33,18 +33,23 @@
       "get-admission": "Get Admission",
       "courses": "All Courses"
     },
+    "CategoriesSection": {
+      "course": "Course",
+      "courses": "Courses"
+    },
     "PopularCoursesSection": {
-      "popular": "Popular",
-      "our": "Our",
-      "courses": "Courses",
+      "title-1": "Popular",
+      "title-2": "Courses",
       "subtitle": "Here are some of our popular courses. You can check these out! We offering a lot of courses also.",
-      "subtitle-2": "Here are our all the courses that you can check out. We offer qualified courses for our students.",
+      "view-all": "View All",
+      "view-all-courses": "View All Courses",
       "duration": "Duration",
       "months": "Months",
       "month": "Month",
       "get-admission": "Get Admission",
-      "view-all": "View All",
-      "view-all-courses": "View All Courses"
+      "our": "Our",
+      "courses": "Courses",
+      "subtitle-2": "Here are our all the courses that you can check out. We offer qualified courses for our students."
     },
     "AboutSection": {
       "title-1": "About",
@@ -70,43 +75,32 @@
       "feature-4-subtext": "Support"
     },
     "SuccessStoriesSection": {
-      "success": "Success",
-      "stories": "Stories",
+      "title-1": "Success",
+      "title-2": "Stories",
       "subtitle": "Many students have achieved success by learning from us. Here are some of their stories.",
       "see-more": "See More Stories"
     },
     "InstructorsSection": {
-      "our": "Our",
-      "instructors": "Instructors",
-      "subtitle": "We have 20 instructors who are highly qualified and experienced in their respective fields. They are dedicated to providing the best training to our students.",
-      "instructor-1-name": "Omor Farokh",
-      "instructor-1-title": "Founder, DCTA",
-      "instructor-2-name": "Omor Farokh",
-      "instructor-2-title": "Founder, DCTA",
-      "instructor-3-name": "Omor Farokh",
-      "instructor-3-title": "Founder, DCTA",
-      "instructor-4-name": "Omor Farokh",
-      "instructor-4-title": "Founder, DCTA",
-      "instructor-5-name": "Omor Farokh",
-      "instructor-5-title": "Founder, DCTA",
-      "instructor-6-name": "Omor Farokh",
-      "instructor-6-title": "Founder, DCTA"
+      "title-1": "Our",
+      "title-2": "Instructors",
+      "subtitle": "We have 20 instructors who are highly qualified and experienced in their respective fields. They are dedicated to providing the best training to our students."
     },
     "ContactSection": {
       "title-1": "Get in",
       "title-2": "Touch",
       "title-3": "",
       "subtitle": "Have questions about our programs? Reach out to us and our team will get back to you shortly.",
-      "our": "Our",
-      "location": "Location",
-      "location-subtitle": "Here is our location information with other information that helps you to find us.",
       "contact-information": "Contact Information",
       "address": "4th Floor, Yakub Ali Mobile Market, Mawna Chourasta, Sreepur, Gazipur",
+      "office": "Office",
+      "admission": "Admission",
+      "director": "Director",
       "socials-contacts": "Socials and Contacts",
-      "contact-us": "Contact Us",
       "office-hours": "Office Hours",
       "everyday": "Everyday",
+      "9to10": "9:00AM - 10:00PM",
       "send-us-a-message": "Send Us a Message",
+      "contact-us": "Contact Us",
       "name": "Name",
       "name-placeholder": "Write your name",
       "email": "Email",
@@ -121,9 +115,9 @@
       "success-text": "Your message has been sent successfully!",
       "error": "Error",
       "error-text": "Failed to send your message. Please try again later.",
-      "office": "Office",
-      "admission": "Admission",
-      "director": "Director"
+      "our": "Our",
+      "location": "Location",
+      "location-subtitle": "Here is our location information with other information that helps you to find us."
     }
   },
   "AboutPage": {
@@ -266,59 +260,6 @@
       "description": "Our admissions team is here to help. Contact us for more information about our courses, admission process, or to schedule a campus visit.",
       "contact-us": "Contact Us",
       "explore-courses": "Explore Courses"
-    }
-  },
-  "Information": {
-    "Courses": {
-      "graphic-design-with-freelancing": "Graphic Design with Freelancing",
-      "digital-marketing-with-freelancing": "Digital Marketing with Freelancing",
-      "web-design-with-freelancing": "Web Design with Freelancing",
-      "video-editing-with-freelancing": "Video Editing with Freelancing",
-      "computer-office-application-6-months": "Computer Office Application (6 Months)",
-      "computer-office-application-3-months": "Computer Office Application (3 Months)",
-      "mobile-phone-servicing": "Mobile Phone Servicing",
-      "computer-servicing-with-hardware-and-networking": "Computer Servicing with Hardware and Networking",
-      "web-development": "Web Development",
-      "graphic-design": "Graphic Design",
-      "digital-marketing": "Digital Marketing",
-      "basic-computer": "Basic Computer",
-      "hardware": "Hardware",
-      "top-selling": "Top Selling",
-      "best-deal": "Best Deal",
-      "course": "Course",
-      "courses": "Courses"
-    },
-    "Instructors": {
-      "omor-farokh": "Omor Farokh",
-      "founder-ceo": "Founder & CEO",
-      "ariful-islam-rabbi": "Ariful Islam Rabbi",
-      "digital-marketing-mentor": "Digital Marketing Mentor",
-      "siam-islam": "Siam Islam",
-      "assistant-digital-marketer": "Assistant Digital Marketer",
-      "kh-sadhin": "KH Sadhin",
-      "graphic-design-instructor": "Graphic Design Instructor",
-      "mahfuja-islam-iti": "Mahfuja Islam Iti",
-      "head-of-department": "Head of Department",
-      "mabiya-sheikh": "Mabiya Sheikh",
-      "head-of-admission": "Head of Admission",
-      "farhan-ahmed": "Farhan Ahmed",
-      "video-editing-trainer": "Video Editing Trainer",
-      "faruk-al-mamun": "Faruk Al Mamun",
-      "digital-marketing-instructor": "Digital Marketing Instructor",
-      "md-somon-mia": "MD Somon Mia",
-      "basic-computer-instructor": "Basic Computer Instructor",
-      "moniruzzaman-foysal": "Moniruzzaman Foysal",
-      "marketing-officer-brand-ambassador": "Marketing Officer, Brand Ambassador"
-    },
-    "Stories": {
-      "student-of-dcta": "Student of DCTA",
-      "md-ramim-sheikh": "MD Ramim Sheikh",
-      "md-anisur-rahman": "MD Anisur Rahman",
-      "student": "Student",
-      "md-ruhul-amin": "MD Ruhul Amin",
-      "fahad-hossain-dipu": "Fahad Hossain Dipu",
-      "md-mahbub": "MD Mahbub",
-      "md-parvej": "MD Parvej"
     }
   }
 }

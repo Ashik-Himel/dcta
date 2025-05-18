@@ -18,8 +18,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { courses } from "@/data/courses";
 import { Link } from "@/i18n/navigation";
+import { Course } from "@/lib/models";
 import { serverDomain } from "@/lib/variables";
 import {
   ArrowLeft,
@@ -30,24 +30,37 @@ import {
   Upload,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
-import { useRef, useState } from "react";
+import { useParams, useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 export default function AdmissionSection() {
+  const params = useParams();
+  const { locale } = params;
   const courseParam = useSearchParams().get("course");
   const t = useTranslations("AdmissionPage.StepsSection");
   const t2 = useTranslations("AdmissionPage.AdmissionSection");
-  const t3 = useTranslations("Information.Courses");
+  const [courses, setCourses] = useState<Course[]>([]);
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [courseValue, setCourseValue] = useState<string | null>(
-    courseParam ? courseParam : null
-  );
+  const [courseValue, setCourseValue] = useState<string>("");
   const [batchValue, setBatchValue] = useState<string | null>(null);
   const admissionFormRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    fetch(`${serverDomain}/api/courses`)
+      .then((res) => res.json())
+      .then((data) => setCourses(data?.courses));
+  }, []);
+  useEffect(() => {
+    courses?.forEach((course) => {
+      if (course?.slug === courseParam) {
+        return setCourseValue(course.title);
+      }
+    });
+  }, [courses, courseParam]);
 
   const handleAdmissionSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -92,7 +105,7 @@ export default function AdmissionSection() {
         body: JSON.stringify({
           fullName,
           email,
-          course: t3(course),
+          course: course,
         }),
       });
     } else {
@@ -262,7 +275,7 @@ export default function AdmissionSection() {
                   </Label>
                   <Select
                     name="course"
-                    defaultValue={courseParam ? courseParam : ""}
+                    value={courseValue}
                     onValueChange={(e) => setCourseValue(e)}
                     required
                   >
@@ -276,7 +289,7 @@ export default function AdmissionSection() {
                           value={course.title}
                           className="cursor-pointer select-none"
                         >
-                          {t3(course.title)}
+                          {locale === "bn" ? course?.titleBn : course?.title}
                         </SelectItem>
                       ))}
                     </SelectContent>

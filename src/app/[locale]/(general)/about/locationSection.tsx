@@ -1,8 +1,8 @@
-import facebookIcon from "@/assets/icons/facebook.png";
-import mailIcon from "@/assets/icons/mail.png";
-import messengerIcon from "@/assets/icons/messenger.png";
-import phoneIcon from "@/assets/icons/telephone.png";
-import whatsAppIcon from "@/assets/icons/whatsapp.png";
+import facebook from "@/assets/icons/facebook.png";
+import messenger from "@/assets/icons/messenger.png";
+import phone from "@/assets/icons/telephone.png";
+import whatsapp from "@/assets/icons/whatsapp.png";
+import youtube from "@/assets/icons/youtube.png";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -45,16 +45,34 @@ export default function LocationSection() {
                     href="tel:+8801334766160"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3"
+                    className="flex w-fit items-center gap-3"
                   >
                     <Phone className="h-5 w-5 text-primary" />
-                    <p>01334766160</p>
+                    <p>01334766160 ({t("office")})</p>
+                  </BaseLink>
+                  <BaseLink
+                    href="tel:+8801334766163"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-fit items-center gap-3"
+                  >
+                    <Phone className="h-5 w-5 text-primary" />
+                    <p>01334766163 ({t("admission")})</p>
+                  </BaseLink>
+                  <BaseLink
+                    href="tel:+8801715363919"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-fit items-center gap-3"
+                  >
+                    <Phone className="h-5 w-5 text-primary" />
+                    <p>01715363919 ({t("director")})</p>
                   </BaseLink>
                   <BaseLink
                     href="mailto:help@dctabd.net"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3"
+                    className="flex w-fit items-center gap-3"
                   >
                     <Mail className="h-5 w-5 text-primary" />
                     <p>help@dctabd.net</p>
@@ -62,7 +80,7 @@ export default function LocationSection() {
                 </div>
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">{t("contact-us")}</h3>
+                <h3 className="text-2xl font-bold">{t("socials-contacts")}</h3>
                 <div className="flex gap-4">
                   <BaseLink
                     href="https://www.facebook.com/dctamc"
@@ -70,11 +88,10 @@ export default function LocationSection() {
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src={facebookIcon}
-                      alt="Facebook"
-                      className="h-8 w-8"
+                      src={facebook}
+                      alt="Facebook Icon"
+                      className="w-10"
                     />
-                    <span className="sr-only">Facebook</span>
                   </BaseLink>
                   <BaseLink
                     href="https://m.me/dctamc"
@@ -82,11 +99,10 @@ export default function LocationSection() {
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src={messengerIcon}
-                      alt="Messenger"
-                      className="h-8 w-8"
+                      src={messenger}
+                      alt="Messenger Icon"
+                      className="w-10"
                     />
-                    <span className="sr-only">Messenger</span>
                   </BaseLink>
                   <BaseLink
                     href="https://wa.me/+8801334766160"
@@ -94,27 +110,24 @@ export default function LocationSection() {
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src={whatsAppIcon}
-                      alt="WhatsApp"
-                      className="h-8 w-8"
+                      src={whatsapp}
+                      alt="WhatsApp Icon"
+                      className="w-10"
                     />
-                    <span className="sr-only">WhatsApp</span>
                   </BaseLink>
                   <BaseLink
                     href="tel:+8801334766160"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image src={phoneIcon} alt="Phone" className="h-8 w-8" />
-                    <span className="sr-only">Phone</span>
+                    <Image src={phone} alt="Telephone Icon" className="w-10" />
                   </BaseLink>
                   <BaseLink
-                    href="mailto:help@dctabd.net"
+                    href="https://www.youtube.com/@digitalcomputerstrainingac7975"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image src={mailIcon} alt="Email" className="h-8 w-8" />
-                    <span className="sr-only">Email</span>
+                    <Image src={youtube} alt="YouTube Icon" className="w-10" />
                   </BaseLink>
                 </div>
               </div>
@@ -122,7 +135,7 @@ export default function LocationSection() {
                 <h3 className="text-2xl font-bold">{t("office-hours")}</h3>
                 <div className="grid grid-cols-2 gap-2">
                   <div>{t("everyday")}</div>
-                  <div>09:00 AM - 10:00 PM</div>
+                  <div>{t("9to10")}</div>
                 </div>
               </div>
             </div>

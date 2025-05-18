@@ -1,9 +1,14 @@
 import StoryCard from "@/components/cards/storyCard";
-import { stories } from "@/data/stories";
-import { useTranslations } from "next-intl";
+import { Story } from "@/lib/models";
+import { serverDomain } from "@/lib/variables";
+import { getTranslations } from "next-intl/server";
 
-export default function Stories() {
-  const t = useTranslations("HomePage.SuccessStoriesSection");
+export default async function Stories() {
+  const t = await getTranslations("HomePage.SuccessStoriesSection");
+
+  const res = await fetch(`${serverDomain}/api/stories`);
+  const data = await res.json();
+  const stories = data?.stories;
 
   return (
     <section
@@ -12,23 +17,15 @@ export default function Stories() {
     >
       <div className="container">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-          {t("success")} <span className="text-gradient">{t("stories")}</span>
+          {t("title-1")} <span className="text-gradient">{t("title-2")}</span>
         </h2>
         <span className="text-center max-w-[700px] mx-auto md:text-lg text-gray block mb-6 md:mb-8">
           {t("subtitle")}
         </span>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stories?.map((story, index) => (
-            <StoryCard
-              key={index}
-              avatar={story.avatar}
-              name={story.name}
-              role={story.role}
-              thumbnailLink={story.thumbnailLink}
-              videoUrl={story.videoUrl}
-              course={story.course}
-            />
+          {stories?.map((story: Story) => (
+            <StoryCard key={story?._id} story={story} />
           ))}
         </div>
       </div>

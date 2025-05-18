@@ -11,8 +11,8 @@ export default function CtaSection() {
     <section className="py-12 md:py-16 lg:py-20 bg-light-primary">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <h2 className="text-gradient text-3xl font-bold tracking-tighter sm:text-4xl">
+          <div className="space-y-2">
+            <h2 className="text-gradient text-3xl font-bold tracking-tighter sm:text-4xl leading-[1.5]">
               {t("title")}
             </h2>
             <p className="md:text-xl/relaxed mb-6">{t("description")}</p>

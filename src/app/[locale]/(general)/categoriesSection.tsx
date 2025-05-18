@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { Category } from "@/lib/models";
+import { serverDomain } from "@/lib/variables";
 import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CategoryCard from "../../../components/cards/categoryCard";
-import { categories } from "../../../data/categories";
 
 export default function CategoriesSection() {
-  const t = useTranslations("Information.Courses");
+  const [categories, setCategories] = useState<Category[]>([]);
   const [slidesPerView, setSlidesPerView] = useState(1);
 
   const setSlidesPerViewFunc = () => {
@@ -22,10 +22,18 @@ export default function CategoriesSection() {
   };
 
   useEffect(() => {
+    fetch(`${serverDomain}/api/categories`)
+      .then((res) => res.json())
+      .then((data) => setCategories(data?.categories));
+  }, []);
+
+  useEffect(() => {
     setSlidesPerViewFunc();
     window.addEventListener("resize", setSlidesPerViewFunc);
     return () => window.removeEventListener("resize", setSlidesPerViewFunc);
   }, []);
+
+  if (categories?.length === 0) return null;
 
   return (
     <section className="pb-12 md:pb-16 lg:pb-20 pt-2 md:pt-6 lg:pt-10">
@@ -43,11 +51,7 @@ export default function CategoriesSection() {
         >
           {categories.map((category, index) => (
             <SwiperSlide key={index}>
-              <CategoryCard
-                img={category.img}
-                text={t(category.text)}
-                courseCount={category.courseCount}
-              />
+              <CategoryCard category={category} />
             </SwiperSlide>
           ))}
         </Swiper>

@@ -16,12 +16,14 @@ export default function ContactHeroSection() {
             <div className="inline-block rounded-full bg-light-primary px-3 py-1 text-sm font-semibold text-primary">
               {t("pre-heading")}
             </div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl leading-[1.3]">
               {t("heading-1")}{" "}
               <span className="text-gradient">{t("heading-2")}</span>{" "}
               {t("heading-3")}
             </h1>
-            <p className="text-gray md:text-xl/relaxed">{t("description")}</p>
+            <p className="text-gray md:text-xl/relaxed mb-6">
+              {t("description")}
+            </p>
             <Button size="lg" asChild>
               <Link href="/contact/#contact">
                 <Contact /> {t("get-in-touch")}

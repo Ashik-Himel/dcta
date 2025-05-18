@@ -28,24 +28,30 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { courses } from "@/data/courses";
 import { Link } from "@/i18n/navigation";
+import { Course } from "@/lib/models";
+import { serverDomain } from "@/lib/variables";
 import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AdmissionPageContent({
   admissionsData,
 }: {
   admissionsData: any[];
 }) {
-  const t = useTranslations("Information.Courses");
+  const [courses, setCourses] = useState<Course[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string[]>([]);
   const [courseFilter, setCourseFilter] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+
+  useEffect(() => {
+    fetch(`${serverDomain}/api/courses`)
+      .then((res) => res.json())
+      .then((data) => setCourses(data?.courses));
+  }, []);
 
   // Filter applications based on search term and filters
   const filteredApplications = admissionsData.filter((app) => {
@@ -174,7 +180,7 @@ export default function AdmissionPageContent({
                       }
                     }}
                   >
-                    {t(courseTitle)}
+                    {courseTitle}
                   </DropdownMenuCheckboxItem>
                 ))}
             </DropdownMenuContent>
@@ -225,7 +231,7 @@ export default function AdmissionPageContent({
                           </p>
                         </div>
                       </TableCell>
-                      <TableCell>{t(application.course)}</TableCell>
+                      <TableCell>{application.course}</TableCell>
                       <TableCell>
                         <div className="flex items-center">
                           <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />

@@ -15,9 +15,7 @@ export default function FeaturesSection() {
         <FeatureCard
           text={
             params?.locale === "bn"
-              ? convertToBanglaNumber(
-                  (new Date().getFullYear() - 2009).toString()
-                )
+              ? convertToBanglaNumber(new Date().getFullYear() - 2009)
               : (new Date().getFullYear() - 2009).toString()
           }
           subtext={t("feature-1-subtext")}

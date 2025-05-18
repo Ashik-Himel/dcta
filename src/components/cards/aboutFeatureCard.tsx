@@ -7,7 +7,7 @@ export default function AboutFeatureCard({
   number,
   text,
 }: {
-  number: string;
+  number: number;
   text: string;
 }) {
   const params = useParams();

@@ -1,5 +1,6 @@
 "use client";
 
+import siteIcon from "@/assets/favicon.png";
 import {
   Sidebar,
   SidebarContent,
@@ -71,7 +72,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Image
-                src="/favicon.png"
+                src={siteIcon.src}
                 width={32}
                 height={32}
                 alt="Site Icon"

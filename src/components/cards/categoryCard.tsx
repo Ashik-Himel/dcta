@@ -1,29 +1,34 @@
+"use client";
+
 import { convertToBanglaNumber } from "@/lib/convertToBanglaNumber";
+import { Category } from "@/lib/models";
 import { useTranslations } from "next-intl";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 
-export default function CategoryCard({
-  img,
-  text,
-  courseCount,
-}: {
-  img: StaticImageData;
-  text: string;
-  courseCount: number;
-}) {
+export default function CategoryCard({ category }: { category: Category }) {
   const params = useParams();
-  const t = useTranslations("Information.Courses");
+  const { locale } = params;
+  const t = useTranslations("HomePage.CategoriesSection");
+  const { img, text, textBn, courseCount } = category;
 
   return (
     <div className="px-4 py-6 rounded-lg card-border bg-background text-center">
-      <Image src={img} alt={text} className="w-[60px] inline-block mb-4" />
-      <h4 className="text-xl font-semibold mb-2">{text}</h4>
+      <Image
+        src={img}
+        alt={text}
+        width={60}
+        height={60}
+        className="w-[60px] inline-block mb-4"
+      />
+      <h4 className="text-xl font-semibold mb-2">
+        {locale === "bn" ? textBn : text}
+      </h4>
       <span className="text-gray">
-        {params?.locale === "bn"
-          ? convertToBanglaNumber(courseCount.toString())
+        {locale === "bn"
+          ? convertToBanglaNumber(courseCount || 0)
           : courseCount}{" "}
-        {courseCount > 1 ? t("courses") : t("course")}
+        {(courseCount || 0) > 1 ? t("courses") : t("course")}
       </span>
     </div>
   );

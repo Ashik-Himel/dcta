@@ -33,18 +33,23 @@
       "get-admission": "ভর্তি হোন",
       "courses": "কোর্সসমূহ"
     },
+    "CategoriesSection": {
+      "course": "টি কোর্স",
+      "courses": "টি কোর্স"
+    },
     "PopularCoursesSection": {
-      "popular": "জনপ্রিয়",
-      "our": "আমাদের",
-      "courses": "কোর্সসমূহ",
+      "title-1": "জনপ্রিয়",
+      "title-2": "কোর্সসমূহ",
       "subtitle": "এখানে আমাদের কিছু জনপ্রিয় কোর্স রয়েছে। আপনি এগুলো দেখতে পারেন! এছাড়াও আমরা আরও অনেক কোর্স অফার করছি।",
-      "subtitle-2": "এখানে আমাদের সকল কোর্স রয়েছে যা আপনি দেখতে পারেন। আমরা আমাদের শিক্ষার্থীদের জন্য যোগ্য কোর্স অফার করি।",
+      "view-all": "সব দেখুন",
+      "view-all-courses": "সকল কোর্স দেখুন",
       "duration": "সময়কাল",
       "months": "মাস",
       "month": "মাস",
       "get-admission": "ভর্তি হোন",
-      "view-all": "সব দেখুন",
-      "view-all-courses": "সকল কোর্স দেখুন"
+      "our": "আমাদের",
+      "courses": "কোর্সসমূহ",
+      "subtitle-2": "এখানে আমাদের সকল কোর্স রয়েছে যা আপনি দেখতে পারেন। আমরা আমাদের শিক্ষার্থীদের জন্য যোগ্য কোর্স অফার করি।"
     },
     "AboutSection": {
       "title-1": "",
@@ -70,43 +75,32 @@
       "feature-4-subtext": "সাপোর্ট"
     },
     "SuccessStoriesSection": {
-      "success": "সফলতার",
-      "stories": "গল্প",
+      "title-1": "সফলতার",
+      "title-2": "গল্প",
       "subtitle": "অনেক শিক্ষার্থী আমাদের থেকে শিখে সফলতা অর্জন করেছে। এখানে তাদের কিছু গল্প রয়েছে।",
       "see-more": "আরো গল্প দেখুন"
     },
     "InstructorsSection": {
-      "our": "আমাদের",
-      "instructors": "প্রশিক্ষকগণ",
-      "subtitle": "আমাদের ২০ জন প্রশিক্ষক আছেন যারা অত্যন্ত যোগ্য এবং নিজ নিজ ক্ষেত্রে অভিজ্ঞ। তারা আমাদের শিক্ষার্থীদের সর্বোত্তম প্রশিক্ষণ প্রদানের জন্য নিবেদিতপ্রাণ।",
-      "instructor-1-name": "ওমর ফারুখ",
-      "instructor-1-title": "প্রতিষ্ঠাতা, DCTA",
-      "instructor-2-name": "ওমর ফারুখ",
-      "instructor-2-title": "প্রতিষ্ঠাতা, DCTA",
-      "instructor-3-name": "ওমর ফারুখ",
-      "instructor-3-title": "প্রতিষ্ঠাতা, DCTA",
-      "instructor-4-name": "ওমর ফারুখ",
-      "instructor-4-title": "প্রতিষ্ঠাতা, DCTA",
-      "instructor-5-name": "ওমর ফারুখ",
-      "instructor-5-title": "প্রতিষ্ঠাতা, DCTA",
-      "instructor-6-name": "ওমর ফারুখ",
-      "instructor-6-title": "প্রতিষ্ঠাতা, DCTA"
+      "title-1": "আমাদের",
+      "title-2": "প্রশিক্ষকগণ",
+      "subtitle": "আমাদের ২০ জন প্রশিক্ষক আছেন যারা অত্যন্ত যোগ্য এবং নিজ নিজ ক্ষেত্রে অভিজ্ঞ। তারা আমাদের শিক্ষার্থীদের সর্বোত্তম প্রশিক্ষণ প্রদানের জন্য নিবেদিতপ্রাণ।"
     },
     "ContactSection": {
       "title-1": "",
       "title-2": "যোগাযোগ",
       "title-3": "করুন",
       "subtitle": "আমাদের প্রোগ্রাম সম্পর্কে কোনো প্রশ্ন আছে? আমাদের সাথে যোগাযোগ করুন, আমাদের টিম শীঘ্রই আপনার প্রশ্নের উত্তর দেবে।",
-      "our": "আমাদের",
-      "location": "ঠিকানা",
-      "location-subtitle": "এখানে আমাদের ঠিকানা সংক্রান্ত তথ্যসহ অন্যান্য তথ্য রয়েছে যা আপনাকে আমাদের খুঁজে পেতে সহায়তা করবে।",
       "contact-information": "যোগাযোগের তথ্য",
       "address": "৪র্থ তলা, ইয়াকুব আলী মোবাইল মার্কেট, মাওনা চৌরাস্তা, শ্রীপুর, গাজীপুর",
+      "office": "আফিস",
+      "admission": "এডমিশন",
+      "director": "পরিচালক",
       "socials-contacts": "সোশ্যাল এবং কন্টাক্টসমূহ",
-      "contact-us": "যোগাযোগ করুন",
       "office-hours": "অফিসের সময়",
       "everyday": "প্রতিদিন",
+      "9to10": "সকাল ৯টা - রাত ১০টা",
       "send-us-a-message": "আমাদেরকে বার্তা পাঠান",
+      "contact-us": "যোগাযোগ করুন",
       "name": "নাম",
       "name-placeholder": "আপনার নাম লিখুন",
       "email": "ইমেইল",
@@ -121,9 +115,9 @@
       "success-text": "আপনার বার্তা সফলভাবে পাঠানো হয়েছে!",
       "error": "সমস্যা",
       "error-text": "আপনার বার্তা পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
-      "office": "আফিস",
-      "admission": "এডমিশন",
-      "director": "পরিচালক"
+      "our": "আমাদের",
+      "location": "ঠিকানা",
+      "location-subtitle": "এখানে আমাদের ঠিকানা সংক্রান্ত তথ্যসহ অন্যান্য তথ্য রয়েছে যা আপনাকে আমাদের খুঁজে পেতে সহায়তা করবে।"
     }
   },
   "AboutPage": {
@@ -266,59 +260,6 @@
       "description": "আমাদের অ্যাডমিশন টিম সাহায্য করতে প্রস্তুত। আমাদের কোর্স, ভর্তি প্রক্রিয়া, অথবা ক্যাম্পাস ভিজিটের সময় নির্ধারণ নিয়ে আরও তথ্যের জন্য যোগাযোগ করুন।",
       "contact-us": "যোগাযোগ করুন",
       "explore-courses": "কোর্সসমূহ দেখুন"
-    }
-  },
-  "Information": {
-    "Courses": {
-      "graphic-design-with-freelancing": "গ্রাফিক ডিজাইন উইথ ফ্রিল্যান্সিং",
-      "digital-marketing-with-freelancing": "ডিজিটাল মার্কেটিং উইথ ফ্রিল্যান্সিং",
-      "web-design-with-freelancing": "ওয়েব ডিজাইন উইথ ফ্রিল্যান্সিং",
-      "video-editing-with-freelancing": "ভিডিও ইডিটিং উইথ ফ্রিল্যান্সিং",
-      "computer-office-application-6-months": "কম্পিউটার অফিস অ্যাপ্লিকেশন (৬ মাস)",
-      "computer-office-application-3-months": "কম্পিউটার অফিস অ্যাপ্লিকেশন (৩ মাস)",
-      "mobile-phone-servicing": "মোবাইল ফোন সার্ভিসিং",
-      "computer-servicing-with-hardware-and-networking": "কম্পিউটার সার্ভিসিং উইথ হার্ডওয়্যার ও নেটওয়ার্কিং",
-      "web-development": "ওয়েব ডেভেলপমেন্ট",
-      "graphic-design": "গ্রাফিক ডিজাইন",
-      "digital-marketing": "ডিজিটাল মার্কেটিং",
-      "basic-computer": "বেসিক কম্পিউটার",
-      "hardware": "হার্ডওয়্যার",
-      "top-selling": "সর্বাধিক বিক্রিত",
-      "best-deal": "সেরা ডিল",
-      "course": "টি কোর্স",
-      "courses": "টি কোর্স"
-    },
-    "Instructors": {
-      "omor-farokh": "ওমর ফারুক",
-      "founder-ceo": "প্রতিষ্ঠাতা ও সিইও",
-      "ariful-islam-rabbi": "আরিফুল ইসলাম রাব্বি",
-      "digital-marketing-mentor": "ডিজিটাল মার্কেটিং মেন্টর",
-      "siam-islam": "সিয়াম ইসলাম",
-      "assistant-digital-marketer": "সহকারী ডিজিটাল মার্কেটার",
-      "kh-sadhin": "কে.এইচ. স্বাধীন",
-      "graphic-design-instructor": "গ্রাফিক ডিজাইন প্রশিক্ষক",
-      "mahfuja-islam-iti": "মাহফুজা ইসলাম ইতি",
-      "head-of-department": "বিভাগীয় প্রধান",
-      "mabiya-sheikh": "মাবিয়া শেখ",
-      "head-of-admission": "ভর্তি প্রধান",
-      "farhan-ahmed": "ফারহান আহমেদ",
-      "video-editing-trainer": "ভিডিও এডিটিং প্রশিক্ষক",
-      "faruk-al-mamun": "ফারুক আল মামুন",
-      "digital-marketing-instructor": "ডিজিটাল মার্কেটিং প্রশিক্ষক",
-      "md-somon-mia": "মোঃ সুমন মিয়া",
-      "basic-computer-instructor": "বেসিক কম্পিউটার প্রশিক্ষক",
-      "moniruzzaman-foysal": "মনিরুজ্জামান ফয়সাল",
-      "marketing-officer-brand-ambassador": "মার্কেটিং অফিসার, ব্র্যান্ড অ্যাম্বাসেডর"
-    },
-    "Stories": {
-      "student-of-dcta": "DCTA-এর শিক্ষার্থী",
-      "md-ramim-sheikh": "মোহাম্মদ রামিম শেখ",
-      "md-anisur-rahman": "মোহাম্মদ আনিসুর রহমান",
-      "student": "শিক্ষার্থী",
-      "md-ruhul-amin": "মোহাম্মদ রুহুল আমিন",
-      "fahad-hossain-dipu": "ফাহাদ হোসেন দীপু",
-      "md-mahbub": "মোহাম্মদ মাহবুব",
-      "md-parvej": "মোহাম্মদ পারভেজ"
     }
   }
 }

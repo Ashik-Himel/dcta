@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { CalendarDays, Clock, MessageSquare, UserPlus } from "lucide-react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function DashboardPageContent({
@@ -25,8 +24,6 @@ export default function DashboardPageContent({
   recentApplications: any[];
   recentContacts: any[];
 }) {
-  const t = useTranslations("Information.Courses");
-
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("en-US", {
@@ -144,7 +141,7 @@ export default function DashboardPageContent({
                     <div className="flex items-center space-x-4">
                       <div className="space-y-1">
                         <p className="text-sm font-medium">
-                          {t(application.course)}
+                          {application.course}
                         </p>
                         <div className="flex items-center text-sm text-muted-foreground">
                           <CalendarDays className="mr-1 h-3 w-3" />

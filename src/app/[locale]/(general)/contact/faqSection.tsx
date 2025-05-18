@@ -1,12 +1,14 @@
-"use client";
+import FaqCard from "@/components/cards/faqCard";
+import { FAQ } from "@/lib/models";
+import { serverDomain } from "@/lib/variables";
+import { getTranslations } from "next-intl/server";
 
-import { contactFaqs, contactFaqsBangla } from "@/data/faqs";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+export default async function FaqSection() {
+  const t = await getTranslations("ContactPage.FaqSection");
 
-export default function FaqSection() {
-  const t = useTranslations("ContactPage.FaqSection");
-  const params = useParams();
+  const res = await fetch(`${serverDomain}/api/faqs`);
+  const data = await res.json();
+  const faqs = data?.faqs;
 
   return (
     <section className="py-12 md:py-16 lg:py-20">
@@ -19,17 +21,9 @@ export default function FaqSection() {
           {t("description")}
         </span>
         <div className="grid md:grid-cols-2 gap-6">
-          {(params.locale === "en" ? contactFaqs : contactFaqsBangla).map(
-            (faq, index) => (
-              <div
-                key={index}
-                className="space-y-2 bg-background p-6 rounded-lg"
-              >
-                <h3 className="text-xl font-bold">{faq.question}</h3>
-                <p className="text-gray">{faq.answer}</p>
-              </div>
-            )
-          )}
+          {faqs.map((faq: FAQ) => (
+            <FaqCard key={faq?._id} faq={faq} />
+          ))}
         </div>
       </div>
     </section>

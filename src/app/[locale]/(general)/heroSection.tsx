@@ -50,8 +50,8 @@ export default function HeroSection() {
                 alt="Hero Section Image"
                 className="w-full aspect-video rounded-lg"
               />
-              <div className="absolute top-1/2 left-1/2 -translate-1/2 bg-primary text-white w-20 h-20 rounded-full flex justify-center items-center animate-pulse">
-                <Play size={32} />
+              <div className="absolute top-1/2 left-1/2 -translate-1/2 bg-primary text-white w-24 h-24 rounded-full flex justify-center items-center animate-pulse">
+                <Play size={44} />
               </div>
             </div>
           </DialogTrigger>

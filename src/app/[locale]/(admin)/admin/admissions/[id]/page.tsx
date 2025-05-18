@@ -20,7 +20,6 @@ export default async function ApplicationDetailsPage({
   const { id } = await params;
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
-  const t = await getTranslations("Information.Courses");
   const t2 = await getTranslations("AdmissionPage.AdmissionSection");
 
   const res = await fetch(
@@ -116,7 +115,7 @@ export default async function ApplicationDetailsPage({
               <dl className="space-y-2">
                 <div className="flex justify-between items-center gap-4">
                   <dt className="font-medium">Course:</dt>
-                  <dd className="break-all">{t(application?.course)}</dd>
+                  <dd className="break-all">{application?.course}</dd>
                 </div>
                 <div className="flex justify-between items-center gap-4">
                   <dt className="font-medium">Batch:</dt>

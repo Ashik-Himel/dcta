@@ -1,6 +1,7 @@
 "use client";
 
 import fallbackAvatar from "@/assets/fallback-avatar.png";
+import siteIcon from "@/assets/favicon.png";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -32,7 +33,7 @@ export function NavUser() {
               className="bg-[#faf0f0] dark:bg-[#2f1010] data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src="/favicon.png" alt="DCTA Admin Avatar" />
+                <AvatarImage src={siteIcon.src} alt="DCTA Admin Avatar" />
                 <AvatarFallback className="rounded-full">
                   <Image src={fallbackAvatar} alt="DCTA Admin Avatar" />
                 </AvatarFallback>
@@ -53,7 +54,7 @@ export function NavUser() {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src="/favicon.png" alt="DCTA Admin Avatar" />
+                  <AvatarImage src={siteIcon.src} alt="DCTA Admin Avatar" />
                   <AvatarFallback className="rounded-full">
                     <Image src={fallbackAvatar} alt="DCTA Admin Avatar" />
                   </AvatarFallback>
