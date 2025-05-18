@@ -12,7 +12,7 @@ export default function AboutSection() {
 
   return (
     <section className="py-10 md:h-full md:min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-122.66px)] md:flex md:justify-center md:items-center">
-      <div className="container grid lg:grid-cols-2 gap-8 items-center">
+      <div className="container flex [&>*]:flex-1 items-center gap-8 flex-col-reverse lg:flex-row">
         <div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
             {t("title-1")} <span className="text-gradient">{t("title-2")}</span>{" "}
@@ -38,7 +38,7 @@ export default function AboutSection() {
             </Button>
           </div>
         </div>
-        <div className="aspect-video relative">
+        <div className="aspect-video relative w-full">
           <Image
             src={aboutImg2}
             alt="About Section Image"
