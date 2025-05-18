@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { serverDomain } from "@/lib/variables";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -17,6 +18,7 @@ export default function ResetPasswordForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const t = useTranslations("ResetPasswordPage");
   const router = useRouter();
   const token = useSearchParams().get("token");
   const [submitDisabled, setSubmitDisabled] = useState(false);
@@ -35,20 +37,20 @@ export default function ResetPasswordForm({
 
     if (newPassword.length < 8) {
       setSubmitDisabled(false);
-      return toast.error("Password must be at least 8 characters!");
+      return toast.error(t("password-too-short"));
     } else if (!/[A-Z]/.test(newPassword)) {
       setSubmitDisabled(false);
-      return toast.error("At least one uppercase character required!");
+      return toast.error(t("uppercase-required"));
     } else if (!/[0-9]/.test(newPassword)) {
       setSubmitDisabled(false);
-      return toast.error("At least one number required!");
+      return toast.error(t("number-required"));
     } else if (!/[^A-Za-z0-9]/.test(newPassword)) {
       setSubmitDisabled(false);
-      return toast.error("At least one special character required!");
+      return toast.error(t("special-char-required"));
     }
     if (newPassword !== reTypedPassword) {
       setSubmitDisabled(false);
-      return toast.error("Passwords do not match!");
+      return toast.error(t("password-mismatch"));
     }
 
     const res = await fetch(
@@ -90,25 +92,37 @@ export default function ResetPasswordForm({
           >
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Reset Password</h1>
+                <h1 className="text-2xl font-bold">{t("title")}</h1>
                 <p className="text-balance text-muted-foreground">
-                  Submit your new password
+                  {t("subtitle")}
                 </p>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="newPassword">New Password</Label>
-                <Input id="newPassword" type="text" required />
+                <Label htmlFor="newPassword">{t("new-password-label")}</Label>
+                <Input
+                  id="newPassword"
+                  type="text"
+                  placeholder={t("new-password-placeholder")}
+                  required
+                />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="reTypedPassword">Confirm Password</Label>
-                <Input id="reTypedPassword" type="text" required />
+                <Label htmlFor="reTypedPassword">
+                  {t("confirm-password-label")}
+                </Label>
+                <Input
+                  id="reTypedPassword"
+                  type="text"
+                  placeholder={t("confirm-password-placeholder")}
+                  required
+                />
               </div>
               <Button
                 type="submit"
                 className="w-full"
                 disabled={submitDisabled}
               >
-                {submitDisabled ? "Processing..." : "Reset"}
+                {submitDisabled ? t("processing") : t("reset")}
               </Button>
             </div>
           </form>

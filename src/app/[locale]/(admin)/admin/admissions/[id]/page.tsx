@@ -6,7 +6,6 @@ import { Separator } from "@/components/ui/separator";
 import { Link } from "@/i18n/navigation";
 import { serverDomain } from "@/lib/variables";
 import { ArrowLeft } from "lucide-react";
-import { getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 import AddNote from "./addNote";
 import ApplicationAction from "./applicationAction";
@@ -20,7 +19,6 @@ export default async function ApplicationDetailsPage({
   const { id } = await params;
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
-  const t2 = await getTranslations("AdmissionPage.AdmissionSection");
 
   const res = await fetch(
     `${serverDomain}/api/applications/application/${id}`,
@@ -119,7 +117,13 @@ export default async function ApplicationDetailsPage({
                 </div>
                 <div className="flex justify-between items-center gap-4">
                   <dt className="font-medium">Batch:</dt>
-                  <dd>{t2(application?.batch)}</dd>
+                  <dd>
+                    {application?.batch === "batch-1"
+                      ? "Sat, Mon, Wed"
+                      : application?.batch === "batch-2"
+                      ? "Sun, Tues, Thurs"
+                      : ""}
+                  </dd>
                 </div>
               </dl>
             </div>

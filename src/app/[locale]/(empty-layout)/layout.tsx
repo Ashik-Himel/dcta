@@ -1,6 +1,6 @@
 import ToastContainerComp from "@/components/toast/toastContainer";
 import { routing } from "@/i18n/routing";
-import { english } from "@/lib/fonts";
+import { bengali, english } from "@/lib/fonts";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { ThemeProvider } from "next-themes";
@@ -28,7 +28,9 @@ export default async function EmptyLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${english.className} antialiased h-full min-h-screen selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-[#2f1010]`}
+        className={`${
+          locale === "en" ? english.className : bengali.className
+        } antialiased h-full min-h-screen selection:bg-primary selection:text-white bg-[#faf0f0] dark:bg-[#2f1010]`}
         id="top"
       >
         <ThemeProvider

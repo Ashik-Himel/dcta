@@ -253,7 +253,9 @@
       "next": "পরবর্তী",
       "submitting": "জমা দিচ্ছে...",
       "submit": "আবেদন জমা দিন",
-      "step1-error": "সবগুলো ফিল্ড প্রয়োজন।"
+      "step1-error": "সবগুলো ফিল্ড প্রয়োজন।",
+      "error": "সমস্যা",
+      "error-message": "আবেদন সফলভাবে জমা হয়নি।"
     },
     "CtaSection": {
       "title": "এখনও কি প্রশ্ন আছে?",
@@ -261,5 +263,38 @@
       "contact-us": "যোগাযোগ করুন",
       "explore-courses": "কোর্সসমূহ দেখুন"
     }
+  },
+  "LoginPage": {
+    "title": "লগইন",
+    "subtitle": "DCTA অ্যাকাউন্টে লগইন করুন",
+    "email-label": "ইমেইল",
+    "email-placeholder": "আপনার ইমেইল লিখুন",
+    "password-label": "পাসওয়ার্ড",
+    "password-placeholder": "আপনার পাসওয়ার্ড লিখুন",
+    "login": "লগইন",
+    "logging-in": "লগইন হচ্ছে...",
+    "forgot-password": "পাসওয়ার্ড ভুলে গেছেন?",
+    "get-link": "লিঙ্ক পান",
+    "processing": "প্রসেসিং...",
+    "success-message": "সফলভাবে লগইন হয়েছে!",
+    "user-not-found": "এই ইমেইল দিয়ে কোনো ইউজার পাওয়া যায়নি।",
+    "credentials-invalid": "আপনার তথ্য সঠিক নয়।",
+    "error-message": "কিছু ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    "forgot-success": "পাসওয়ার্ড রিসেট লিঙ্ক আপনার ইমেইলে পাঠানো হয়েছে।"
+  },
+  "ResetPasswordPage": {
+    "title": "পাসওয়ার্ড রিসেট করুন",
+    "subtitle": "আপনার নতুন পাসওয়ার্ড প্রদান করুন",
+    "new-password-label": "নতুন পাসওয়ার্ড",
+    "new-password-placeholder": "আপনার নতুন পাসওয়ার্ড লিখুন",
+    "confirm-password-label": "পাসওয়ার্ড নিশ্চিত করুন",
+    "confirm-password-placeholder": "নতুন পাসওয়ার্ড নিশ্চিত করুন",
+    "reset": "রিসেট",
+    "processing": "প্রসেসিং...",
+    "password-too-short": "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে!",
+    "uppercase-required": "কমপক্ষে একটি বড় অক্ষর প্রয়োজন!",
+    "number-required": "কমপক্ষে একটি নাম্বার প্রয়োজন!",
+    "special-char-required": "কমপক্ষে একটি বিশেষ অক্ষর প্রয়োজন!",
+    "password-mismatch": "পাসওয়ার্ড দুটি মিলছে না!"
   }
 }

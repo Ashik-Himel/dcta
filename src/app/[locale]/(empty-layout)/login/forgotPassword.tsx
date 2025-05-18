@@ -12,10 +12,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { serverDomain } from "@/lib/variables";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function ForgotPassword() {
+  const t = useTranslations("LoginPage");
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(false);
 
@@ -42,10 +44,10 @@ export default function ForgotPassword() {
       form.reset();
       setSubmitDisabled(false);
       setIsEditDialogOpen(false);
-      toast.success(result.message);
+      toast.success(t("forgot-success"));
     } else {
       setSubmitDisabled(false);
-      toast.error(result.message);
+      toast.error(t("error-message"));
     }
   };
 
@@ -53,26 +55,26 @@ export default function ForgotPassword() {
     <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
       <DialogTrigger asChild>
         <span className="cursor-pointer select-none ml-auto text-sm underline-offset-2 hover:underline">
-          Forgot your password?
+          {t("forgot-password")}
         </span>
       </DialogTrigger>
       <DialogContent className="w-[calc(100%-48px)] sm:max-w-[425px] rounded-lg">
         <DialogHeader className="text-left">
-          <DialogTitle>Forgot Password?</DialogTitle>
+          <DialogTitle>{t("forgot-password")}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleForgotPassword}>
           <div className="grid gap-2 mb-4">
-            <Label htmlFor="userEmail">Email</Label>
+            <Label htmlFor="userEmail">{t("email-label")}</Label>
             <Input
               id="userEmail"
               type="email"
-              placeholder="Write your email address"
+              placeholder={t("email-placeholder")}
               required
             />
           </div>
           <DialogFooter className="flex-row sm:justify-start">
             <Button type="submit" disabled={submitDisabled}>
-              {submitDisabled ? "Processing..." : "Submit"}
+              {submitDisabled ? t("processing") : t("get-link")}
             </Button>
           </DialogFooter>
         </form>

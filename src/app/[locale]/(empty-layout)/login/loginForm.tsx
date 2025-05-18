@@ -6,12 +6,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "@/i18n/navigation";
-import { english } from "@/lib/fonts";
 import { useUserStore } from "@/lib/userStore";
 import { cn } from "@/lib/utils";
 import { serverDomain } from "@/lib/variables";
 import Cookies from "js-cookie";
 import { Eye, EyeOff } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -20,6 +20,7 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const t = useTranslations("LoginPage");
   const router = useRouter();
   const setUser = useUserStore((state) => state.setUser);
   const [showPassword, setShowPassword] = useState(false);
@@ -52,7 +53,7 @@ export function LoginForm({
         expires: 7,
       });
       setUser({ available: true, role: result?.userRole });
-      toast.success("Logged in successfully.");
+      toast.success(t("success-message"));
       if (result?.userRole === "admin") {
         router.replace("/admin/dashboard");
       } else if (result?.userRole === "student") {
@@ -60,21 +61,18 @@ export function LoginForm({
       }
     } else if (result.message === "User not found") {
       setSubmitDisabled(false);
-      toast.error("User not found with this email address.");
+      toast.error(t("user-not-found"));
     } else if (result.message === "Invalid credentials") {
       setSubmitDisabled(false);
-      toast.error("Your credentials are invalid.");
+      toast.error(t("credentials-invalid"));
     } else {
       setSubmitDisabled(false);
-      toast.error("An error occurred. Please try again.");
+      toast.error(t("error-message"));
     }
   };
 
   return (
-    <div
-      className={cn("flex flex-col gap-6", className, english.className)}
-      {...props}
-    >
+    <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden shadow p-0 bg-background">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form
@@ -84,30 +82,28 @@ export function LoginForm({
           >
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Admin Login</h1>
-                <p className="text-balance text-gray">
-                  Login to DCTA&apos;s admin panel
-                </p>
+                <h1 className="text-2xl font-bold">{t("title")}</h1>
+                <p className="text-balance text-gray">{t("subtitle")}</p>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t("email-label")}</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Write your email address"
+                  placeholder={t("email-placeholder")}
                   required
                 />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">{t("password-label")}</Label>
                   <ForgotPassword />
                 </div>
                 <div className="relative">
                   <Input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    placeholder="Write your password"
+                    placeholder={t("password-placeholder")}
                     required
                   />
                   <div
@@ -123,7 +119,7 @@ export function LoginForm({
                 className="w-full"
                 disabled={submitDisabled}
               >
-                {submitDisabled ? "Logging in..." : "Login"}
+                {submitDisabled ? t("logging-in") : t("login")}
               </Button>
             </div>
           </form>

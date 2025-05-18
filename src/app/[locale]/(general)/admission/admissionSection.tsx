@@ -110,8 +110,8 @@ export default function AdmissionSection() {
       });
     } else {
       Swal.fire({
-        title: "Error",
-        text: data?.message || "Something went wrong!",
+        title: t2("error"),
+        text: t2("error-message"),
         icon: "error",
         iconColor: "#ff0000",
         confirmButtonColor: "#ff0000",
