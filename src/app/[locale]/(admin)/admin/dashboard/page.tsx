@@ -21,6 +21,7 @@ export default async function AdminDashboard() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    cache: "no-cache",
   });
   const data = await res.json();
   const stats = data?.stats;
@@ -31,6 +32,7 @@ export default async function AdminDashboard() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    cache: "no-cache",
   });
   const data2 = await res2.json();
   const recentApplications = data2?.recentApplications;
@@ -41,6 +43,7 @@ export default async function AdminDashboard() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    cache: "no-cache",
   });
   const data3 = await res3.json();
   const recentContacts = data3?.recentContacts;

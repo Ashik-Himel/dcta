@@ -64,7 +64,7 @@ export default function DashboardPageContent({
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {stats?.newApplicationsCount || 0}
+              {stats?.newApplicationsCount}
             </div>
           </CardContent>
         </Card>
@@ -74,9 +74,7 @@ export default function DashboardPageContent({
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
-              {stats?.newContactsCount || 0}
-            </div>
+            <div className="text-2xl font-bold">{stats?.newContactsCount}</div>
           </CardContent>
         </Card>
         <Card className="bg-background w-full">
@@ -87,9 +85,7 @@ export default function DashboardPageContent({
             <UserPlus className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
-              {stats?.applicationsCount || 0}
-            </div>
+            <div className="text-2xl font-bold">{stats?.applicationsCount}</div>
           </CardContent>
         </Card>
         <Card className="bg-background w-full">
@@ -98,9 +94,7 @@ export default function DashboardPageContent({
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
-              {stats?.contactsCount || 0}
-            </div>
+            <div className="text-2xl font-bold">{stats?.contactsCount}</div>
           </CardContent>
         </Card>
       </div>

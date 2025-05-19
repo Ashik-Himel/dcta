@@ -21,6 +21,7 @@ export default async function AdminAdmissions() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    cache: "no-cache",
   });
   const data = await res.json();
   const allApplications = data?.allApplications;
