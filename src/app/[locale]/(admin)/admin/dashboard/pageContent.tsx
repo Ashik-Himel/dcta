@@ -12,8 +12,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
-import { CalendarDays, Clock, MessageSquare, UserPlus } from "lucide-react";
+import {
+  CalendarDays,
+  Clock,
+  GraduationCap,
+  MessageSquare,
+} from "lucide-react";
 import Image from "next/image";
+import { ElementType } from "react";
 
 export default function DashboardPageContent({
   stats,
@@ -55,48 +61,30 @@ export default function DashboardPageContent({
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Card className="bg-background w-full">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-sm font-medium">
-              New Applications
-            </CardTitle>
-            <UserPlus className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {stats?.newApplicationsCount}
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="bg-background w-full">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-sm font-medium">New Contacts</CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats?.newContactsCount}</div>
-          </CardContent>
-        </Card>
-        <Card className="bg-background w-full">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-sm font-medium">
-              Total Applications
-            </CardTitle>
-            <UserPlus className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats?.applicationsCount}</div>
-          </CardContent>
-        </Card>
-        <Card className="bg-background w-full">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-sm font-medium">Contacts</CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{stats?.contactsCount}</div>
-          </CardContent>
-        </Card>
+        <StateCard
+          title="New Applications"
+          count={stats?.newApplicationsCount}
+          icon={GraduationCap}
+          colors={["bg-red-100", "text-red-500"]}
+        />
+        <StateCard
+          title="New Contacts"
+          count={stats?.newContactsCount}
+          icon={MessageSquare}
+          colors={["bg-blue-100", "text-blue-500"]}
+        />
+        <StateCard
+          title="Total Applications"
+          count={stats?.applicationsCount}
+          icon={GraduationCap}
+          colors={["bg-green-100", "text-green-500"]}
+        />
+        <StateCard
+          title="Total Contacts"
+          count={stats?.contactsCount}
+          icon={MessageSquare}
+          colors={["bg-purple-100", "text-purple-500"]}
+        />
       </div>
 
       <div className="grid gap-4 grid-cols-1 lg:grid-cols-7">
@@ -235,5 +223,31 @@ export default function DashboardPageContent({
         </Card>
       </div>
     </div>
+  );
+}
+
+function StateCard({
+  title,
+  count,
+  icon: Icon,
+  colors,
+}: {
+  title: string;
+  count: number;
+  icon: ElementType;
+  colors: string[];
+}) {
+  return (
+    <Card className="bg-background w-full p-6 flex flex-row justify-between items-center">
+      <div className="flex flex-col gap-4">
+        <span className="text-sm font-medium">{title}</span>
+        <span className="text-2xl font-bold">{count}</span>
+      </div>
+      <div
+        className={`w-14 aspect-square rounded-full flex justify-center items-center ${colors[0]}`}
+      >
+        <Icon className={`${colors[1]}`} />
+      </div>
+    </Card>
   );
 }

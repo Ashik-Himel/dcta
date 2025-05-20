@@ -66,11 +66,23 @@ export default function ResetPasswordForm({
     const result = await res.json();
 
     if (result.ok) {
-      toast.success(result?.message);
+      toast.success(t("updated-successfully"));
       router.push("/login");
     } else {
       setSubmitDisabled(false);
-      toast.error(result?.message);
+      if (result?.message === "Your link is invalid") {
+        toast.error(t("link-invalid"));
+      } else if (result?.message === "Passwords do not match") {
+        toast.error(t("password-mismatch"));
+      } else if (result?.message === "Token has already been used") {
+        toast.error(t("token-used"));
+      } else if (result?.message === "User not found") {
+        toast.error(t("user-not-found"));
+      } else if (result?.message === "Link expired or invalid") {
+        toast.error(t("link-expired-invalid"));
+      } else {
+        toast.error(t("error-occurred"));
+      }
     }
   };
 

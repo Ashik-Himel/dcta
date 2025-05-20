@@ -17,9 +17,9 @@ import {
 import { Link, usePathname } from "@/i18n/navigation";
 import {
   ArrowLeft,
+  GraduationCap,
   LayoutDashboard,
   MessageCircleMore,
-  UserPlus,
 } from "lucide-react";
 import { Oleo_Script } from "next/font/google";
 import Image from "next/image";
@@ -40,7 +40,7 @@ const adminNavLinks = [
   {
     title: "Admissions",
     url: "/admin/admissions",
-    icon: UserPlus,
+    icon: GraduationCap,
   },
   {
     title: "Contacts",

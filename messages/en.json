@@ -295,6 +295,12 @@
     "uppercase-required": "At least one uppercase character required!",
     "number-required": "At least one number required!",
     "special-char-required": "At least one special character required!",
-    "password-mismatch": "Passwords do not match!"
+    "password-mismatch": "Passwords do not match!",
+    "link-invalid": "Your link is invalid!",
+    "token-used": "Token has already been used!",
+    "user-not-found": "User not found with this email!",
+    "link-expired-invalid": "Link expired or invalid!",
+    "error-occurred": "An error occurred! Please try again later.",
+    "updated-successfully": "Your password is updated successfully!"
   }
 }
