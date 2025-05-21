@@ -106,11 +106,7 @@ export default function AdmissionPageContent({
             onChange={(e) => setSearchTerm(e.target.value)}
             className="bg-background h-9"
           />
-          <Button
-            variant="outline"
-            size="sm"
-            className="h-9 px-3 lg:px-4 cursor-pointer select-none"
-          >
+          <Button variant="outline" size="sm" className="h-9 px-3 lg:px-4">
             <Search className="h-4 w-4" />
             <span className="ml-2 hidden lg:inline">Search</span>
           </Button>
@@ -118,11 +114,7 @@ export default function AdmissionPageContent({
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 cursor-pointer select-none"
-              >
+              <Button variant="outline" size="sm" className="h-9">
                 <Filter className="mr-2 h-4 w-4" />
                 Status
                 <ChevronDown className="ml-2 h-4 w-4" />
@@ -151,11 +143,7 @@ export default function AdmissionPageContent({
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 cursor-pointer select-none"
-              >
+              <Button variant="outline" size="sm" className="h-9">
                 <Filter className="mr-2 h-4 w-4" />
                 Course
                 <ChevronDown className="ml-2 h-4 w-4" />
@@ -248,7 +236,6 @@ export default function AdmissionPageContent({
               <Button
                 variant="outline"
                 size="sm"
-                className="cursor-pointer select-none"
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
               >
@@ -270,7 +257,7 @@ export default function AdmissionPageContent({
                         currentPage === pageToShow ? "default" : "outline"
                       }
                       size="sm"
-                      className="w-8 cursor-pointer select-none"
+                      className="w-8"
                       onClick={() => setCurrentPage(pageToShow)}
                     >
                       {pageToShow}
@@ -283,7 +270,7 @@ export default function AdmissionPageContent({
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-8 cursor-pointer select-none"
+                      className="w-8"
                       onClick={() => setCurrentPage(totalPages)}
                     >
                       {totalPages}
@@ -294,7 +281,6 @@ export default function AdmissionPageContent({
               <Button
                 variant="outline"
                 size="sm"
-                className="cursor-pointer select-none"
                 onClick={() =>
                   setCurrentPage(Math.min(totalPages, currentPage + 1))
                 }
@@ -359,7 +345,7 @@ function ApplicationRow({ application }: { application: Application }) {
   };
 
   return (
-    <TableRow key={application._id}>
+    <TableRow>
       <TableCell>{application?.id}</TableCell>
       <TableCell>
         <div>

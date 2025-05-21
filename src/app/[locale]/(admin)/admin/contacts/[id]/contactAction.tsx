@@ -102,7 +102,6 @@ export default function ContactAction({
             <Button
               size="sm"
               type="submit"
-              className="cursor-pointer select-none"
               disabled={selectedStatus === currentStatus || submitting}
             >
               Update Status

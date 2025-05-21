@@ -75,11 +75,7 @@ export default function AddNote({
         className="bg-[#faf0f0] dark:bg-[#2f1010] h-[120px] resize-none"
         onChange={() => buttonDisabled && setButtonDisabled(false)}
       />
-      <Button
-        type="submit"
-        className="cursor-pointer select-none"
-        disabled={buttonDisabled || submitting}
-      >
+      <Button type="submit" disabled={buttonDisabled || submitting}>
         {currentAdminNote ? "Update Note" : "Add Note"}
       </Button>
     </form>

@@ -55,7 +55,7 @@ export default function DeleteContact({ id }: { id: string }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="cursor-pointer select-none">Delete Contact</Button>
+        <Button>Delete Contact</Button>
       </DialogTrigger>
       <DialogContent className="w-[calc(100%-48px)] sm:max-w-[425px] rounded-lg">
         <DialogHeader className="text-left">
@@ -64,12 +64,7 @@ export default function DeleteContact({ id }: { id: string }) {
         <p>Are you sure to delete this contact?</p>
         <DialogFooter className="flex-row-reverse">
           <DialogClose asChild>
-            <Button
-              onClick={handleContactDelete}
-              className="cursor-pointer select-none"
-            >
-              Confirm Delete
-            </Button>
+            <Button onClick={handleContactDelete}>Confirm Delete</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

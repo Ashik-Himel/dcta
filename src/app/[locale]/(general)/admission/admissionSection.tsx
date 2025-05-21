@@ -396,17 +396,13 @@ export default function AdmissionSection() {
                   type="button"
                   variant="outline"
                   onClick={prevStep}
-                  className={`cursor-pointer select-none ${
-                    step > 1 ? "" : "hidden"
-                  }`}
+                  className={step > 1 ? "" : "hidden"}
                 >
                   <ArrowLeft className="ml-2 h-4 w-4" /> {t2("previous")}
                 </Button>
                 <Button
                   type="button"
-                  className={`ml-auto cursor-pointer select-none ${
-                    step < 2 ? "" : "hidden"
-                  }`}
+                  className={`ml-auto ${step < 2 ? "" : "hidden"}`}
                   onClick={nextStep}
                 >
                   {t2("next")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -414,9 +410,7 @@ export default function AdmissionSection() {
                 <Button
                   type="submit"
                   form="admission-form"
-                  className={`ml-auto cursor-pointer select-none ${
-                    step < 2 ? "hidden" : ""
-                  }`}
+                  className={`ml-auto ${step < 2 ? "hidden" : ""}`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? t2("submitting") : t2("submit")}

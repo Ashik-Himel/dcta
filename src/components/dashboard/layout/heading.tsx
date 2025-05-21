@@ -17,11 +17,7 @@ export default function DashboardHeading({
         <h4 className="text-lg font-medium">{headingText}</h4>
         <div className="flex items-center gap-4">
           <ThemeToggler />
-          <LogoutToggle
-            triggerElement={
-              <Button className="cursor-pointer select-none">Logout</Button>
-            }
-          />
+          <LogoutToggle triggerElement={<Button>Logout</Button>} />
         </div>
       </div>
     </header>

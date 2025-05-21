@@ -58,9 +58,7 @@ export default function DeleteApplication({ id }: { id: string }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="cursor-pointer select-none">
-          Delete Application
-        </Button>
+        <Button>Delete Application</Button>
       </DialogTrigger>
       <DialogContent className="w-[calc(100%-48px)] sm:max-w-[425px] rounded-lg">
         <DialogHeader className="text-left">
@@ -69,12 +67,7 @@ export default function DeleteApplication({ id }: { id: string }) {
         <p>Are you sure to delete this application?</p>
         <DialogFooter className="flex-row-reverse">
           <DialogClose asChild>
-            <Button
-              onClick={handleApplicationDelete}
-              className="cursor-pointer select-none"
-            >
-              Confirm Delete
-            </Button>
+            <Button onClick={handleApplicationDelete}>Confirm Delete</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

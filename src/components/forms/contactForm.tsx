@@ -132,7 +132,7 @@ export default function ContactForm() {
       <Button
         size="lg"
         type="submit"
-        className="w-full cursor-pointer select-none"
+        className="w-full"
         disabled={submitDisabled}
       >
         {submitDisabled ? (

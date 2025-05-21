@@ -17,9 +17,13 @@ import {
 import { Link, usePathname } from "@/i18n/navigation";
 import {
   ArrowLeft,
+  BookOpen,
   GraduationCap,
+  Grid3X3,
   LayoutDashboard,
   MessageCircleMore,
+  Star,
+  Users,
 } from "lucide-react";
 import { Oleo_Script } from "next/font/google";
 import Image from "next/image";
@@ -46,6 +50,26 @@ const adminNavLinks = [
     title: "Contacts",
     url: "/admin/contacts",
     icon: MessageCircleMore,
+  },
+  {
+    title: "Categories",
+    url: "/admin/categories",
+    icon: Grid3X3,
+  },
+  {
+    title: "Courses",
+    url: "/admin/courses",
+    icon: BookOpen,
+  },
+  {
+    title: "Instructors",
+    url: "/admin/instructors",
+    icon: Users,
+  },
+  {
+    title: "Success Stories",
+    url: "/admin/success-stories",
+    icon: Star,
   },
   {
     title: "Back to Home",

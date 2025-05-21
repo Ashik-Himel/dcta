@@ -96,11 +96,7 @@ export default function ContactsPageContent({
             onChange={(e) => setSearchTerm(e.target.value)}
             className="h-9 bg-background"
           />
-          <Button
-            variant="outline"
-            size="sm"
-            className="h-9 px-3 lg:px-4 cursor-pointer select-none"
-          >
+          <Button variant="outline" size="sm" className="h-9 px-3 lg:px-4">
             <Search className="h-4 w-4" />
             <span className="ml-2 hidden lg:inline">Search</span>
           </Button>
@@ -108,11 +104,7 @@ export default function ContactsPageContent({
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 cursor-pointer select-none"
-              >
+              <Button variant="outline" size="sm" className="h-9">
                 <Filter className="mr-2 h-4 w-4" />
                 Status
                 <ChevronDown className="ml-2 h-4 w-4" />
@@ -196,7 +188,6 @@ export default function ContactsPageContent({
               <Button
                 variant="outline"
                 size="sm"
-                className="cursor-pointer select-none"
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
               >
@@ -218,7 +209,6 @@ export default function ContactsPageContent({
                         currentPage === pageToShow ? "default" : "outline"
                       }
                       size="sm"
-                      className="w-8 cursor-pointer select-none"
                       onClick={() => setCurrentPage(pageToShow)}
                     >
                       {pageToShow}
@@ -231,7 +221,7 @@ export default function ContactsPageContent({
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-8 cursor-pointer select-none"
+                      className="w-8"
                       onClick={() => setCurrentPage(totalPages)}
                     >
                       {totalPages}
@@ -242,7 +232,6 @@ export default function ContactsPageContent({
               <Button
                 variant="outline"
                 size="sm"
-                className="cursor-pointer select-none"
                 onClick={() =>
                   setCurrentPage(Math.min(totalPages, currentPage + 1))
                 }
@@ -309,7 +298,7 @@ function ContactRow({ contact }: { contact: Contact }) {
   };
 
   return (
-    <TableRow key={contact._id}>
+    <TableRow>
       <TableCell>{contact.id}</TableCell>
       <TableCell>
         <div>
@@ -363,7 +352,7 @@ function ContactRow({ contact }: { contact: Contact }) {
             <Check />
           </Button>
         ) : (
-          <Button size="sm" className="cursor-pointer select-none" asChild>
+          <Button size="sm" asChild>
             <Link href={`/admin/contacts/${contact._id}`}>View</Link>
           </Button>
         )}

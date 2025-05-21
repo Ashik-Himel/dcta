@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import AdmissionPageContent from "./pageContent";
 
 export const metadata: Metadata = {
-  title: "Admissions - Dashboarrd",
+  title: "Admissions - Dashboard",
   description:
     "This is the DCTA's dashboard which can be accessed by DCTA's admin.",
   robots: { index: false, follow: false },
