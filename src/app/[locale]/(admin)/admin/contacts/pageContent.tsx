@@ -21,6 +21,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Table,
   TableBody,
   TableCell,
@@ -29,9 +36,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Link } from "@/i18n/navigation";
-import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
+import { Contact } from "@/lib/models";
+import { serverDomain } from "@/lib/variables";
+import Cookies from "js-cookie";
+import { CalendarDays, Check, ChevronDown, Filter, Search } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function ContactsPageContent({
   contactsData,
@@ -65,17 +76,6 @@ export default function ContactsPageContent({
     indexOfLastItem
   );
   const totalPages = Math.ceil(filteredContacts.length / itemsPerPage);
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    }).format(date);
-  };
 
   return (
     <div className="space-y-6 p-4">
@@ -166,6 +166,7 @@ export default function ContactsPageContent({
               <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
                 <TableHeader>
                   <TableRow>
+                    <TableHead>ID</TableHead>
                     <TableHead>Name</TableHead>
                     <TableHead>Subject</TableHead>
                     <TableHead>Date</TableHead>
@@ -175,51 +176,7 @@ export default function ContactsPageContent({
                 </TableHeader>
                 <TableBody>
                   {currentItems.map((contact) => (
-                    <TableRow key={contact._id}>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{contact.name}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {contact.email}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell className="w-max max-w-[220px] overflow-hidden text-ellipsis">
-                        {contact.subject}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
-                          <span>{formatDate(contact.date)}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <Badge
-                          className={
-                            contact.status === "New"
-                              ? "bg-gradient"
-                              : contact.status === "Read"
-                              ? "bg-yellow-500"
-                              : contact.status === "Replied"
-                              ? "bg-green-500"
-                              : ""
-                          }
-                        >
-                          {contact.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button
-                          size="sm"
-                          className="cursor-pointer select-none"
-                          asChild
-                        >
-                          <Link href={`/admin/contacts/${contact._id}`}>
-                            View
-                          </Link>
-                        </Button>
-                      </TableCell>
-                    </TableRow>
+                    <ContactRow key={contact?._id} contact={contact} />
                   ))}
                 </TableBody>
               </Table>
@@ -298,5 +255,119 @@ export default function ContactsPageContent({
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+function ContactRow({ contact }: { contact: Contact }) {
+  const token = Cookies.get("token");
+  const [currentStatus, setCurrentStatus] = useState(contact.status);
+  const [newStatus, setNewStatus] = useState(contact.status);
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    }).format(date);
+  };
+
+  const handleStatusChange = async () => {
+    const res = await fetch(
+      `${serverDomain}/api/contacts/contact/${contact._id}/status`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ status: newStatus }),
+      }
+    );
+    const data = await res.json();
+
+    if (data?.ok) {
+      Swal.fire({
+        title: "Status Updated",
+        text: "Contact status updated successfully.",
+        icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
+      });
+      setCurrentStatus(newStatus);
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: data?.message || "Something went wrong.",
+        icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
+      });
+    }
+  };
+
+  return (
+    <TableRow key={contact._id}>
+      <TableCell>{contact.id}</TableCell>
+      <TableCell>
+        <div>
+          <p className="font-medium">{contact.name}</p>
+          <p className="text-xs text-muted-foreground">{contact.email}</p>
+        </div>
+      </TableCell>
+      <TableCell className="w-max max-w-[220px] overflow-hidden text-ellipsis">
+        {contact.subject}
+      </TableCell>
+      <TableCell>
+        <div className="flex items-center">
+          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
+          <span>{formatDate(contact.date)}</span>
+        </div>
+      </TableCell>
+      <TableCell>
+        <Select
+          value={newStatus}
+          onValueChange={(value: "New" | "Read" | "Replied") =>
+            setNewStatus(value)
+          }
+        >
+          <SelectTrigger className="w-[130px] h-8">
+            <SelectValue>
+              <Badge
+                className={
+                  newStatus === "New"
+                    ? "bg-gradient"
+                    : newStatus === "Read"
+                    ? "bg-yellow-500"
+                    : newStatus === "Replied"
+                    ? "bg-green-500"
+                    : ""
+                }
+              >
+                {newStatus}
+              </Badge>
+            </SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="New">New</SelectItem>
+            <SelectItem value="Read">Read</SelectItem>
+            <SelectItem value="Replied">Replied</SelectItem>
+          </SelectContent>
+        </Select>
+      </TableCell>
+      <TableCell className="text-right">
+        {currentStatus !== newStatus ? (
+          <Button size="sm" className="!px-5" onClick={handleStatusChange}>
+            <Check />
+          </Button>
+        ) : (
+          <Button size="sm" className="cursor-pointer select-none" asChild>
+            <Link href={`/admin/contacts/${contact._id}`}>View</Link>
+          </Button>
+        )}
+      </TableCell>
+    </TableRow>
   );
 }

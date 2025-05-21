@@ -71,3 +71,29 @@ export interface FAQ {
   questionBn: string;
   answerBn: string;
 }
+
+export interface Application {
+  _id: string;
+  id: number;
+  fullName: string;
+  email: string;
+  phone: string;
+  address: string;
+  message?: string;
+  adminNote?: string;
+  course: string;
+  batch: string;
+  status: "New" | "Called" | "Admitted" | "Rejected";
+  date: string;
+}
+
+export interface Contact {
+  _id: string;
+  id: number;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  status: "New" | "Read" | "Replied";
+  date: string;
+}

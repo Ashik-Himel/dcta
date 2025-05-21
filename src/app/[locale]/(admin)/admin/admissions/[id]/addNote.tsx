@@ -74,7 +74,6 @@ export default function AddNote({
         defaultValue={currentAdminNote || ""}
         className="bg-[#faf0f0] dark:bg-[#2f1010] h-[120px] resize-none"
         onChange={() => buttonDisabled && setButtonDisabled(false)}
-        required
       />
       <Button
         type="submit"

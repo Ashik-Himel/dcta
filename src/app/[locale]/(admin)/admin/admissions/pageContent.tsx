@@ -21,6 +21,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Table,
   TableBody,
   TableCell,
@@ -29,11 +36,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Link } from "@/i18n/navigation";
-import { Course } from "@/lib/models";
+import { Application, Course } from "@/lib/models";
 import { serverDomain } from "@/lib/variables";
-import { CalendarDays, ChevronDown, Filter, Search } from "lucide-react";
+import Cookies from "js-cookie";
+import { CalendarDays, Check, ChevronDown, Filter, Search } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 export default function AdmissionPageContent({
   admissionsData,
@@ -77,15 +86,6 @@ export default function AdmissionPageContent({
     indexOfLastItem
   );
   const totalPages = Math.ceil(filteredApplications.length / itemsPerPage);
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "2-digit",
-    }).format(date);
-  };
 
   return (
     <div className="space-y-6 p-4">
@@ -213,56 +213,21 @@ export default function AdmissionPageContent({
               <Table className="[&_th]:px-4 [&_td]:px-4 [&_th]:text-nowrap [&_td]:text-nowrap">
                 <TableHeader>
                   <TableRow>
+                    <TableHead>ID</TableHead>
                     <TableHead>Name</TableHead>
                     <TableHead>Course</TableHead>
                     <TableHead>Date</TableHead>
+                    <TableHead>Others</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead className="text-right">Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {currentItems.map((application) => (
-                    <TableRow key={application._id}>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{application.fullName}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {application.phone}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell>{application.course}</TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
-                          <span>{formatDate(application.date)}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <Badge
-                          className={
-                            application.status === "New"
-                              ? "bg-gradient"
-                              : application.status === "Called"
-                              ? "bg-yellow-500"
-                              : application.status === "Admitted"
-                              ? "bg-green-500"
-                              : application.status === "Rejected"
-                              ? "bg-red-500"
-                              : ""
-                          }
-                        >
-                          {application.status}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button size="sm" asChild>
-                          <Link href={`/admin/admissions/${application._id}`}>
-                            View
-                          </Link>
-                        </Button>
-                      </TableCell>
-                    </TableRow>
+                    <ApplicationRow
+                      key={application?._id}
+                      application={application}
+                    />
                   ))}
                 </TableBody>
               </Table>
@@ -342,5 +307,143 @@ export default function AdmissionPageContent({
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+function ApplicationRow({ application }: { application: Application }) {
+  const token = Cookies.get("token");
+  const [currentStatus, setCurrentStatus] = useState(application?.status);
+  const [newStatus, setNewStatus] = useState(application?.status);
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "2-digit",
+    }).format(date);
+  };
+
+  const handleStatusChange = async () => {
+    const res = await fetch(
+      `${serverDomain}/api/applications/application/${application?._id}/status`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ status: newStatus }),
+      }
+    );
+    const data = await res.json();
+
+    if (data?.ok) {
+      Swal.fire({
+        title: "Status Updated",
+        text: "Application status updated successfully.",
+        icon: "success",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
+      });
+      setCurrentStatus(newStatus);
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: data?.message || "Something went wrong.",
+        icon: "error",
+        iconColor: "#ff0000",
+        confirmButtonColor: "#ff0000",
+      });
+    }
+  };
+
+  return (
+    <TableRow key={application._id}>
+      <TableCell>{application?.id}</TableCell>
+      <TableCell>
+        <div>
+          <p className="font-medium">{application.fullName}</p>
+          <p className="text-xs text-muted-foreground">{application.phone}</p>
+        </div>
+      </TableCell>
+      <TableCell>
+        <div>
+          <p className="font-medium">{application.course}</p>
+          <p className="text-xs text-muted-foreground">
+            {application?.batch === "batch-1"
+              ? "Sat, Mon, Wed"
+              : application?.batch === "batch-2"
+              ? "Sun, Tues, Thurs"
+              : ""}
+          </p>
+        </div>
+      </TableCell>
+      <TableCell>
+        <div className="flex items-center">
+          <CalendarDays className="mr-2 h-4 w-4 text-muted-foreground" />
+          <span>{formatDate(application.date)}</span>
+        </div>
+      </TableCell>
+      <TableCell>
+        <div className="flex justify-start items-center gap-1">
+          {application?.message && (
+            <div className="bg-gradient text-white text-xs font-medium w-6 aspect-square rounded-full flex justify-center items-center">
+              M
+            </div>
+          )}
+          {application?.adminNote && (
+            <div className="bg-green-500 text-white text-xs font-medium w-6 aspect-square rounded-full flex justify-center items-center">
+              N
+            </div>
+          )}
+        </div>
+      </TableCell>
+      <TableCell>
+        <Select
+          value={newStatus}
+          onValueChange={(value: "New" | "Called" | "Admitted" | "Rejected") =>
+            setNewStatus(value)
+          }
+        >
+          <SelectTrigger className="w-[130px] h-8">
+            <SelectValue>
+              <Badge
+                className={
+                  newStatus === "New"
+                    ? "bg-gradient"
+                    : newStatus === "Called"
+                    ? "bg-yellow-500"
+                    : newStatus === "Admitted"
+                    ? "bg-green-500"
+                    : newStatus === "Rejected"
+                    ? "bg-red-500"
+                    : ""
+                }
+              >
+                {newStatus}
+              </Badge>
+            </SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="New">New</SelectItem>
+            <SelectItem value="Called">Called</SelectItem>
+            <SelectItem value="Admitted">Admitted</SelectItem>
+            <SelectItem value="Rejected">Rejected</SelectItem>
+          </SelectContent>
+        </Select>
+      </TableCell>
+      <TableCell className="text-right">
+        {currentStatus !== newStatus ? (
+          <Button size="sm" className="!px-5" onClick={handleStatusChange}>
+            <Check />
+          </Button>
+        ) : (
+          <Button size="sm" asChild>
+            <Link href={`/admin/admissions/${application._id}`}>View</Link>
+          </Button>
+        )}
+      </TableCell>
+    </TableRow>
   );
 }
