@@ -16,6 +16,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import ForgotPassword from "./forgotPassword";
+
 export function LoginForm({
   className,
   ...props

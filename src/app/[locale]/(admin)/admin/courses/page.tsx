@@ -38,7 +38,7 @@ export default async function AdminCourses() {
     <>
       <DashboardHeading headingText="Courses" />
       <div className="p-4 space-y-6">
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex flex-wrap justify-between items-center gap-4">
           <div className="flex flex-col gap-1">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Courses

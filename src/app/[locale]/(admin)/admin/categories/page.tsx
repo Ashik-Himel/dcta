@@ -1,5 +1,4 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,8 +15,8 @@ import {
 } from "@/components/ui/table";
 import { Category } from "@/lib/models";
 import { serverDomain } from "@/lib/variables";
-import { Plus } from "lucide-react";
 import { Metadata } from "next";
+import AddCategory from "./addCategory";
 import CategoryRow from "./categoryRow";
 
 export const metadata: Metadata = {
@@ -38,7 +37,7 @@ export default async function AdminCategories() {
     <>
       <DashboardHeading headingText="Categories" />
       <div className="p-4 space-y-6">
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex flex-wrap justify-between items-center gap-4">
           <div className="flex flex-col gap-1">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Categories
@@ -47,9 +46,7 @@ export default async function AdminCategories() {
               Manage the categories of the courses.
             </p>
           </div>
-          <Button>
-            <Plus /> Add Category
-          </Button>
+          <AddCategory />
         </div>
 
         <Card className="bg-background">

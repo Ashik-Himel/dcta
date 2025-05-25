@@ -19,19 +19,17 @@ export default function StoryRow({ story }: { story: Story }) {
 
   return (
     <TableRow>
-      <TableCell>
-        <div className="flex gap-2 items-center">
-          <Image
-            src={story.avatar}
-            alt={story.name}
-            width={40}
-            height={40}
-            className="w-10 aspect-square rounded-full"
-          />
-          <div>
-            <p className="font-medium">{story.name}</p>
-            <p className={`text-xs text-muted-foreground`}>{story.role}</p>
-          </div>
+      <TableCell className="w-max flex gap-2 justify-start items-center">
+        <Image
+          src={story.avatar}
+          alt={story.name}
+          width={40}
+          height={40}
+          className="w-10 aspect-square rounded-full"
+        />
+        <div>
+          <p className="font-medium">{story.name}</p>
+          <p className={`text-xs text-muted-foreground`}>{story.role}</p>
         </div>
       </TableCell>
       <TableCell>{story.course.title}</TableCell>

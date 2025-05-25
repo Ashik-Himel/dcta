@@ -55,13 +55,14 @@ export default function InstructorRow({
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="block w-6 aspect-square"
                   >
                     <Image
                       src={social.icon}
                       alt={social.name}
                       width={24}
                       height={24}
-                      className="w-6 aspect-square"
+                      className="w-full"
                     />
                   </BaseLink>
                 </TooltipTrigger>
