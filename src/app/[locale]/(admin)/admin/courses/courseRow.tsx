@@ -428,7 +428,6 @@ export default function CourseRow({ course }: { course: Course }) {
                     <Select
                       name="badge"
                       defaultValue={course.badge && course.badge.text}
-                      required
                     >
                       <SelectTrigger className="w-full bg-white cursor-pointer select-none">
                         <SelectValue placeholder="Select Badge" />
@@ -456,6 +455,7 @@ export default function CourseRow({ course }: { course: Course }) {
                     <Label htmlFor="featured">Featured</Label>
                     <Switch
                       id="featured"
+                      aria-checked={featured}
                       checked={featured}
                       onClick={() => setFeatured(!featured)}
                     />

@@ -124,9 +124,10 @@ export default function AddCourse() {
     let badge =
       (form.elements.namedItem("badge") as HTMLInputElement).value || "";
     if (badge === "None") badge = "";
-    const featured = (
-      form.elements.namedItem("featured") as HTMLInputElement
-    ).checked.toString();
+    const featured =
+      (
+        form.elements.namedItem("featured") as HTMLInputElement
+      ).ariaChecked?.toString() || "false";
 
     const formData = new FormData();
     formData.append("title", title);

@@ -71,9 +71,10 @@ export default function AddStory() {
     const videoId = (
       form.elements.namedItem("videoId") as HTMLInputElement
     ).value.trim();
-    const featured = (
-      form.elements.namedItem("featured") as HTMLInputElement
-    ).checked.toString();
+    const featured =
+      (
+        form.elements.namedItem("featured") as HTMLInputElement
+      ).ariaChecked?.toString() || "false";
 
     const formData = new FormData();
     formData.append("name", name);
