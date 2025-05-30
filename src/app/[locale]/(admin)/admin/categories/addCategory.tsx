@@ -104,7 +104,10 @@ export default function AddCategory() {
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="img">Category Image</Label>
+            <Label htmlFor="img">
+              Category Image{" "}
+              <small className="text-xs text-gray pt-0.5">(256x256)</small>
+            </Label>
             <Input
               type="file"
               id="img"

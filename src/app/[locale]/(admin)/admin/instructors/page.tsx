@@ -1,5 +1,4 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,8 +15,8 @@ import {
 } from "@/components/ui/table";
 import { Instructor } from "@/lib/models";
 import { serverDomain } from "@/lib/variables";
-import { Plus } from "lucide-react";
 import { Metadata } from "next";
+import AddInstructor from "./addInstructor";
 import InstructorRow from "./instructorRow";
 
 export const metadata: Metadata = {
@@ -47,17 +46,15 @@ export default async function AdminInstructors() {
               Manage all the instructors information.
             </p>
           </div>
-          <Button>
-            <Plus /> Add Instructor
-          </Button>
+          <AddInstructor />
         </div>
 
         <Card className="bg-background">
           <CardHeader className="pb-2">
             <CardTitle>Instructors</CardTitle>
             <CardDescription>
-              {instructors.length}{" "}
-              {instructors.length > 1 ? "instructors" : "instructor"} found
+              {instructors?.length}{" "}
+              {instructors?.length > 1 ? "instructors" : "instructor"} found
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -73,7 +70,7 @@ export default async function AdminInstructors() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {instructors.map((instructor: Instructor) => (
+                  {instructors?.map((instructor: Instructor) => (
                     <InstructorRow
                       key={instructor?._id}
                       instructor={instructor}

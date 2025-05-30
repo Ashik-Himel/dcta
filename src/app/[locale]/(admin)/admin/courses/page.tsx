@@ -1,5 +1,4 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,8 +15,8 @@ import {
 } from "@/components/ui/table";
 import { Course } from "@/lib/models";
 import { serverDomain } from "@/lib/variables";
-import { Plus } from "lucide-react";
 import { Metadata } from "next";
+import AddCourse from "./addCourse";
 import CourseRow from "./courseRow";
 
 export const metadata: Metadata = {
@@ -45,9 +44,7 @@ export default async function AdminCourses() {
             </h2>
             <p className="text-muted-foreground">Manage all the courses.</p>
           </div>
-          <Button>
-            <Plus /> Add Course
-          </Button>
+          <AddCourse />
         </div>
 
         <Card className="bg-background">

@@ -1,5 +1,4 @@
 import DashboardHeading from "@/components/dashboard/layout/heading";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,8 +15,8 @@ import {
 } from "@/components/ui/table";
 import { Story } from "@/lib/models";
 import { serverDomain } from "@/lib/variables";
-import { Plus } from "lucide-react";
 import { Metadata } from "next";
+import AddStory from "./addStory";
 import StoryRow from "./storyRow";
 
 export const metadata: Metadata = {
@@ -47,9 +46,7 @@ export default async function AdminSuccessStories() {
               Manage all the success stories.
             </p>
           </div>
-          <Button>
-            <Plus /> Add Success Story
-          </Button>
+          <AddStory />
         </div>
 
         <Card className="bg-background">
